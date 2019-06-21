@@ -15,17 +15,21 @@
 package span
 
 import (
-	"istio.io/tools/tratis/service/pkg/tag"
+	"istio.io/tools/tratis/service/parsing/pkg/reference"
+	"istio.io/tools/tratis/service/parsing/pkg/tag"
 )
 
 // Span describes a single span (distributed-tracing term) and
 // its associated data.
 type Span struct {
-	TraceID       string  `json:"traceID"`
-	SpanID        string  `json:"spanID"`
-	OperationName string  `json:"operationName"`
-	StartTime     int     `json:"startTime"`
-	Duration      int     `json:"duration"`
-	Tags          tag.Tag `json:"tags"`
-	ProcessID     string  `json:"processID"`
+	TraceID       string                `json:"traceID"`
+	SpanID        string                `json:"spanID"`
+	OperationName string                `json:"operationName"`
+	StartTime     int                   `json:"startTime"`
+	Duration      int                   `json:"duration"`
+	Tags          tag.Tag               `json:"tags"`
+	References    []reference.Reference `json:"references"`
+	ProcessID     string                `json:"processID"`
+	Logs          []string              `json:"logs"`
+	Warnings      []string              `json:"warnings"`
 }

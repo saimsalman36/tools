@@ -12,39 +12,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package trace
+package process
 
 import (
 	"encoding/json"
 	"fmt"
-	"istio.io/tools/tratis/service/pkg/process"
-	"istio.io/tools/tratis/service/pkg/span"
+	"istio.io/tools/tratis/service/parsing/pkg/tag"
 )
 
 // UnmarshalJSON converts b to a Service, applying the default values from
 // DefaultService.
-func (trace *Trace) UnmarshalJSON(b []byte) (err error) {
-	fmt.Println("Unmarshaling JSON Data")
-
-	var traceData unmarshallableTrace
-	err = json.Unmarshal(b, &traceData)
+func (process *Process) UnmarshalJSON(b []byte) (err error) {
+	fmt.Println("Unmarshalling Process Data")
+	var processData unmarshableProcess
+	err = json.Unmarshal(b, &processData)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	trace.TraceID = traceData.TraceID
-	trace.Spans = make(map[string]span.Span)
+	process.ServiceName = processData.ServiceName
+	process.Tags = make(tag.Tag)
 
-	for _, s := range traceData.Spans {
-		trace.Spans[s.SpanID] = s
+	for _, t := range processData.Tags {
+		process.Tags[t["key"].(string)] = t["value"].(string)
 	}
 
 	return
 }
 
-type unmarshallableTrace struct {
-	TraceID   string            `json:"traceID"`
-	Spans     []span.Span       `json:"spans"`
-	Processes []process.Process `'json:"processes"`
+type unmarshableProcess struct {
+	ServiceName string    `json:"serviceName"`
+	Tags        []tag.Tag `json:"tags"`
 }

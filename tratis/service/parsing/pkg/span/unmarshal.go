@@ -17,7 +17,8 @@ package span
 import (
 	"encoding/json"
 	"fmt"
-	"istio.io/tools/tratis/service/pkg/tag"
+	"istio.io/tools/tratis/service/parsing/pkg/reference"
+	"istio.io/tools/tratis/service/parsing/pkg/tag"
 )
 
 // UnmarshalJSON converts b to a Service, applying the default values from
@@ -43,16 +44,23 @@ func (span *Span) UnmarshalJSON(b []byte) (err error) {
 		span.Tags[t["key"].(string)] = t["value"].(string)
 	}
 
+	span.References = spanData.References
 	span.ProcessID = spanData.ProcessID
+	span.Logs = spanData.Logs
+	span.Warnings = spanData.Warnings
+
 	return
 }
 
 type unmarshableSpan struct {
-	TraceID       string    `json:"traceID"`
-	SpanID        string    `json:"spanID"`
-	OperationName string    `json:"operationName"`
-	StartTime     int       `json:"startTime"`
-	Duration      int       `json:"duration"`
-	Tags          []tag.Tag `json:"tags"`
-	ProcessID     string    `json:"processID"`
+	TraceID       string                `json:"traceID"`
+	SpanID        string                `json:"spanID"`
+	OperationName string                `json:"operationName"`
+	StartTime     int                   `json:"startTime"`
+	Duration      int                   `json:"duration"`
+	Tags          []tag.Tag             `json:"tags"`
+	References    []reference.Reference `json:"references"`
+	ProcessID     string                `json:"processID"`
+	Logs          []string              `json:"logs"`
+	Warnings      []string              `json:"warnings"`
 }

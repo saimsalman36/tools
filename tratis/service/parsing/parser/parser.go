@@ -16,8 +16,9 @@ package parser
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
-	"istio.io/tools/tratis/service/pkg/trace"
+	"istio.io/tools/tratis/service/parsing/pkg/trace"
 )
 
 func ParseJSON(filePath string, toolName string) (err error) {

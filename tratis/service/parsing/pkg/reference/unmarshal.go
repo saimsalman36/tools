@@ -12,17 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package trace
+package reference
 
 import (
-	"istio.io/tools/tratis/service/pkg/span"
+	"encoding/json"
+	"fmt"
 )
 
-// Trace describes a set of spans
-type Trace struct {
-	TraceID string               `json:"traceID"`
-	Spans   map[string]span.Span `json:"spans"`
-	Total   int                  `json:"total,omitempty"`
-	Limit   int                  `json:"limit,omitempty"`
-	Offset  int                  `json:"offset,omitempty"`
+func (ref *Reference) UnmarshalJSON(b []byte) (err error) {
+	fmt.Println("Unmarshaling Reference Data")
+
+	var refData unmarshallableReference
+	err = json.Unmarshal(b, &refData)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	*ref = Reference(refData)
+
+	return
 }
+
+type unmarshallableReference Reference

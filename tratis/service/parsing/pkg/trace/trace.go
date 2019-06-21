@@ -12,9 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package process
+package trace
 
-type Process struct {
-	ServiceName string    `json:"serviceName"`
-	Tags        []tag.Tag `json:"tags"`
+import (
+	"istio.io/tools/tratis/service/parsing/pkg/process"
+	"istio.io/tools/tratis/service/parsing/pkg/span"
+)
+
+// Trace describes a set of spans
+type Trace struct {
+	TraceID   string                     `json:"traceID"`
+	Spans     map[string]span.Span       `json:"spans"`
+	Processes map[string]process.Process `'json:"processes"`
+	// Total   int                  `json:"total,omitempty"`
+	// Limit   int                  `json:"limit,omitempty"`
+	// Offset  int                  `json:"offset,omitempty"`
 }
