@@ -23,7 +23,6 @@ import (
 // UnmarshalJSON converts b to a Service, applying the default values from
 // DefaultService.
 func (process *Process) UnmarshalJSON(b []byte) (err error) {
-	fmt.Println("Unmarshalling Process Data")
 	var processData unmarshableProcess
 	err = json.Unmarshal(b, &processData)
 	if err != nil {

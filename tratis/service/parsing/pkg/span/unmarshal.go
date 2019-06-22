@@ -24,7 +24,6 @@ import (
 // UnmarshalJSON converts b to a Service, applying the default values from
 // DefaultService.
 func (span *Span) UnmarshalJSON(b []byte) (err error) {
-	fmt.Println("Unmarshalling Span Data")
 	var spanData unmarshableSpan
 	err = json.Unmarshal(b, &spanData)
 	if err != nil {

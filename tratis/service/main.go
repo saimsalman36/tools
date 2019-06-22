@@ -15,7 +15,8 @@
 package main
 
 import (
-	"istio.io/tools/tratis/service/parsing/parser"
+	"istio.io/tools/tratis/service/graph"
+	"istio.io/tools/tratis/service/parsing"
 	"istio.io/tools/tratis/service/pkg/consts"
 	"log"
 	"os"
@@ -33,5 +34,13 @@ func main() {
 		log.Fatalf(`env var "%s" is not set`, consts.TracingToolEnvKey)
 	}
 
-	parser.ParseJSON(ApplicationTraceJSONFilePath, TracingToolName)
+	trace, err := parser.ParseJSON(ApplicationTraceJSONFilePath,
+		TracingToolName)
+
+	if err != nil {
+		panic(err)
+	}
+
+	g := graph.GenerateGraph(trace.Spans)
+	graph.PrintGraph(g, len(trace.Spans))
 }

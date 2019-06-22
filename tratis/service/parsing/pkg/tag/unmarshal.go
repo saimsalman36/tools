@@ -20,7 +20,6 @@ import (
 )
 
 func (tag *Tag) UnmarshalJSON(b []byte) (err error) {
-	// fmt.Println("Unmarshaling TAG Data")
 	var tagData unmarshableTag
 	err = json.Unmarshal(b, &tagData)
 

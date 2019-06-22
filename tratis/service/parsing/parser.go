@@ -21,18 +21,21 @@ import (
 	"istio.io/tools/tratis/service/parsing/pkg/trace"
 )
 
-func ParseJSON(filePath string, toolName string) (err error) {
+func ParseJSON(filePath string, toolName string) (appTrace trace.Trace,
+	err error) {
 	traceJSON, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		return
 	}
 
 	if toolName == "jaeger" {
-		parseJaeger(traceJSON)
+		return parseJaeger(traceJSON)
 	} else if toolName == "zipkin" {
-		parseZipkin(traceJSON)
+		return parseZipkin(traceJSON)
 	}
 
+	// TODO: Implement Error
+	fmt.Println("Not Possible")
 	return
 }
 

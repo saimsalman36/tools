@@ -20,8 +20,6 @@ import (
 )
 
 func (ref *Reference) UnmarshalJSON(b []byte) (err error) {
-	fmt.Println("Unmarshaling Reference Data")
-
 	var refData unmarshallableReference
 	err = json.Unmarshal(b, &refData)
 	if err != nil {

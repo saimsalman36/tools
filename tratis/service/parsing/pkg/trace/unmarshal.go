@@ -24,8 +24,6 @@ import (
 // UnmarshalJSON converts b to a Service, applying the default values from
 // DefaultService.
 func (trace *Trace) UnmarshalJSON(b []byte) (err error) {
-	fmt.Println("Unmarshaling JSON Data")
-
 	var traceData unmarshallableTrace
 	err = json.Unmarshal(b, &traceData)
 	if err != nil {
