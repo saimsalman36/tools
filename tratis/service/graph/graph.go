@@ -43,10 +43,26 @@ func PrintGraph(g *Graph, size int) [][]span.Span {
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < len(ret[i]); j++ {
-			fmt.Print(ret[i][j].OperationName)
-			fmt.Print(" ")
 			fmt.Print(ret[i][j].SpanID)
-			fmt.Print("::")
+			if len(ret[i][j].References) > 0 {
+				fmt.Print("[Parent: ")
+				fmt.Print(ret[i][j].References[0].SpanID)
+				fmt.Print("]")
+			}
+
+			fmt.Print("[StartTime: ")
+			fmt.Print(ret[i][j].StartTime)
+			fmt.Print(", Duration: ")
+			fmt.Print(ret[i][j].Duration)
+			fmt.Print(", URL: ")
+			fmt.Print(ret[i][j].Tags["http.url"])
+			fmt.Print(", Type: ")
+			fmt.Print(ret[i][j].Tags["upstream_cluster"])
+			fmt.Print("]")
+
+			if j+1 < len(ret[i]) {
+				fmt.Print("::")
+			}
 		}
 		fmt.Println(" ")
 	}
