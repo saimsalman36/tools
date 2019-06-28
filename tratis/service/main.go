@@ -21,7 +21,7 @@ import (
 	"os"
 	"path"
 
-	// "istio.io/tools/tratis/service/distribution"
+	"istio.io/tools/tratis/service/distribution"
 	"istio.io/tools/tratis/service/graph"
 
 	parser "istio.io/tools/tratis/service/parsing"
@@ -49,10 +49,10 @@ func main() {
 				traceFilePath)
 		}
 
-		fmt.Println(trace)
-		fmt.Println(".. ..")
+		// fmt.Println(trace)
+		fmt.Println(".. .. ")
 
 		g := graph.GenerateGraph(trace.Spans)
-		// fmt.Println(string(distribution.ExtractTimeInformation(g)))
+		fmt.Println(string(distribution.ExtractTimeInformation(g)))
 	}
 }

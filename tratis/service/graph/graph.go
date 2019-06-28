@@ -16,7 +16,7 @@ package graph
 
 import (
 	"encoding/json"
-	jaeger "github.com/jaegertracing/jaeger/model/json"
+	"istio.io/tools/tratis/service/parsing/pkg/span"
 	"sort"
 	"strings"
 )
@@ -24,11 +24,11 @@ import (
 type RequestType string
 
 type NodeData struct {
-	SpanID        jaeger.SpanID `json:"spanID,omitempty"`
-	OperationName string        `json:"operationName,omitempty"`
-	StartTime     uint64        `json:"startTime,omitempty"`
-	Duration      uint64        `json:"duration,omitempty"`
-	ReqType       RequestType   `json:"requestType,omitempty"`
+	SpanID        string      `json:"spanID,omitempty"`
+	OperationName string      `json:"operationName,omitempty"`
+	StartTime     int         `json:"startTime,omitempty"`
+	Duration      int         `json:"duration,omitempty"`
+	ReqType       RequestType `json:"requestType,omitempty"`
 }
 
 type Node struct {
@@ -46,13 +46,13 @@ func (g *Graph) ExtractGraphData() []byte {
 	return bytes
 }
 
-func GenerateGraph(data map[string]jaeger.Span) *Graph {
+func GenerateGraph(data map[string]span.Span) *Graph {
 	for _, v := range data {
 		if len(v.References) == 0 {
 			childrenList := make([]Node, 0, 0)
 			d := NodeData{v.SpanID, v.OperationName,
 				v.StartTime, v.Duration,
-				RequestType(v.Tags["upstream_cluster"])}
+				RequestType(strings.Split(v.Tags["upstream_cluster"].(string), "|")[0])}
 			root := Node{d, &childrenList}
 			UpdateChildren(data, &childrenList, v.SpanID)
 			return &Graph{&root}
@@ -62,7 +62,7 @@ func GenerateGraph(data map[string]jaeger.Span) *Graph {
 	return &Graph{&Node{NodeData{}, nil}}
 }
 
-func UpdateChildren(data map[string]jaeger.Span, children *[]Node, SpanID jaeger.SpanID) {
+func UpdateChildren(data map[string]span.Span, children *[]Node, SpanID string) {
 	for _, v := range data {
 		if len(v.References) == 0 {
 			continue
@@ -73,13 +73,13 @@ func UpdateChildren(data map[string]jaeger.Span, children *[]Node, SpanID jaeger
 			childrenList := make([]Node, 0, 0)
 			d := NodeData{v.SpanID, v.OperationName,
 				v.StartTime, v.Duration,
-				RequestType(v.Tags["upstream_cluster"])}
+				RequestType(strings.Split(v.Tags["upstream_cluster"].(string), "|")[0])}
 			*children = append(*children, Node{d, &childrenList})
 
 			UpdateChildren(data, &childrenList, v.SpanID)
 
 			sort.Slice(childrenList, func(i, j int) bool {
-				return (childrenList[i].Data.StartTime <
+				return (childrenList[i].Data.StartTime >
 					childrenList[j].Data.StartTime)
 			})
 		}

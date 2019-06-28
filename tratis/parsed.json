@@ -1,0 +1,73 @@
+{
+	"Data": {
+		"spanID": "aef755947de28b53",
+		"operationName": "productpage.default.svc.cluster.local:9080/productpage",
+		"startTime": 1561579229340800,
+		"duration": 38094,
+		"requestType": "outbound|9080||productpage.default.svc.cluster.local"
+	},
+	"children": [{
+		"Data": {
+			"spanID": "cbacba6c58f4f38d",
+			"operationName": "productpage.default.svc.cluster.local:9080/productpage",
+			"startTime": 1561579229341426,
+			"duration": 36867,
+			"requestType": "inbound|9080|http|productpage.default.svc.cluster.local"
+		},
+		"children": [{
+			"Data": {
+				"spanID": "69f834f41045ae93",
+				"operationName": "reviews.default.svc.cluster.local:9080/*",
+				"startTime": 1561579229361776,
+				"duration": 13595,
+				"requestType": "outbound|9080||reviews.default.svc.cluster.local"
+			},
+			"children": [{
+				"Data": {
+					"spanID": "3fbdc7e8e37a45db",
+					"operationName": "reviews.default.svc.cluster.local:9080/*",
+					"startTime": 1561579229362192,
+					"duration": 12305,
+					"requestType": "inbound|9080|http|reviews.default.svc.cluster.local"
+				},
+				"children": [{
+					"Data": {
+						"spanID": "17edd66780d626e5",
+						"operationName": "ratings.default.svc.cluster.local:9080/*",
+						"startTime": 1561579229369202,
+						"duration": 2819,
+						"requestType": "outbound|9080||ratings.default.svc.cluster.local"
+					},
+					"children": [{
+						"Data": {
+							"spanID": "a09a823142c5bd7d",
+							"operationName": "ratings.default.svc.cluster.local:9080/*",
+							"startTime": 1561579229369803,
+							"duration": 1496,
+							"requestType": "inbound|9080|http|ratings.default.svc.cluster.local"
+						},
+						"children": []
+					}]
+				}]
+			}]
+		}, {
+			"Data": {
+				"spanID": "f151d4f2882ca827",
+				"operationName": "details.default.svc.cluster.local:9080/*",
+				"startTime": 1561579229353485,
+				"duration": 4914,
+				"requestType": "outbound|9080||details.default.svc.cluster.local"
+			},
+			"children": [{
+				"Data": {
+					"spanID": "d3db166a30c3da30",
+					"operationName": "details.default.svc.cluster.local:9080/*",
+					"startTime": 1561579229353970,
+					"duration": 3737,
+					"requestType": "inbound|9080|http|details.default.svc.cluster.local"
+				},
+				"children": []
+			}]
+		}]
+	}]
+}
