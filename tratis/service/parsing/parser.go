@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
 	"istio.io/tools/tratis/service/parsing/pkg/trace"
 )
 

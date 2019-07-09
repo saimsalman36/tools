@@ -16,8 +16,9 @@ package graph
 
 import (
 	"fmt"
-	"istio.io/tools/tratis/service/parsing/pkg/span"
 	"sort"
+
+	"istio.io/tools/tratis/service/parsing/pkg/span"
 )
 
 type Node struct {
