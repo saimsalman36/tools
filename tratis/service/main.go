@@ -22,7 +22,7 @@ import (
 	"istio.io/tools/tratis/service/distribution"
 	"istio.io/tools/tratis/service/graph"
 	parser "istio.io/tools/tratis/service/parsing"
-	"istio.io/tools/tratis/service/pkg/consts"
+	// "istio.io/tools/tratis/service/pkg/consts"
 )
 
 func addNewGraph(data *[][]*graph.Graph, g *graph.Graph) int {
@@ -65,6 +65,7 @@ func main() {
 	fmt.Println("Filtering Traces ...")
 
 	traces := data.Traces
+	// fmt.Println(traces[0])
 
 	fmt.Printf("Processing %d Traces\n", len(traces))
 
@@ -86,17 +87,20 @@ func main() {
 		d[idx] = append(d[idx], traceInformation)
 	}
 
-	fmt.Println("Combining Results + Distribution Fitting ...")
+	// fmt.Println(d[0])
+
+	// fmt.Println("Combining Results + Distribution Fitting ...")
 
 	for idx := range graphs {
-		fmt.Println("=======================================================")
-		fmt.Println("Number of Traces: ", len(graphs[idx]))
-		fmt.Println("Call Graph: ", string(graphs[idx][0].ExtractGraphData()))
+		// fmt.Println("=======================================================")
+		// fmt.Println("Number of Traces: ", len(graphs[idx]))
+		// fmt.Println("Call Graph: ", string(graphs[idx][0].ExtractGraphData()))
 
-		combinedResults := distribution.CombineTimeInformation(d[idx])
-		dists := distribution.TimeInfoToDist(consts.DistFilePath,
-			consts.DistFittingFuncName, combinedResults)
-		fmt.Println("Distribution Details: ", dists)
-		fmt.Println("=======================================================")
+		distribution.CombineTimeInformation(d[idx])
+		// fmt.Println(combinedResults)
+		// dists := distribution.TimeInfoToDist(consts.DistFilePath,
+		// 	consts.DistFittingFuncName, combinedResults)
+		// fmt.Println("Distribution Details: ", dists)
+		// fmt.Println("=======================================================")
 	}
 }

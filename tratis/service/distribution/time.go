@@ -16,12 +16,14 @@ package distribution
 
 import (
 	"istio.io/tools/tratis/service/graph"
+	"fmt"
 )
 
 type Time struct {
-	StartTime uint64 `json:"startTime"`
-	EndTime   uint64 `json:"endTime"`
-	Duration  uint64 `json:"duration"`
+	StartTime     uint64 `json:"startTime"`
+	EndTime       uint64 `json:"endTime"`
+	Duration      uint64 `json:"duration"`
+	CalledService string `json:"service,omitempty"`
 }
 
 type TimeInformation struct {
@@ -49,6 +51,7 @@ func CombineTimeInformation(data [][]TimeInformation) []CombinedTimeInformation 
 			}
 
 			for timeIndex, duration := range span.TimeData {
+				fmt.Println(duration.CalledService)
 				ret[idx].Duration[timeIndex] =
 					append(ret[idx].Duration[timeIndex], duration.Duration)
 			}
@@ -76,7 +79,7 @@ func ExtractTimeInformationWrapper(n *graph.Node, t *[]TimeInformation) {
 
 	for _, child := range *n.Children {
 		d := child.Data.StartTime - nodeStartTime
-		newTime := Time{nodeStartTime, child.Data.StartTime, d}
+		newTime := Time{nodeStartTime, child.Data.StartTime, d, child.Data.OperationName}
 		timeData = append(timeData, newTime)
 		nodeStartTime = child.Data.StartTime + child.Data.Duration
 
@@ -84,7 +87,7 @@ func ExtractTimeInformationWrapper(n *graph.Node, t *[]TimeInformation) {
 	}
 
 	d := nodeEndTime - nodeStartTime
-	newTime := Time{nodeStartTime, nodeEndTime, d}
+	newTime := Time{nodeStartTime, nodeEndTime, d, ""}
 	timeData = append(timeData, newTime)
 
 	if n.Data.RequestType == "inbound" {
