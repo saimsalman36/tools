@@ -6,10 +6,19 @@ services:
 - name: products
   isEntrypoint: true
   script:
+  - sleep: {type: "dist", data: {name: "inverse-gamma", dist: {"alpha": 1.7893254769273406, "beta": 0.0038308336579556956}}}
   - call: details
+  - sleep: {type: "dist", data: {name: "inverse-gamma", dist: {"alpha": 3.276295738081759, "beta": 0.0022068248697463145}}}
   - call: reviews
+  - sleep: {type: "dist", data: {name: "laplace", dist: {"mu": 0.0037150093587108232, "scale": 0.0014640514280000482}}}
 - name: details
+  script:
+  - sleep: {type: "dist", data: {name: "inverse-gamma", dist: {"alpha": 2.3612511214883325, "beta": 0.002218221440920016}}}
 - name: reviews
   script:
+  - sleep: {type: "dist", data: {name: "inverse-gamma", dist: {"alpha": 0.88392973005275, "beta": 0.0022981498921862305}}}
   - call: ratings
+  - sleep: {type: "dist", data: {name: "laplace", dist: {"mu": 0.0014419349099109686, "scale": 0.0008369995000184778}}}
 - name: ratings
+  script:
+  - sleep: {type: "dist", data: {name: "inverse-gamma", dist: {"alpha": 4.162534909404695, "beta": 0.000849742256957342}}}

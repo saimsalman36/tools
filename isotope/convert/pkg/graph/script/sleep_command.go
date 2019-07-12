@@ -40,6 +40,7 @@ func (c SleepCommandStatic) Duration() time.Duration {
 }
 
 type SleepCommandDistribution struct {
+	DistName string `json:"name"`
 	Dist interface {
 		Rand() float64
 	}
@@ -63,7 +64,7 @@ func (c SleepCommandHistogram) Duration() time.Duration {
 }
 
 type SleepCommandWrapper struct {
-	Type CommandType `json:"type"`
+	Type CommandType `json:"Type"`
 	Data json.RawMessage
 }
 
@@ -113,73 +114,87 @@ func (c *SleepCommand) UnmarshalJSON(b []byte) (err error) {
 			Rand() float64
 		}
 
-		switch cmd["dist"] {
+		switch cmd["name"] {
 		case "normal":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Normal{
-				Mu:    cmd["mean"].(float64),
-				Sigma: cmd["sigma"].(float64),
+				Mu:    distData["mean"].(float64),
+				Sigma: distData["sigma"].(float64),
 			}
 		case "lognormal":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.LogNormal{
-				Mu:    cmd["mean"].(float64),
-				Sigma: cmd["sigma"].(float64),
+				Mu:    distData["mean"].(float64),
+				Sigma: distData["sigma"].(float64),
 			}
 		case "beta":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Beta{
-				Alpha: cmd["alpha"].(float64),
-				Beta:  cmd["beta"].(float64),
+				Alpha: distData["alpha"].(float64),
+				Beta:  distData["beta"].(float64),
 			}
 		case "chi-squared":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.ChiSquared{
-				K: cmd["k"].(float64),
+				K: distData["k"].(float64),
 			}
 		case "exp":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Exponential{
-				Rate: cmd["rate"].(float64),
+				Rate: distData["rate"].(float64),
 			}
 		case "f":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.F{
-				D1: cmd["d1"].(float64),
-				D2: cmd["d2"].(float64),
+				D1: distData["d1"].(float64),
+				D2: distData["d2"].(float64),
 			}
 		case "gamma":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Gamma{
-				Alpha: cmd["alpha"].(float64),
-				Beta:  cmd["beta"].(float64),
+				Alpha: distData["alpha"].(float64),
+				Beta:  distData["beta"].(float64),
 			}
 		case "gumbel-right":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.GumbelRight{
-				Mu:   cmd["mu"].(float64),
-				Beta: cmd["beta"].(float64),
+				Mu:   distData["mu"].(float64),
+				Beta: distData["beta"].(float64),
 			}
 		case "inverse-gamma":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.InverseGamma{
-				Alpha: cmd["alpha"].(float64),
-				Beta:  cmd["beta"].(float64),
+				Alpha: distData["alpha"].(float64),
+				Beta:  distData["beta"].(float64),
 			}
 		case "laplace":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Laplace{
-				Mu:    cmd["mu"].(float64),
-				Scale: cmd["scale"].(float64),
+				Mu:    distData["mu"].(float64),
+				Scale: distData["scale"].(float64),
 			}
 		case "pareto":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Pareto{
-				Xm:    cmd["xm"].(float64),
-				Alpha: cmd["alpha"].(float64),
+				Xm:    distData["xm"].(float64),
+				Alpha: distData["alpha"].(float64),
 			}
 		case "studentst":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.StudentsT{
-				Mu:    cmd["mu"].(float64),
-				Sigma: cmd["sigma"].(float64),
-				Nu:    cmd["nu"].(float64),
+				Mu:    distData["mu"].(float64),
+				Sigma: distData["sigma"].(float64),
+				Nu:    distData["nu"].(float64),
 			}
 		case "weibull":
+			distData := cmd["dist"].(map[string]interface{})
 			dist = distuv.Weibull{
-				K:      cmd["k"].(float64),
-				Lambda: cmd["lambda"].(float64),
+				K:      distData["k"].(float64),
+				Lambda: distData["lambda"].(float64),
 			}
 		}
 
+		distCmd.DistName = cmd["name"].(string)
 		distCmd.Dist = dist
 		*c = SleepCommand{command.Type, distCmd}
 

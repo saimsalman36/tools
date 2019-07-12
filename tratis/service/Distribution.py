@@ -7,6 +7,7 @@ import statistics
 
 # Create models from data
 def BestFitDistribution(data):
+    data = [float(val)*1e-6 for val in data]
     bins = int((len(data) * 1.0) / 10)
 
     if bins == 0:
@@ -63,10 +64,5 @@ def BestFitDistribution(data):
     ret['name'] = best_distribution.name
     ret['parameters'] = best_params
     ret['mean'] = np.mean(data)
-
-    if len(data) < 2:
-        ret['sigma'] = 0.0
-    else:
-        ret['sigma'] = statistics.stdev(data)
-
+    ret['sigma'] = statistics.stdev(data)
     return json.dumps(ret)

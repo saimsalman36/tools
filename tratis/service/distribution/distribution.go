@@ -27,7 +27,7 @@ type Details struct {
 	Name       string    `json:"name"`
 	Parameters []float64 `json:"parameters"`
 	Mean       float64   `json:"mean"`
-	Sigma      float64   `json:"simga"`
+	Sigma      float64   `json:"sigma"`
 }
 
 type TotalDistributions struct {
@@ -36,7 +36,7 @@ type TotalDistributions struct {
 }
 
 func TimeInfoToDist(fileName string,
-	funcName string, data []CombinedTimeInformation) []TotalDistributions {
+	funcName string, data []CombinedTimeInformation) []byte {
 	ret := make([]TotalDistributions, len(data))
 
 	for idx, operation := range data {
@@ -48,13 +48,15 @@ func TimeInfoToDist(fileName string,
 		ret[idx].OperationName = operation.OperationName
 	}
 
-	return ret
+	bytes, _ := json.Marshal(ret)
+
+	return bytes
 }
 
 func GeneratePythonCommand(fileName string, funcName string, data []uint64) string {
 	var command strings.Builder
 
-	s := fmt.Sprintf("import %s; print %s.%s ([", fileName, fileName, funcName)
+	s := fmt.Sprintf("import %s; print(%s.%s([", fileName, fileName, funcName)
 	command.WriteString(s)
 
 	for idx, value := range data {
@@ -65,7 +67,7 @@ func GeneratePythonCommand(fileName string, funcName string, data []uint64) stri
 		}
 	}
 
-	command.WriteString("])")
+	command.WriteString("]))")
 
 	return command.String()
 }

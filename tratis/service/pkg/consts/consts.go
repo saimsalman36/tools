@@ -18,7 +18,7 @@ const (
 	// Traces Limit
 	NumTraces = 10000
 
-	MinNumTraces = 100
+	MinNumTraces = 1000
 
 	// Distribution Fitting File Path
 	DistFilePath = "Distribution"

@@ -97,7 +97,7 @@ func main() {
 			combinedResults := distribution.CombineTimeInformation(d[idx])
 			dists := distribution.TimeInfoToDist(consts.DistFilePath,
 				consts.DistFittingFuncName, combinedResults)
-			fmt.Println("Distribution Details: ", dists)
+			fmt.Println("Distribution Details: ", string(dists))
 			fmt.Println("=======================================================")
 		}
 	}

@@ -1,6 +1,6 @@
 # Runs each topology on all environments.
 topology_paths = [
-  "example-topologies/canonical.yaml",
+  "example-topologies/bookinfo.yaml",
 ]
 
 environments = [
@@ -31,6 +31,6 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = "1"
-duration = "5m"
+qps = "max"
+duration = "10s"
 num_concurrent_connections = 64
