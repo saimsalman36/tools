@@ -89,14 +89,16 @@ func main() {
 	fmt.Println("Combining Results + Distribution Fitting ...")
 
 	for idx := range graphs {
-		fmt.Println("=======================================================")
-		fmt.Println("Number of Traces: ", len(graphs[idx]))
-		fmt.Println("Call Graph: ", string(graphs[idx][0].ExtractGraphData()))
+		if len(graphs[idx]) > consts.MinNumTraces {
+			fmt.Println("=======================================================")
+			fmt.Println("Number of Traces: ", len(graphs[idx]))
+			fmt.Println("Call Graph: ", string(graphs[idx][0].ExtractGraphData()))
 
-		combinedResults := distribution.CombineTimeInformation(d[idx])
-		dists := distribution.TimeInfoToDist(consts.DistFilePath,
-			consts.DistFittingFuncName, combinedResults)
-		fmt.Println("Distribution Details: ", dists)
-		fmt.Println("=======================================================")
+			combinedResults := distribution.CombineTimeInformation(d[idx])
+			dists := distribution.TimeInfoToDist(consts.DistFilePath,
+				consts.DistFittingFuncName, combinedResults)
+			fmt.Println("Distribution Details: ", dists)
+			fmt.Println("=======================================================")
+		}
 	}
 }

@@ -3,6 +3,7 @@ import numpy as np
 import scipy.stats as st
 import ast
 import json
+import statistics
 
 # Create models from data
 def BestFitDistribution(data):
@@ -61,4 +62,11 @@ def BestFitDistribution(data):
     ret = {}
     ret['name'] = best_distribution.name
     ret['parameters'] = best_params
+    ret['mean'] = np.mean(data)
+
+    if len(data) < 2:
+        ret['sigma'] = 0.0
+    else:
+        ret['sigma'] = statistics.stdev(data)
+
     return json.dumps(ret)

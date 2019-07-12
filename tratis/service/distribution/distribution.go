@@ -26,6 +26,8 @@ import (
 type Details struct {
 	Name       string    `json:"name"`
 	Parameters []float64 `json:"parameters"`
+	Mean       float64   `json:"mean"`
+	Sigma      float64   `json:"simga"`
 }
 
 type TotalDistributions struct {

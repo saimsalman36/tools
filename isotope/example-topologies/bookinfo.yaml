@@ -1,0 +1,15 @@
+defaults:
+  requestSize: 1 KB
+  responseSize: 1 KB
+  numRbacPolicies: 0
+services:
+- name: products
+  isEntrypoint: true
+  script:
+  - call: details
+  - call: reviews
+- name: details
+- name: reviews
+  script:
+  - call: ratings
+- name: ratings
