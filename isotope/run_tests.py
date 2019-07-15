@@ -12,6 +12,11 @@ def main(args: argparse.Namespace) -> None:
 
     config = cfg.from_toml_file(args.config_path)
 
+    if args.clean_up == 'True':
+        cluster.clean_up(
+            config.cluster_project_id, config.cluster_name, config.cluster_zone)
+        return
+
     cluster.set_up_if_not_exists(
         config.cluster_project_id, config.cluster_name, config.cluster_zone,
         config.cluster_version, config.server_machine_type,
@@ -34,6 +39,10 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument('config_path', type=str)
     parser.add_argument('helm_values', type=str)
+    parser.add_argument('--clean-up', 
+                        type=str,
+                        choices=['True', 'False'],
+                        default='False')
     parser.add_argument(
         '--log_level',
         type=str,
