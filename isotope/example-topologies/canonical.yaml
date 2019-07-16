@@ -5,6 +5,8 @@ defaults:
 services:
 - name: a
   version: v1
+  script:
+  - sleep: {type: "static", data: {time: "2000ms"}}
 - name: a
   version: v2
 - name: b
@@ -12,12 +14,12 @@ services:
 - name: c
   version: v1
   script:
-  - call: a
-  - call: b
+  - call: {service: a, probability: 100}
+  - call: {service: b, probability: 100}
 - name: d
   version: v1
   isEntrypoint: true
   script:
-  - - call: a
-    - call: c
-  - call: b
+  - - call: {service: a, probability: 100}
+    - call: {service: c, probability: 100}
+  - call: {service: b, probability: 100}
