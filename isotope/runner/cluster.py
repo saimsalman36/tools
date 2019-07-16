@@ -34,12 +34,24 @@ def clean_up(project_id: str, name: str, zone: str):
     # TODO: Also check if the cluster is normal (e.g. not being deleted).
     if name in output:
         logging.debug('%s exists, cleaning up all namespaces', name)
-        sh.run_kubectl(
-            [
-                'delete', '--all', 'pods', '--namespace', 
-                consts.SERVICE_GRAPH_NODE_POOL_NAME
-            ],
-            check=True)
+
+        output = sh.run_kubectl(
+            ['get', 'ns'], check=True).stdout
+
+        if consts.SERVICE_GRAPH_NAMESPACE in output:
+            sh.run_kubectl(
+                [
+                    'delete', 'ns', consts.SERVICE_GRAPH_NAMESPACE
+                ],
+                check=True)
+
+        if consts.ISTIO_NAMESPACE in output:
+            sh.run_kubectl(
+                [
+                    'delete', 'ns', consts.ISTIO_NAMESPACE
+                ],
+                check=True)
+
     else:
         logging.debug('%s does not exist, bypassing cleanup', name)
 
