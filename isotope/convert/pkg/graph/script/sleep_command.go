@@ -104,8 +104,20 @@ func (c *SleepCommand) UnmarshalJSON(b []byte) (err error) {
 			return
 		}
 
+
 		var staticCmd SleepCommandStatic
-		staticCmd.Time = time.Duration(cmd["time"].(float64)) * time.Nanosecond
+
+		switch cmd["time"].(type) {
+		case string:
+			staticCmd.Time, err = time.ParseDuration(cmd["time"].(string))
+
+			if err != nil {
+				return
+			}
+		case float64:
+			staticCmd.Time = time.Duration(cmd["time"].(float64)) * time.Nanosecond
+		}
+		
 		
 		*c = SleepCommand{command.Type, staticCmd}
 
