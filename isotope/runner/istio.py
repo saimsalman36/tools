@@ -123,8 +123,8 @@ def _apply_crds(path: str, name: str, namespace: str) -> None:
         check=True).stdout
     kubectl.apply_text(istio_yaml)
 
-    logging.info('sleeping for 10 seconds as an extra buffer')
-    time.sleep(10)
+    logging.info('sleeping for 3 seconds as an extra buffer')
+    time.sleep(3)
     # wait.until_deployments_are_ready(namespace)
 
 

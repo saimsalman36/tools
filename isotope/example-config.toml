@@ -3,6 +3,10 @@ topology_paths = [
   "example-topologies/canonical.yaml",
 ]
 
+policy_files = [
+  "example-policies/canonical.yaml",
+]
+
 environments = [
   "ISTIO",
 ]
@@ -12,7 +16,7 @@ project_id = "absolute-garden-516"
 # Cluster will be created with one n1-standard-1 node in the default node-pool
 # running Prometheus. In total, the cluster will have 1 Prometheus node, 1
 # client node, and N service-graph nodes (total of N + 2 nodes).
-name = "exp-6"
+name = "exp-7"
 zone = "us-central1-a"
 version = "1.12.7-gke.25"
 
@@ -22,8 +26,8 @@ archive_url = "https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.
 [server]
 machine_type = "n1-standard-1"
 disk_size_gb = 32
-num_nodes = 8
-image = "saimsalman/isotope:v2"
+num_nodes = 10
+image = "saimsalman/isotope:v4"
 
 [client]
 machine_type = "n1-highcpu-4"
@@ -31,6 +35,6 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = "max"
-duration = "10s"
-num_concurrent_connections = 8
+qps = "100"
+duration = "1m"
+num_concurrent_connections = 10

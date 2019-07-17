@@ -31,7 +31,7 @@ def clean_up(project_id: str, name: str, zone: str):
 
     output = sh.run_gcloud(
         ['container', 'clusters', 'list', '--zone', zone], check=True).stdout
-    # TODO: Also check if the cluster is normal (e.g. not being deleted).
+
     if name in output:
         logging.debug('%s exists, cleaning up all namespaces', name)
 
@@ -51,6 +51,18 @@ def clean_up(project_id: str, name: str, zone: str):
                     'delete', 'ns', consts.ISTIO_NAMESPACE
                 ],
                 check=True)
+
+        sh.run_kubectl(
+            [
+                'delete', 'virtualservice', '--all'
+            ],
+            check=True)
+
+        sh.run_kubectl(
+            [
+                'delete', 'destinationrules', '--all'
+            ],
+            check=True)
 
     else:
         logging.debug('%s does not exist, bypassing cleanup', name)

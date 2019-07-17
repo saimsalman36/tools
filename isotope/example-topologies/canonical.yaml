@@ -6,20 +6,17 @@ services:
 - name: a
   version: v1
   script:
-  - sleep: {type: "static", data: {time: "2000ms"}}
+  - sleep: {type: "static", data: {time: "900ms"}}
 - name: a
   version: v2
+  script:
+  - sleep: {type: "static", data: {time: "4000ms"}}
 - name: b
   version: v1
 - name: c
   version: v1
-  script:
-  - call: {service: a, probability: 100}
-  - call: {service: b, probability: 100}
 - name: d
   version: v1
   isEntrypoint: true
   script:
-  - - call: {service: a, probability: 100}
-    - call: {service: c, probability: 100}
-  - call: {service: b, probability: 100}
+  - call: {service: a, probability: 100}
