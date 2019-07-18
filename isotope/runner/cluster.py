@@ -33,7 +33,7 @@ def clean_up(project_id: str, name: str, zone: str):
 
     output = sh.run_gcloud(
         ['container', 'clusters', 'list', '--zone', zone], check=True).stdout
-
+    
     if name in output:
         logging.debug('%s exists, cleaning up all namespaces', name)
 
@@ -76,7 +76,6 @@ def set_up(project_id: str, name: str, zones: List[str], version: str,
            service_graph_num_nodes: int, client_machine_type: str,
            client_disk_size_gb: int, deploy_prometheus=False) -> None:
     """Creates and sets up a GKE cluster.
-
     Args:
         project_id: full ID for the cluster's GCP project
         name: name of the GKE cluster
