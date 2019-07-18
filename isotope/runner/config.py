@@ -11,7 +11,7 @@ class RunnerConfig:
     def __init__(self, topology_paths: List[str], policy_files: List[str],
                  environments: List[str], istio_archive_url: str,
                  cluster_project_id: str, cluster_name: str,
-                 cluster_zone: str, cluster_version: str,
+                 cluster_zones: List[str], cluster_version: str,
                  server_machine_type: str, server_disk_size_gb: int,
                  server_num_nodes: int, server_image: str,
                  client_machine_type: str, client_disk_size_gb: int,
@@ -23,7 +23,7 @@ class RunnerConfig:
         self.istio_archive_url = istio_archive_url
         self.cluster_project_id = cluster_project_id
         self.cluster_name = cluster_name
-        self.cluster_zone = cluster_zone
+        self.cluster_zones = cluster_zones
         self.cluster_version = cluster_version
         self.server_machine_type = server_machine_type
         self.server_disk_size_gb = server_disk_size_gb
@@ -41,7 +41,7 @@ class RunnerConfig:
         return {
             'istio_archive_url': self.istio_archive_url,
             'cluster_version': self.cluster_version,
-            'cluster_zone': self.cluster_zone,
+            'cluster_zones': self.cluster_zones,
             'server_machine_type': self.server_machine_type,
             'server_disk_size_gb': str(self.server_disk_size_gb),
             'server_num_nodes': str(self.server_num_nodes),
@@ -67,7 +67,7 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
     cluster = d['cluster']
     cluster_project_id = cluster['project_id']
     cluster_name = cluster['name']
-    cluster_zone = cluster['zone']
+    cluster_zones = cluster['zones']
     cluster_version = cluster['version']
 
     server = d['server']
@@ -96,7 +96,7 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
         istio_archive_url=istio_archive_url,
         cluster_project_id=cluster_project_id,
         cluster_name=cluster_name,
-        cluster_zone=cluster_zone,
+        cluster_zones=cluster_zones,
         cluster_version=cluster_version,
         server_machine_type=server_machine_type,
         server_disk_size_gb=server_disk_size_gb,
