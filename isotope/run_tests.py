@@ -12,7 +12,7 @@ def main(args: argparse.Namespace) -> None:
 
     if args.clean_up == 'True':
         cluster.clean_up(
-            config.cluster_project_id, config.cluster_name, config.cluster_zone)
+            config.cluster_project_id, config.cluster_name, config.cluster_zones)
         return
 
     cluster.set_up_if_not_exists(

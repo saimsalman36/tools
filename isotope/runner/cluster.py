@@ -28,8 +28,9 @@ def set_up_if_not_exists(
                service_graph_disk_size_gb, service_graph_num_nodes,
                client_machine_type, client_disk_size_gb)
 
-def clean_up(project_id: str, name: str, zone: str):
+def clean_up(project_id: str, name: str, zones: str):
     sh.run_gcloud(['config', 'set', 'project', project_id], check=True)
+    zone = zones[0]
 
     output = sh.run_gcloud(
         ['container', 'clusters', 'list', '--zone', zone], check=True).stdout
