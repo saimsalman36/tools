@@ -18,7 +18,7 @@ const (
 	// Traces Limit
 	NumTraces = 10000
 
-	MinNumTraces = 1000
+	MinNumTraces = 500
 
 	// Distribution Fitting File Path
 	DistFilePath = "Distribution"
@@ -28,7 +28,7 @@ const (
 	// Tracing Tool IP Address
 	TracingToolAddress = "localhost"
 	// Tarcing Tool Port Number
-	TracingToolPortNumber = "15034"
+	TracingToolPortNumber = "15032"
 	// Tracing Tool EntryPoint Service
 	TracingToolEntryPoint = "istio-ingressgateway"
 )

@@ -26,9 +26,10 @@ import (
 type NodeData struct {
 	SpanID        jaeger.SpanID `json:"spanID,omitempty"`
 	OperationName string        `json:"operationName,omitempty"`
-	StartTime     uint64        `json:"startTime,omitempty"`
-	Duration      uint64        `json:"duration,omitempty"`
+	StartTime     uint64        `json:"-"`
+	Duration      uint64        `json:"-"`
 	RequestType   string        `json:"requestType"`
+	NodeID        string        `json:"nodeID"`
 }
 
 type Node struct {
@@ -75,6 +76,7 @@ func _CompGraphHelper(node1 *Node, node2 *Node) bool {
 
 	if node1.Data.OperationName == node2.Data.OperationName &&
 		node1.Data.RequestType == node2.Data.RequestType &&
+		node1.Data.NodeID == node2.Data.NodeID &&
 		len(*node1.Children) == len(*node2.Children) {
 		for i := 0; i < len(*node1.Children); i++ {
 			ret = ret && _CompGraphHelper(&(*node1.Children)[i], &(*node2.Children)[i])
@@ -110,8 +112,11 @@ func GenerateGraph(data []jaeger.Span) *Graph {
 		tagData = strings.Split(tag.Value.(string), "|")[0]
 	}
 
+	tag = findTag(rootSpan.Tags, "node_id")
+	nodeID := tag.Value.(string)
+
 	d := NodeData{rootSpan.SpanID, rootSpan.OperationName,
-		rootSpan.StartTime, rootSpan.Duration, tagData}
+		rootSpan.StartTime, rootSpan.Duration, tagData, nodeID}
 	childrenList := UpdateChildren(data, rootSpan.SpanID)
 	root := Node{d, &childrenList}
 	return &Graph{&root}
@@ -155,8 +160,11 @@ func UpdateChildren(data []jaeger.Span, spanID jaeger.SpanID) []Node {
 				tagData = strings.Split(tag.Value.(string), "|")[0]
 			}
 
+			tag = findTag(v.Tags, "node_id")
+			nodeID := tag.Value.(string)
+
 			d := NodeData{v.SpanID, v.OperationName,
-				v.StartTime, v.Duration, tagData}
+				v.StartTime, v.Duration, tagData, nodeID}
 
 			nodeChildren := UpdateChildren(data, v.SpanID)
 			children = append(children, Node{d, &nodeChildren})
