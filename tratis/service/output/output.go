@@ -26,8 +26,13 @@ import (
 )
 
 type Output struct {
+<<<<<<< HEAD
 	NumTraces               int                               `'json"NumTraces"`
 	CallGraph               *graph.Node                       `'json:"Graph"`
+=======
+	NumTraces               int                               `json:"NumTraces"`
+	CallGraph               *graph.Node                       `json:"Graph"`
+>>>>>>> saim-tratis-update
 	TimeInformation         []distribution.TotalDistributions `json:"TimeInformation"`
 	RequestSizeInformation  []distribution.TotalDistributions `json:"RequestSizeInformation"`
 	ResponseSizeInformation []distribution.TotalDistributions `json:"ResponseSizeInformation"`
@@ -101,7 +106,7 @@ func GenerateOutput(data parser.TraceData) []byte {
 			timeResults := distribution.ConvertTimeInfo(distribution.CombineTimeInformation(d[idx]))
 
 			dists := distribution.InfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, timeResults)
+				consts.DistFittingFuncName, timeResults, true)
 
 			temp.TimeInformation = dists
 
@@ -110,7 +115,7 @@ func GenerateOutput(data parser.TraceData) []byte {
 			sizeResults := distribution.ConvertSizeInfo(distribution.CombineSizeInformation(s[idx], true))
 
 			dists = distribution.InfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, sizeResults)
+				consts.DistFittingFuncName, sizeResults, false)
 
 			temp.ResponseSizeInformation = dists
 
@@ -119,7 +124,7 @@ func GenerateOutput(data parser.TraceData) []byte {
 			sizeResults = distribution.ConvertSizeInfo(distribution.CombineSizeInformation(s[idx], false))
 
 			dists = distribution.InfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, sizeResults)
+				consts.DistFittingFuncName, sizeResults, false)
 
 			temp.RequestSizeInformation = dists
 
@@ -127,7 +132,8 @@ func GenerateOutput(data parser.TraceData) []byte {
 
 			ret = append(ret, temp)
 		} else {
-			fmt.Print("Skipping Graph Number: ", idx)
+			fmt.Println("Skipping Graph Number: ", idx)
+			fmt.Println("")
 		}
 	}
 
