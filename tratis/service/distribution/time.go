@@ -34,6 +34,18 @@ type CombinedTimeInformation struct {
 	OperationName string     `json:"operationName"`
 }
 
+func (data CombinedTimeInformation) GetDistributionData() [][]uint64 {
+	return data.Duration
+}
+
+func (data CombinedTimeInformation) GetOperation() string {
+	return data.OperationName
+}
+
+func (data CombinedTimeInformation) Convert() HasDistributionData {
+	return HasDistributionData(data)
+}
+
 func CombineTimeInformation(data [][]TimeInformation) []CombinedTimeInformation {
 	ret := make([]CombinedTimeInformation, 0)
 
@@ -69,7 +81,7 @@ func ExtractTimeInformationWrapper(n *graph.Node, t *[]TimeInformation) {
 		return
 	}
 
-	nodeStartTime := n.Data.StartTime 
+	nodeStartTime := n.Data.StartTime
 	nodeEndTime := n.Data.StartTime + n.Data.Duration
 
 	timeData := make([]Time, 0)

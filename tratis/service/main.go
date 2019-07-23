@@ -19,40 +19,19 @@ import (
 	"log"
 	"os"
 
-	"istio.io/tools/tratis/service/distribution"
-	"istio.io/tools/tratis/service/graph"
+	"istio.io/tools/tratis/service/output"
 	parser "istio.io/tools/tratis/service/parsing"
-	"istio.io/tools/tratis/service/pkg/consts"
 )
-
-func addNewGraph(data *[][]*graph.Graph, g *graph.Graph) int {
-	ret := -1
-	for idx, graphs := range *data {
-		if graph.CompGraph(graphs[0], g) {
-			ret = idx
-			break
-		}
-	}
-
-	if ret == -1 {
-		temp := make([]*graph.Graph, 0)
-		temp = append(temp, g)
-		*data = append(*data, temp)
-
-		return (len(*data) - 1)
-	}
-	(*data)[ret] = append((*data)[ret], g)
-	return ret
-}
 
 func main() {
 	fmt.Println("Starting Tratis ...")
 
-	if len(os.Args) != 2 {
-		log.Fatalf(`Input Arguments not correctly provided: go run main.go <TOOL_NAME=jaeger/zipkin>`)
+	if len(os.Args) != 3 {
+		log.Fatalf(`Input Arguments not correctly provided: go run main.go <TOOL_NAME=jaeger/zipkin> <RESULTS_JSON_FILE>`)
 	}
 
 	TracingToolName := os.Args[1]
+	jsonFileName := os.Args[2]
 
 	fmt.Println("Generating Traces ...")
 
@@ -62,43 +41,11 @@ func main() {
 			TracingToolName)
 	}
 
-	fmt.Println("Filtering Traces ...")
+	results := output.GenerateOutput(data)
 
-	traces := data.Traces
-
-	fmt.Printf("Processing %d Traces\n", len(traces))
-
-	d := make([][][]distribution.TimeInformation, 0)
-	graphs := make([][]*graph.Graph, 0)
-
-	fmt.Println("Generating Time Information ...")
-
-	for _, trace := range traces {
-		g := graph.GenerateGraph(trace.Spans)
-		idx := addNewGraph(&graphs, g)
-
-		traceInformation := distribution.ExtractTimeInformation(g)
-
-		if len(d) < idx+1 {
-			d = append(d, make([][]distribution.TimeInformation, 0))
-		}
-
-		d[idx] = append(d[idx], traceInformation)
+	f, err := os.Create(jsonFileName)
+	if err != nil {
+		log.Fatalf("Unable to create %s: %v", jsonFileName, err)
 	}
-
-	fmt.Println("Combining Results + Distribution Fitting ...")
-
-	for idx := range graphs {
-		if len(graphs[idx]) > consts.MinNumTraces {
-			fmt.Println("=======================================================")
-			fmt.Println("Number of Traces: ", len(graphs[idx]))
-			fmt.Println("Call Graph: ", string(graphs[idx][0].ExtractGraphData()))
-
-			combinedResults := distribution.CombineTimeInformation(d[idx])
-			dists := distribution.TimeInfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, combinedResults)
-			fmt.Println("Distribution Details: ", string(dists))
-			fmt.Println("=======================================================")
-		}
-	}
+	f.Write(append(results, '\n'))
 }

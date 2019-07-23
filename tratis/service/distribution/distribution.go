@@ -35,22 +35,46 @@ type TotalDistributions struct {
 	Distributions []Details `json:"distributions"`
 }
 
-func TimeInfoToDist(fileName string,
-	funcName string, data []CombinedTimeInformation) []byte {
+type HasDistributionData interface {
+	GetDistributionData() [][]uint64
+	GetOperation() string
+	Convert() HasDistributionData
+}
+
+func ConvertTimeInfo(data []CombinedTimeInformation) []HasDistributionData {
+	ret := make([]HasDistributionData, 0)
+
+	for _, item := range data {
+		ret = append(ret, HasDistributionData(item))
+	}
+
+	return ret
+}
+
+func ConvertSizeInfo(data []CombinedSizeInformation) []HasDistributionData {
+	ret := make([]HasDistributionData, 0)
+
+	for _, item := range data {
+		ret = append(ret, HasDistributionData(item))
+	}
+
+	return ret
+}
+
+func InfoToDist(fileName string,
+	funcName string, data []HasDistributionData) []TotalDistributions {
 	ret := make([]TotalDistributions, len(data))
 
-	for idx, operation := range data {
-		for _, data := range operation.Duration {
+	for idx, distributionData := range data {
+		for _, data := range distributionData.GetDistributionData() {
 			cmd := GeneratePythonCommand(fileName, funcName, data)
 			ret[idx].Distributions = append(ret[idx].Distributions, RunDistributionFitting(cmd))
 		}
 
-		ret[idx].OperationName = operation.OperationName
+		ret[idx].OperationName = distributionData.GetOperation()
 	}
 
-	bytes, _ := json.Marshal(ret)
-
-	return bytes
+	return ret
 }
 
 func GeneratePythonCommand(fileName string, funcName string, data []uint64) string {

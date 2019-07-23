@@ -30,6 +30,8 @@ type NodeData struct {
 	Duration      uint64        `json:"-"`
 	RequestType   string        `json:"requestType"`
 	NodeID        string        `json:"nodeID"`
+	RequestSize   string        `json:"-"`
+	ResponseSize  string        `json:"-"`
 }
 
 type Node struct {
@@ -100,23 +102,58 @@ func findRootSpan(spans []jaeger.Span) jaeger.Span {
 	return jaeger.Span{}
 }
 
+func findTags(tags []jaeger.KeyValue) (reqType string,
+	nodeID string,
+	respSize string,
+	reqSize string) {
+
+	/*
+		Tag Examples:
+
+		{Key: upstream_cluster
+		 Type: string
+		 Value: inbound|9080|http|productpage.default.svc.cluster.local
+		}
+
+		{Key: upstream_cluster
+		 Type: string
+		 Value: inbound|9080|http|reviews.default.svc.cluster.local
+		}
+
+		{Key: upstream_cluster
+		 Type: string
+		 Value: outbound|9080||ratings.default.svc.cluster.local
+		}
+	*/
+
+	tag := findTag(tags, "upstream_cluster")
+
+	if tag.Value == nil {
+		reqType = ""
+	} else {
+		reqType = strings.Split(tag.Value.(string), "|")[0]
+	}
+
+	tag = findTag(tags, "node_id")
+	nodeID = tag.Value.(string)
+
+	tag = findTag(tags, "response_size")
+	respSize = tag.Value.(string)
+
+	tag = findTag(tags, "request_size")
+	reqSize = tag.Value.(string)
+
+	return
+}
+
 func GenerateGraph(data []jaeger.Span) *Graph {
 	rootSpan := findRootSpan(data)
 
-	tag := findTag(rootSpan.Tags, "upstream_cluster")
-	var tagData string
-
-	if tag.Value == nil {
-		tagData = ""
-	} else {
-		tagData = strings.Split(tag.Value.(string), "|")[0]
-	}
-
-	tag = findTag(rootSpan.Tags, "node_id")
-	nodeID := tag.Value.(string)
+	reqType, nodeID, respSize, reqSize := findTags(rootSpan.Tags)
 
 	d := NodeData{rootSpan.SpanID, rootSpan.OperationName,
-		rootSpan.StartTime, rootSpan.Duration, tagData, nodeID}
+		rootSpan.StartTime, rootSpan.Duration, reqType, nodeID,
+		reqSize, respSize}
 	childrenList := UpdateChildren(data, rootSpan.SpanID)
 	root := Node{d, &childrenList}
 	return &Graph{&root}
@@ -132,39 +169,11 @@ func UpdateChildren(data []jaeger.Span, spanID jaeger.SpanID) []Node {
 
 		ref := v.References[0]
 		if ref.RefType == jaeger.ChildOf && ref.SpanID == spanID {
-			/*
-				Tag Examples:
-
-				{Key: upstream_cluster
-				 Type: string
-				 Value: inbound|9080|http|productpage.default.svc.cluster.local
-				}
-
-				{Key: upstream_cluster
-				 Type: string
-				 Value: inbound|9080|http|reviews.default.svc.cluster.local
-				}
-
-				{Key: upstream_cluster
-				 Type: string
-				 Value: outbound|9080||ratings.default.svc.cluster.local
-				}
-			*/
-
-			tag := findTag(v.Tags, "upstream_cluster")
-			var tagData string
-
-			if tag.Value == nil {
-				tagData = ""
-			} else {
-				tagData = strings.Split(tag.Value.(string), "|")[0]
-			}
-
-			tag = findTag(v.Tags, "node_id")
-			nodeID := tag.Value.(string)
+			reqType, nodeID, respSize, reqSize := findTags(v.Tags)
 
 			d := NodeData{v.SpanID, v.OperationName,
-				v.StartTime, v.Duration, tagData, nodeID}
+				v.StartTime, v.Duration, reqType, nodeID,
+				reqSize, respSize}
 
 			nodeChildren := UpdateChildren(data, v.SpanID)
 			children = append(children, Node{d, &nodeChildren})
