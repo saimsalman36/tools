@@ -4,11 +4,12 @@ topology_paths = [
 ]
 
 policy_files = [
-  "example-policies/canonical.yaml",
 ]
 
+
+## NONE, ISTIO
 environments = [
-  "ISTIO",
+  "NONE",
 ]
 
 [cluster]
@@ -17,11 +18,11 @@ project_id = "absolute-garden-516"
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
 # In total (N + 2) nodes per zone.
-name = "exp-8"
+name = "exp-10"
 # One can specify multiple zones for the cluster. The control place 
 # would be in the first zone you specify but the nodes would be 
 # spread around the zones.
-zones = ["us-central1-a", "us-central1-b", "us-central1-c"]
+zones = ["us-central1-a"]
 version = "1.12.7-gke.25"
 
 [istio]
@@ -30,7 +31,7 @@ archive_url = "https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.
 [server]
 machine_type = "n1-standard-1"
 disk_size_gb = 32
-num_nodes = 10
+num_nodes = 5
 image = "saimsalman/isotope:v4"
 
 [client]
@@ -42,3 +43,12 @@ image = "tahler/fortio:prometheus"
 qps = "100"
 duration = "1m"
 num_concurrent_connections = 10
+
+[application]
+application_name = "bookinfo"
+entrypoint_service_name = "productpage"
+entrypoint_port_number = 9080
+path = "productpage"
+entrypoint_policy_files = [
+	"app-policies/bookinfo-gateway.yaml"
+]

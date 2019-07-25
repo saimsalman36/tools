@@ -6,7 +6,7 @@ import logging
 import os
 import tarfile
 import tempfile
-from typing import Any, Dict, Generator
+from typing import Any, Dict, Generator, List
 
 import yaml
 import time
@@ -30,7 +30,7 @@ def convert_archive(archive_url: str) -> str:
 
 
 def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
-           archive_url: str, values: str) -> None:
+           archive_url: str, values: str, app_gateway_policies: List[str]) -> None:
     """Installs Istio from the archive URL.
 
     Requires Helm client to be present.
@@ -68,7 +68,8 @@ def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
 
 
         _create_ingress_rules(entrypoint_service_name,
-                              entrypoint_service_namespace)
+                              entrypoint_service_namespace,
+                              app_gateway_policies)
 
 
 def get_ingress_gateway_url() -> str:
@@ -188,12 +189,17 @@ def _work_dir(path: str) -> Generator[None, None, None]:
 
 
 def _create_ingress_rules(entrypoint_service_name: str,
-                          entrypoint_service_namespace: str) -> None:
-    logging.info('creating istio ingress rules')
-    ingress_yaml = _get_ingress_yaml(entrypoint_service_name,
-                                     entrypoint_service_namespace)
-    kubectl.apply_text(
-        ingress_yaml, intermediate_file_path=resources.ISTIO_INGRESS_YAML_PATH)
+                          entrypoint_service_namespace: str,
+                          app_gateway_policies: List[str]) -> None:
+    if app_gateway_policies is not None:
+        for file in app_gateway_policies:
+            kubectl.apply_file(file)
+    else:
+        logging.info('creating istio ingress rules')
+        ingress_yaml = _get_ingress_yaml(entrypoint_service_name,
+                                         entrypoint_service_namespace)
+        kubectl.apply_text(
+            ingress_yaml, intermediate_file_path=resources.ISTIO_INGRESS_YAML_PATH)
 
 
 def _get_ingress_yaml(entrypoint_service_name: str,

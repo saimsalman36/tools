@@ -21,23 +21,44 @@ def main(args: argparse.Namespace) -> None:
         config.server_disk_size_gb, config.server_num_nodes,
         config.client_machine_type, config.client_disk_size_gb)
 
-    for topology_path in config.topology_paths:
-        for env_name in config.environments:
-            entrypoint_service_name = entrypoint.extract_name(topology_path)
-            mesh_environment = mesh.for_state(
-                env_name, entrypoint_service_name,
-                consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
-            pipeline.run(topology_path, mesh_environment, config.server_image,
-                         config.client_image, config.istio_archive_url,
-                         config.policy_files, config.client_qps,
-                         config.client_duration, config.client_num_conc_conns,
-                         config.labels())
+    if args.real_app == 'True':
+        print("..")
+        entrypoint_service_name = config.app_svc_name
+        mesh_environment = mesh.for_state(
+            "REAL", entrypoint_service_name,
+            consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
+
+        pipeline.run(None, mesh_environment,
+                     None,
+                     config.client_image, config.istio_archive_url,
+                     config.policy_files, config.client_qps,
+                     config.client_duration,
+                     config.client_num_conc_conns,
+                     config.labels())
+    else:
+        for topology_path in config.topology_paths:
+            for env_name in config.environments:
+                entrypoint_service_name = entrypoint.extract_name(topology_path)
+                mesh_environment = mesh.for_state(
+                    env_name, entrypoint_service_name,
+                    consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
+                pipeline.run(topology_path, mesh_environment,
+                             config.server_image,
+                             config.client_image, config.istio_archive_url,
+                             config.policy_files, config.client_qps,
+                             config.client_duration,
+                             config.client_num_conc_conns,
+                             config.labels())
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument('config_path', type=str)
     parser.add_argument('helm_values', type=str)
+    parser.add_argument('--real-app',
+                        type=str,
+                        choices=['True', 'False'],
+                        default='False')
     parser.add_argument('--clean-up',
                         type=str,
                         choices=['True', 'False'],

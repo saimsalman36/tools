@@ -37,16 +37,24 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
                 for the client to make
         static_labels: labels to add to each Prometheus monitor
     """
+    if service_image == None:
+        manifest_path = _gen_load_gen_yaml(client_image)
+    else:
+        manifest_path = _gen_yaml(topology_path, service_image,
+                                  test_num_concurrent_connections, client_image,
+                                  env.name)
 
-    manifest_path = _gen_yaml(topology_path, service_image,
-                              test_num_concurrent_connections, client_image,
-                              env.name)
+    if topology_path:
+        topology_name = _get_basename_no_ext(topology_path)
+        topology_hash = md5.hex(topology_path)
+    else:
+        topology_name = None
+        topology_hash = None
 
-    topology_name = _get_basename_no_ext(topology_path)
     labels = {
         'environment': env.name,
         'topology_name': topology_name,
-        'topology_hash': md5.hex(topology_path),
+        'topology_hash': topology_hash,
         **static_labels,
     }
     if deploy_prometheus:
@@ -58,10 +66,16 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
         logging.info('starting test with environment "%s"', env.name)
         result_output_path = '{}_{}.json'.format(topology_name, env.name)
 
+        if service_image == None:
+            actual_app = True
+        else:
+            actual_app = False
+
         _test_service_graph(env, manifest_path, policy_files,
                             result_output_path, ingress_url,
                             test_qps, test_duration,
-                            test_num_concurrent_connections)
+                            test_num_concurrent_connections,
+                            actual_app)
 
 
 def _apply_policy_files(policy_files: List[str], namespace: str) -> None:
@@ -79,6 +93,29 @@ def _get_basename_no_ext(path: str) -> str:
     basename = os.path.basename(path)
     return os.path.splitext(basename)[0]
 
+def _gen_load_gen_yaml(client_image: str):
+    """Generates Kubernetes manifests about fortio client
+
+    The neighboring Go command in convert/ handles this operation.
+
+    Args:
+        client_image: the Docker image which can run a load test (i.e. Fortio);
+                passed to the Go command
+        env_name: the environment name (i.e. "NONE" or "ISTIO")
+    """
+    logging.info('generating Load Generator manifests from')
+    client_node_selector = _get_gke_node_selector(consts.CLIENT_NODE_POOL_NAME)
+    gen = sh.run(
+        [
+            'go', 'run', _MAIN_GO_PATH, 'fortio', '--client-image',
+            client_image, '--client-node-selector',
+            client_node_selector, consts.APP_YAML_FILE,
+        ],
+        check=True)
+    with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
+        f.write(gen.stdout)
+
+    return resources.SERVICE_GRAPH_GEN_YAML_PATH
 
 def _gen_yaml(topology_path: str, service_image: str,
               max_idle_connections_per_host: int, client_image: str,
@@ -124,19 +161,21 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
                         policy_files: List[str], test_result_output_path: str,
                         test_target_url: str, test_qps: Optional[int],
                         test_duration: str,
-                        test_num_concurrent_connections: int) -> None:
+                        test_num_concurrent_connections: int,
+                        actual_app: bool) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
     with kubectl.manifest(yaml_path):
         wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
-        wait.until_service_graph_is_ready()
+        if not actual_app:
+            wait.until_service_graph_is_ready()
 
         if env.name == "istio":
             _apply_policy_files(policy_files, consts.ISTIO_NAMESPACE)
 
         # TODO: Why is this extra buffer necessary?
-        logging.debug('sleeping for 30 seconds as an extra buffer')
-        time.sleep(30)
+        logging.debug('sleeping for 40 seconds as an extra buffer')
+        time.sleep(40)
 
         _run_load_test(test_result_output_path, test_target_url, test_qps,
                        test_duration, test_num_concurrent_connections)
@@ -167,10 +206,12 @@ def _run_load_test(result_output_path: str, test_target_url: str,
     with kubectl.port_forward("app", consts.CLIENT_NAME, consts.CLIENT_PORT,
                               consts.DEFAULT_NAMESPACE) as local_port:
         qps = -1 if test_qps is None else test_qps  # -1 indicates max QPS.
+        print("SAIM")
         url = ('http://localhost:{}/fortio'
                '?json=on&qps={}&t={}&c={}&load=Start&url={}').format(
                    local_port, qps, test_duration,
                    test_num_concurrent_connections, test_target_url)
+        print(test_target_url)
         result = _http_get_json(url)
     _write_to_file(result_output_path, result)
 

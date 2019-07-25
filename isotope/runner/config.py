@@ -16,7 +16,10 @@ class RunnerConfig:
                  server_num_nodes: int, server_image: str,
                  client_machine_type: str, client_disk_size_gb: int,
                  client_image: str, client_qps: Optional[int],
-                 client_duration: str, client_num_conc_conns: int) -> None:
+                 client_duration: str, client_num_conc_conns: int,
+                 app_name: str, app_svc_name: str,
+                 app_port_num: int, app_path: str,
+                 app_gateway_policies: List[str]) -> None:
         self.topology_paths = topology_paths
         self.policy_files = policy_files
         self.environments = environments
@@ -35,6 +38,11 @@ class RunnerConfig:
         self.client_qps = client_qps
         self.client_duration = client_duration
         self.client_num_conc_conns = client_num_conc_conns
+        self.app_name = app_name
+        self.app_svc_name = app_svc_name
+        self.app_port_num = app_port_num
+        self.app_path = app_path
+        self.app_gateway_policies = app_gateway_policies
 
     def labels(self) -> Dict[str, str]:
         """Returns the static labels for Prometheus for this configuration."""
@@ -89,6 +97,13 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
     client_duration = client['duration']
     client_num_conc_conns = client['num_concurrent_connections']
 
+    application = d['application']
+    app_name = application['application_name']
+    app_svc_name = application['entrypoint_service_name']
+    app_port_num = int(application['entrypoint_port_number'])
+    app_path = application['path']
+    app_gateway_policies = d.get('entrypoint_policy_files', [])
+
     return RunnerConfig(
         topology_paths=topology_paths,
         policy_files=policy_files,
@@ -107,7 +122,12 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
         client_image=client_image,
         client_qps=client_qps,
         client_duration=client_duration,
-        client_num_conc_conns=client_num_conc_conns)
+        client_num_conc_conns=client_num_conc_conns,
+        app_name=app_name,
+        app_svc_name=app_svc_name,
+        app_port_num=app_port_num,
+        app_path=app_path,
+        app_gateway_policies=app_gateway_policies)
 
 
 def from_toml_file(path: str) -> RunnerConfig:
