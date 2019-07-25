@@ -17,8 +17,3 @@ services:
 - name: reviews
   script:
   - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 0.88392973005275, "Beta": 0.0022981498921862305}}}
-  - call: ratings
-  - sleep: {type: "dist", data: {name: "laplace", Dist: {"Mu": 0.0014419349099109686, "Scale": 0.0008369995000184778}}}
-- name: ratings
-  script:
-  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 4.162534909404695, "Beta": 0.000849742256957342}}}

@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"log"
 	"time"
+	"fmt"
 
 	"github.com/jmcvetta/randutil"
 	"gonum.org/v1/gonum/stat/distuv"
@@ -36,7 +37,7 @@ type SleepCommandStatic struct {
 }
 
 func (c SleepCommandStatic) Duration() time.Duration {
-	return c.Time
+	return c.Time * 1e6
 }
 
 type SleepCommandDistribution struct {
@@ -47,7 +48,8 @@ type SleepCommandDistribution struct {
 }
 
 func (c SleepCommandDistribution) Duration() time.Duration {
-	return time.Duration(c.Dist.Rand() * 10e8)
+	fmt.Println(c.Dist.Rand())
+	return time.Duration(c.Dist.Rand() * 1e6)
 }
 
 type SleepCommandHistogram struct {
@@ -60,7 +62,7 @@ func (c SleepCommandHistogram) Duration() time.Duration {
 		panic(err)
 	}
 
-	return (result.Item.(time.Duration))
+	return (result.Item.(time.Duration) * 1e6)
 }
 
 type SleepCommandWrapper struct {
