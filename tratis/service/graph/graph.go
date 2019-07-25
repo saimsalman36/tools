@@ -19,6 +19,7 @@ import (
 	"log"
 	"sort"
 	"strings"
+	"errors"
 
 	jaeger "github.com/jaegertracing/jaeger/model/json"
 )
@@ -91,15 +92,14 @@ func _CompGraphHelper(node1 *Node, node2 *Node) bool {
 }
 
 // Root span has no references.
-func findRootSpan(spans []jaeger.Span) jaeger.Span {
+func findRootSpan(spans []jaeger.Span) (jaeger.Span, error) {
 	for _, span := range spans {
 		if len(span.References) == 0 {
-			return span
+			return span, nil
 		}
 	}
 
-	log.Fatalf(`Root Span not present in spans`)
-	return jaeger.Span{}
+	return jaeger.Span{}, errors.New("Root Span not present in spans")
 }
 
 func findTags(tags []jaeger.KeyValue) (reqType string,
@@ -146,8 +146,11 @@ func findTags(tags []jaeger.KeyValue) (reqType string,
 	return
 }
 
-func GenerateGraph(data []jaeger.Span) *Graph {
-	rootSpan := findRootSpan(data)
+func GenerateGraph(data []jaeger.Span) (*Graph, error) {
+	rootSpan, err := findRootSpan(data)
+	if err != nil {
+		return nil, err
+	}
 
 	reqType, nodeID, respSize, reqSize := findTags(rootSpan.Tags)
 
@@ -156,7 +159,7 @@ func GenerateGraph(data []jaeger.Span) *Graph {
 		reqSize, respSize}
 	childrenList := UpdateChildren(data, rootSpan.SpanID)
 	root := Node{d, &childrenList}
-	return &Graph{&root}
+	return &Graph{&root}, nil
 }
 
 func UpdateChildren(data []jaeger.Span, spanID jaeger.SpanID) []Node {

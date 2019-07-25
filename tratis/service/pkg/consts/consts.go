@@ -16,9 +16,9 @@ package consts
 
 const (
 	// Traces Limit
-	NumTraces = 20000
+	NumTraces = 3000
 
-	MinNumTraces = 1
+	MinNumTraces = 250
 
 	// Distribution Fitting File Path
 	DistFilePath = "Distribution"
@@ -30,5 +30,5 @@ const (
 	// Tarcing Tool Port Number
 	TracingToolPortNumber = "15032"
 	// Tracing Tool EntryPoint Service
-	TracingToolEntryPoint = "productpage.service-graph"
+	TracingToolEntryPoint = "productpage.default"
 )

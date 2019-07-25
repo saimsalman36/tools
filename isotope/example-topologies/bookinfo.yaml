@@ -6,14 +6,14 @@ services:
 - name: products
   isEntrypoint: true
   script:
-  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 1.7893254769273406, "Beta": 0.0038308336579556956}}}
-  - call: details
-  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 3.276295738081759, "Beta": 0.0022068248697463145}}}
-  - call: reviews
-  - sleep: {type: "dist", data: {name: "laplace", Dist: {"Mu": 0.0037150093587108232, "Scale": 0.0014640514280000482}}}
+  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 2.3816362468077372, "Beta": 0.002161223694095005}}}
+  - call: {probability: 100, service: details}
+  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 5.2164495662162444, "Beta": 0.009615248944098098}}}
+  - call: {probability: 100, service: reviews}
+  - sleep: {type: "dist", data: {name: "gumbel-right", Dist: {"Mu": 0.0027029001085299128, "Beta": 0.0008478643368819356}}}
 - name: details
   script:
-  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 2.3612511214883325, "Beta": 0.002218221440920016}}}
+  - sleep: {type: "dist", data: {name: "laplace", Dist: {"Mu": 0.0029680068808733183, "Scale": 0.0003402655573723713}}}
 - name: reviews
   script:
-  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 0.88392973005275, "Beta": 0.0022981498921862305}}}
+  - sleep: {type: "dist", data: {name: "inverse-gamma", Dist: {"Alpha": 0.7997399996603941, "Beta": 0.0004738399545074661}}}

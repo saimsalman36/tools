@@ -32,7 +32,7 @@ archive_url = "https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.
 machine_type = "n1-standard-1"
 disk_size_gb = 32
 num_nodes = 5
-image = "saimsalman/isotope:v4"
+image = "saimsalman/isotope:v5"
 
 [client]
 machine_type = "n1-highcpu-4"
@@ -40,7 +40,7 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = "100"
+qps = "70"
 duration = "1m"
 num_concurrent_connections = 10
 

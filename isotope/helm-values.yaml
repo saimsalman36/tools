@@ -17,3 +17,6 @@ tracing:
 
 certmanager:
   enabled: false
+
+pilot:
+  traceSampling: 100

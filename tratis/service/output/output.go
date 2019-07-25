@@ -66,7 +66,12 @@ func GenerateOutput(data parser.TraceData) []byte {
 	fmt.Println("Generating Time Information ...")
 
 	for _, trace := range traces {
-		g := graph.GenerateGraph(trace.Spans)
+		g, err := graph.GenerateGraph(trace.Spans)
+
+		if err != nil {
+			continue
+		}
+
 		idx := addNewGraph(&graphs, g)
 
 		traceInformation := distribution.ExtractTimeInformation(g)
