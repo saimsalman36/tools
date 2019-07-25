@@ -30,7 +30,7 @@ def convert_archive(archive_url: str) -> str:
 
 
 def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
-           archive_url: str, values: str, app_gateway_policies: List[str]) -> None:
+           archive_url: str, values: str, app_yaml_dir: str) -> None:
     """Installs Istio from the archive URL.
 
     Requires Helm client to be present.
@@ -69,7 +69,7 @@ def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
 
         _create_ingress_rules(entrypoint_service_name,
                               entrypoint_service_namespace,
-                              app_gateway_policies)
+                              app_yaml_dir)
 
 
 def get_ingress_gateway_url() -> str:
@@ -190,10 +190,13 @@ def _work_dir(path: str) -> Generator[None, None, None]:
 
 def _create_ingress_rules(entrypoint_service_name: str,
                           entrypoint_service_namespace: str,
-                          app_gateway_policies: List[str]) -> None:
-    if app_gateway_policies is not None:
-        for file in app_gateway_policies:
-            kubectl.apply_file(file)
+                          app_yaml_dir: str) -> None:
+    if app_yaml_dir is not None:
+        for file in os.listdir(app_yaml_dir):
+            if 'gateway' in file:
+                f = (os.path.join(app_yaml_dir, file))
+                kubectl.apply_file(f)
+                return
     else:
         logging.info('creating istio ingress rules')
         ingress_yaml = _get_ingress_yaml(entrypoint_service_name,

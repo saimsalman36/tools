@@ -1,6 +1,6 @@
 # Runs each topology on all environments.
 topology_paths = [
-  "example-topologies/canonical.yaml",
+  "example-topologies/bookinfo.yaml",
 ]
 
 policy_files = [
@@ -9,7 +9,7 @@ policy_files = [
 
 ## NONE, ISTIO
 environments = [
-  "NONE",
+  "ISTIO",
 ]
 
 [cluster]
@@ -18,7 +18,7 @@ project_id = "absolute-garden-516"
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
 # In total (N + 2) nodes per zone.
-name = "exp-10"
+name = "exp-11"
 # One can specify multiple zones for the cluster. The control place 
 # would be in the first zone you specify but the nodes would be 
 # spread around the zones.
@@ -49,6 +49,4 @@ application_name = "bookinfo"
 entrypoint_service_name = "productpage"
 entrypoint_port_number = 9080
 path = "productpage"
-entrypoint_policy_files = [
-	"app-policies/bookinfo-gateway.yaml"
-]
+yaml_files = "app-policies"

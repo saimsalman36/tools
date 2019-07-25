@@ -1,0 +1,49 @@
+saimsalman@saimsalman:~/go/src/istio.io/tools/isotope$ python3 run_tests.py example-config.toml helm-values.yaml --clean-up False
+DEBUG	> ['gcloud', 'config', 'set', 'project', 'absolute-garden-516']
+DEBUG	> ['gcloud', 'container', 'clusters', 'list', '--zone', 'us-central1-a']
+DEBUG	> exp-6 already exists; bypassing creation
+/usr/local/google/home/saimsalman/go/src/istio.io/tools/isotope/runner/entrypoint.py:11: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  topology = yaml.load(f)
+INFO	> generating Kubernetes manifests from example-topologies/canonical.yaml
+DEBUG	> ['go', 'run', '/usr/local/google/home/saimsalman/go/src/istio.io/tools/isotope/convert/main.go', 'kubernetes', '--service-image', 'saimsalman/isotope:v4', '--service-max-idle-connections-per-host', '64', '--client-image', 'tahler/fortio:prometheus', '--environment-name', 'istio', '--service-node-selector', 'cloud.google.com/gke-nodepool=service-graph-pool', '--client-node-selector', 'cloud.google.com/gke-nodepool=client-pool', 'example-topologies/canonical.yaml']
+('Using archive_url', 'https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.2-linux.tar.gz')
+INFO	> downloading https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.2-linux.tar.gz
+DEBUG	> ['curl', '-L', '--output', '/tmp/tmpvu4j_kih/istio.tar.gz', 'https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.2-linux.tar.gz']
+INFO	> applying crd definitions for Istio
+DEBUG	> ['kubectl', 'create', 'namespace', 'istio-system']
+DEBUG	> ['helm', 'template', '/tmp/tmpvu4j_kih/istio/istio-1.2.2/install/kubernetes/helm/istio-init', '--name', 'istio-init', '--namespace', 'istio-system']
+DEBUG	> ['kubectl', 'apply', '-f', '/tmp/tmpmbcroz67']
+INFO	> sleeping for 10 seconds as an extra buffer
+INFO	> installing Helm chart for Istio
+DEBUG	> ['helm', 'template', '/tmp/tmpvu4j_kih/istio/istio-1.2.2/install/kubernetes/helm/istio', '--namespace', 'istio-system', '--values', 'helm-values.yaml']
+DEBUG	> ['kubectl', 'apply', '-f', '/usr/local/google/home/saimsalman/go/src/istio.io/tools/isotope/runner/resources/istio.gen.yaml']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'get', 'deployment', '-o', 'jsonpath={.items[*].metadata.name}']
+INFO	> waiting for deployments in istio-system (istio-citadel, istio-galley, istio-ingressgateway, istio-pilot, istio-policy, istio-sidecar-injector, istio-telemetry, prometheus) to rollout
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-citadel']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-galley']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-ingressgateway']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-pilot']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-policy']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-sidecar-injector']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'istio-telemetry']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'rollout', 'status', 'deployment', 'prometheus']
+INFO	> creating istio ingress rules
+DEBUG	> ['kubectl', 'apply', '-f', '/usr/local/google/home/saimsalman/go/src/istio.io/tools/isotope/runner/resources/istio-ingress.gen.yaml']
+DEBUG	> ['kubectl', '--namespace', 'istio-system', 'get', 'service', 'istio-ingressgateway', '-o', 'jsonpath={.status.loadBalancer.ingress[0].ip}']
+INFO	> starting test with environment "istio"
+DEBUG	> ['kubectl', 'apply', '-f', '/usr/local/google/home/saimsalman/go/src/istio.io/tools/isotope/runner/resources/service-graph.gen.yaml']
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'get', 'deployment', '-o', 'jsonpath={.items[*].metadata.name}']
+INFO	> waiting for deployments in service-graph (a-v1, a-v2, b-v1, c-v1, d-v1) to rollout
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'rollout', 'status', 'deployment', 'a-v1']
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'rollout', 'status', 'deployment', 'a-v2']
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'rollout', 'status', 'deployment', 'b-v1']
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'rollout', 'status', 'deployment', 'c-v1']
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'rollout', 'status', 'deployment', 'd-v1']
+DEBUG	> ['kubectl', '--namespace', 'service-graph', 'get', 'pods', '--selector', 'role=service', '-o', 'jsonpath={.items[*].status.conditions[?(@.type=="Ready")].status}']
+DEBUG	> sleeping for 30 seconds as an extra buffer
+INFO	> starting load test
+DEBUG	> ['kubectl', 'get', 'pod', '-lapp=client', '-o=jsonpath={.items[0].metadata.name}', '--namespace', 'default']
+DEBUG	> Starting new HTTP connection (1): localhost:59903
+DEBUG	> http://localhost:59903 "GET /fortio?json=on&qps=-1&t=1m&c=64&load=Start&url=http://35.184.125.210:80 HTTP/1.1" 301 128
+DEBUG	> http://localhost:59903 "GET /fortio/?json=on&qps=-1&t=1m&c=64&load=Start&url=http://35.184.125.210:80 HTTP/1.1" 200 1800
+DEBUG	> writing contents to canonical_istio.json

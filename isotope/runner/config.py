@@ -19,7 +19,7 @@ class RunnerConfig:
                  client_duration: str, client_num_conc_conns: int,
                  app_name: str, app_svc_name: str,
                  app_port_num: int, app_path: str,
-                 app_gateway_policies: List[str]) -> None:
+                 app_yaml_dir: str) -> None:
         self.topology_paths = topology_paths
         self.policy_files = policy_files
         self.environments = environments
@@ -42,7 +42,7 @@ class RunnerConfig:
         self.app_svc_name = app_svc_name
         self.app_port_num = app_port_num
         self.app_path = app_path
-        self.app_gateway_policies = app_gateway_policies
+        self.app_yaml_dir = app_yaml_dir
 
     def labels(self) -> Dict[str, str]:
         """Returns the static labels for Prometheus for this configuration."""
@@ -102,7 +102,7 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
     app_svc_name = application['entrypoint_service_name']
     app_port_num = int(application['entrypoint_port_number'])
     app_path = application['path']
-    app_gateway_policies = d.get('entrypoint_policy_files', [])
+    app_yaml_dir = application['yaml_files']
 
     return RunnerConfig(
         topology_paths=topology_paths,
@@ -127,7 +127,7 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
         app_svc_name=app_svc_name,
         app_port_num=app_port_num,
         app_path=app_path,
-        app_gateway_policies=app_gateway_policies)
+        app_yaml_dir=app_yaml_dir)
 
 
 def from_toml_file(path: str) -> RunnerConfig:

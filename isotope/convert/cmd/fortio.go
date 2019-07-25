@@ -40,7 +40,7 @@ var fortioCmd = &cobra.Command{
 		clientImage, err := cmd.PersistentFlags().GetString("client-image")
 		exitIfError(err)
 
-		yamlContents, err := ioutil.ReadFile(inPath)
+		files, err := ioutil.ReadDir(inPath)
 		exitIfError(err)
 
 		manifests, err := kubernetes.GenerateFortioManifests(
@@ -48,9 +48,14 @@ var fortioCmd = &cobra.Command{
 		exitIfError(err)
 
 		var result strings.Builder
-		result.Write((manifests))
+		result.Write(manifests)
 		result.WriteString("\n---\n")
-		result.Write((yamlContents))
+		for _, file := range files {
+			yamlContents, err := ioutil.ReadFile(inPath + "/" + file.Name())
+			exitIfError(err)
+			result.Write(yamlContents)
+			result.WriteString("\n---\n")
+		}
 
 		fmt.Println(result.String())
 	},

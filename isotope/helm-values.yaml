@@ -12,5 +12,8 @@ global:
   # TODO: Switch to Always as default, and override in the local tests.
   imagePullPolicy: IfNotPresent
 
+tracing:
+  enabled: true
+
 certmanager:
   enabled: false

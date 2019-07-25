@@ -15,10 +15,7 @@
 package main
 
 import (
-<<<<<<< HEAD
-=======
 	"encoding/json"
->>>>>>> saim-tratis-update
 	"fmt"
 	"log"
 	"os"

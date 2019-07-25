@@ -26,13 +26,8 @@ import (
 )
 
 type Output struct {
-<<<<<<< HEAD
-	NumTraces               int                               `'json"NumTraces"`
-	CallGraph               *graph.Node                       `'json:"Graph"`
-=======
 	NumTraces               int                               `json:"NumTraces"`
 	CallGraph               *graph.Node                       `json:"Graph"`
->>>>>>> saim-tratis-update
 	TimeInformation         []distribution.TotalDistributions `json:"TimeInformation"`
 	RequestSizeInformation  []distribution.TotalDistributions `json:"RequestSizeInformation"`
 	ResponseSizeInformation []distribution.TotalDistributions `json:"ResponseSizeInformation"`

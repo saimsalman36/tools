@@ -21,7 +21,7 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
         client_image: str, istio_archive_url: str, policy_files: List[str],
         test_qps: Optional[int], test_duration: str,
         test_num_concurrent_connections: int, static_labels: Dict[str, str],
-        deploy_prometheus=False) -> None:
+        app_yaml_dir: str, deploy_prometheus=False) -> None:
     """Runs a load test on the topology in topology_path with the environment.
 
     Args:
@@ -38,18 +38,18 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
         static_labels: labels to add to each Prometheus monitor
     """
     if service_image == None:
-        manifest_path = _gen_load_gen_yaml(client_image)
+        manifest_path = _gen_load_gen_yaml(client_image, app_yaml_dir)
     else:
         manifest_path = _gen_yaml(topology_path, service_image,
                                   test_num_concurrent_connections, client_image,
                                   env.name)
 
-    if topology_path:
-        topology_name = _get_basename_no_ext(topology_path)
-        topology_hash = md5.hex(topology_path)
-    else:
+    if service_image == None:
         topology_name = None
         topology_hash = None
+    else:
+        topology_name = _get_basename_no_ext(topology_path)
+        topology_hash = md5.hex(topology_path)
 
     labels = {
         'environment': env.name,
@@ -93,7 +93,7 @@ def _get_basename_no_ext(path: str) -> str:
     basename = os.path.basename(path)
     return os.path.splitext(basename)[0]
 
-def _gen_load_gen_yaml(client_image: str):
+def _gen_load_gen_yaml(client_image: str, app_yaml_dir: str):
     """Generates Kubernetes manifests about fortio client
 
     The neighboring Go command in convert/ handles this operation.
@@ -109,7 +109,7 @@ def _gen_load_gen_yaml(client_image: str):
         [
             'go', 'run', _MAIN_GO_PATH, 'fortio', '--client-image',
             client_image, '--client-node-selector',
-            client_node_selector, consts.APP_YAML_FILE,
+            client_node_selector, app_yaml_dir,
         ],
         check=True)
     with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
@@ -206,7 +206,6 @@ def _run_load_test(result_output_path: str, test_target_url: str,
     with kubectl.port_forward("app", consts.CLIENT_NAME, consts.CLIENT_PORT,
                               consts.DEFAULT_NAMESPACE) as local_port:
         qps = -1 if test_qps is None else test_qps  # -1 indicates max QPS.
-        print("SAIM")
         url = ('http://localhost:{}/fortio'
                '?json=on&qps={}&t={}&c={}&load=Start&url={}').format(
                    local_port, qps, test_duration,
