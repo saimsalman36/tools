@@ -210,7 +210,6 @@ def _run_load_test(result_output_path: str, test_target_url: str,
                '?json=on&qps={}&t={}&c={}&load=Start&url={}').format(
                    local_port, qps, test_duration,
                    test_num_concurrent_connections, test_target_url)
-        print(test_target_url)
         result = _http_get_json(url)
     _write_to_file(result_output_path, result)
 

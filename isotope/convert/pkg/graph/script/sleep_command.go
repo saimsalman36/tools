@@ -40,7 +40,7 @@ type SleepCommandRaw struct {
 
 func (c SleepCommandRaw) Duration() time.Duration {
 	rand.Seed(time.Now().Unix()) // initialize global pseudo random generator
-	return time.Duration(c.List[rand.Intn(len(c.List))] * 1e6)
+	return (time.Duration(c.List[rand.Intn(len(c.List))]) * 1e3)
 }
 
 type SleepCommandStatic struct {
@@ -262,18 +262,14 @@ func (c *SleepCommand) UnmarshalJSON(b []byte) (err error) {
 		HistCmd.Histogram = ret
 		*c = SleepCommand{command.Type, HistCmd}
 	case RawData:
-		var rawData map[string][]float64
+		var rawData SleepCommandRaw
 		err = json.Unmarshal(command.Data, &rawData)
 
 		if err != nil {
 			return
 		}
 
-		var RawCmd SleepCommandRaw
-		RawCmd.List = rawData["list"]
-		*c = SleepCommand{command.Type, RawCmd}
-
-
+		*c = SleepCommand{command.Type, rawData}
 	}
 	return
 }
