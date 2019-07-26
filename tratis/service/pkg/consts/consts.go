@@ -30,5 +30,7 @@ const (
 	// Tarcing Tool Port Number
 	TracingToolPortNumber = "15032"
 	// Tracing Tool EntryPoint Service
-	TracingToolEntryPoint = "productpage.default"
+	TracingToolEntryPoint = "productpage.service-graph"
+	// Output can be either `RAW` or `DIST`
+	OutputType = "RAW"
 )

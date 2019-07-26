@@ -38,7 +38,6 @@ type TotalDistributions struct {
 type HasDistributionData interface {
 	GetDistributionData() [][]uint64
 	GetOperation() string
-	Convert() HasDistributionData
 }
 
 func ConvertTimeInfo(data []CombinedTimeInformation) []HasDistributionData {

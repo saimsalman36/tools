@@ -17,7 +17,7 @@ package output
 import (
 	"encoding/json"
 
-	"istio.io/tools/tratis/service/distribution"
+	dist "istio.io/tools/tratis/service/distribution"
 	"istio.io/tools/tratis/service/graph"
 	parser "istio.io/tools/tratis/service/parsing"
 	"istio.io/tools/tratis/service/pkg/consts"
@@ -25,12 +25,23 @@ import (
 	"fmt"
 )
 
-type Output struct {
-	NumTraces               int                               `json:"NumTraces"`
-	CallGraph               *graph.Node                       `json:"Graph"`
-	TimeInformation         []distribution.TotalDistributions `json:"TimeInformation"`
-	RequestSizeInformation  []distribution.TotalDistributions `json:"RequestSizeInformation"`
-	ResponseSizeInformation []distribution.TotalDistributions `json:"ResponseSizeInformation"`
+type BasicData struct {
+	NumTraces int         `json:"NumTraces"`
+	CallGraph *graph.Node `json:"Graph"`
+}
+
+type RawOutput struct {
+	BasicData
+	TimeInformation         []dist.HasDistributionData `json:"TimeInformation"`
+	RequestSizeInformation  []dist.HasDistributionData `json:"RequestSizeInformation"`
+	ResponseSizeInformation []dist.HasDistributionData `json:"ResponseSizeInformation"`
+}
+
+type DistributionOutput struct {
+	BasicData
+	TimeInformation         []dist.TotalDistributions `json:"TimeInformation"`
+	RequestSizeInformation  []dist.TotalDistributions `json:"RequestSizeInformation"`
+	ResponseSizeInformation []dist.TotalDistributions `json:"ResponseSizeInformation"`
 }
 
 func addNewGraph(data *[][]*graph.Graph, g *graph.Graph) int {
@@ -58,8 +69,8 @@ func GenerateOutput(data parser.TraceData) []byte {
 
 	fmt.Printf("Processing %d Traces\n", len(traces))
 
-	d := make([][][]distribution.TimeInformation, 0)
-	s := make([][][]distribution.MessageSizeInfo, 0)
+	d := make([][][]dist.TimeInformation, 0)
+	s := make([][][]dist.MessageSizeInfo, 0)
 
 	graphs := make([][]*graph.Graph, 0)
 
@@ -74,15 +85,15 @@ func GenerateOutput(data parser.TraceData) []byte {
 
 		idx := addNewGraph(&graphs, g)
 
-		traceInformation := distribution.ExtractTimeInformation(g)
-		sizeInformation := distribution.ExtractSizeInformation(g)
+		traceInformation := dist.ExtractTimeInformation(g)
+		sizeInformation := dist.ExtractSizeInformation(g)
 
 		if len(d) < idx+1 {
-			d = append(d, make([][]distribution.TimeInformation, 0))
+			d = append(d, make([][]dist.TimeInformation, 0))
 		}
 
 		if len(s) < idx+1 {
-			s = append(s, make([][]distribution.MessageSizeInfo, 0))
+			s = append(s, make([][]dist.MessageSizeInfo, 0))
 		}
 
 		d[idx] = append(d[idx], traceInformation)
@@ -91,44 +102,32 @@ func GenerateOutput(data parser.TraceData) []byte {
 
 	fmt.Println("Combining Results + Distribution Fitting ...")
 
-	ret := make([]Output, 0)
+	ret := make([]RawOutput, 0)
 
 	for idx := range graphs {
 
 		if len(graphs[idx]) > consts.MinNumTraces {
 			fmt.Println("Processing Graph Number: ", idx)
-			temp := Output{}
+
+			var temp RawOutput
+
 			temp.NumTraces = len(graphs[idx])
 			temp.CallGraph = graphs[idx][0].Root
 
 			fmt.Println("Extra Time Information")
 
-			timeResults := distribution.ConvertTimeInfo(distribution.CombineTimeInformation(d[idx]))
-
-			dists := distribution.InfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, timeResults, true)
-
-			temp.TimeInformation = dists
+			timeResults := dist.CombineTimeInformation(d[idx])
+			temp.TimeInformation = dist.ConvertTimeInfo(timeResults)
 
 			fmt.Println("Extracting Response Size Information")
 
-			sizeResults := distribution.ConvertSizeInfo(distribution.CombineSizeInformation(s[idx], true))
-
-			dists = distribution.InfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, sizeResults, false)
-
-			temp.ResponseSizeInformation = dists
+			sizeResults := dist.ConvertSizeInfo(dist.CombineSizeInformation(s[idx], true))
+			temp.ResponseSizeInformation = sizeResults
 
 			fmt.Println("Extracting Request Size Information")
 
-			sizeResults = distribution.ConvertSizeInfo(distribution.CombineSizeInformation(s[idx], false))
-
-			dists = distribution.InfoToDist(consts.DistFilePath,
-				consts.DistFittingFuncName, sizeResults, false)
-
-			temp.RequestSizeInformation = dists
-
-			// Appending to ret
+			sizeResults = dist.ConvertSizeInfo(dist.CombineSizeInformation(s[idx], false))
+			temp.RequestSizeInformation = sizeResults
 
 			ret = append(ret, temp)
 		} else {

@@ -1,0 +1,1845 @@
+<scipy.stats._continuous_distns.beta_gen object at 0x7f8652d18630> 426175.39847424015
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f864c7740b8> 388664.46110145847
+<scipy.stats._continuous_distns.expon_gen object at 0x7f8649f7b518> 428530.6271301578
+<scipy.stats._continuous_distns.f_gen object at 0x7f8649f82438> 411070.228769225
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f8649f9de10> 438120.87654569844
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f8649fabb38> 440678.3600462653
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f8649f3bc88> 438903.0698456043
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f8649f4ecc0> 408350.63478763035
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f8649f51f28> 438430.74075985997
+<scipy.stats._continuous_distns.norm_gen object at 0x7f8652d07ef0> 437533.91538348264
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f8649f68ef0> 425771.5416500014
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f8649f82ba8> 451293.2642007532
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f864c7740b8> 388664.46110145847
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f24c9d0d5c0> 654266.1461130199
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f24c0f63ac8> 1963773.907296296
+<scipy.stats._continuous_distns.expon_gen object at 0x7f24c0f724e0> 957929.8109259293
+<scipy.stats._continuous_distns.f_gen object at 0x7f24c0f7a400> 2014417.3875380093
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f24c0f92dd8> 1929590.9561506493
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f24c0f9fb00> 759859.8376278168
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f24c0f24fd0> 557771.5172528679
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f24c0f3dfd0> 729537.7375367468
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f24c0f47ef0> 917514.3881843681
+<scipy.stats._continuous_distns.norm_gen object at 0x7f24c9cfce80> 1262450.4784301748
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f24c0f5deb8> 1097855.687695626
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f24c0f7ab70> 2333552.6363517595
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f24c0f24fd0> 557771.5172528679
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f0dc0990630> 20.71421142903396
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f0db7be6b38> 1511.9437970540862
+<scipy.stats._continuous_distns.expon_gen object at 0x7f0db7bf2550> 87.50254949251784
+<scipy.stats._continuous_distns.f_gen object at 0x7f0db7bfa470> 1375.7963364621137
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f0db7c12e48> 2805.918105905609
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f0db7c1bb38> 10.469402072068183
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0db7bb3c88> 522.6386426264706
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f0db7bb7cc0> 356.0883040880097
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f0db7bbdf28> 285.4592745277392
+<scipy.stats._continuous_distns.norm_gen object at 0x7f0dc097cef0> 2283.401742300979
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f0db7bdfef0> 447.1105340306495
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f0db7bfabe0> 191.07861352534832
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f0db7c1bb38> 10.469402072068183
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f5dd7f675c0> 88344.12004776689
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f5dcf1bdac8> 224202.99220321185
+<scipy.stats._continuous_distns.expon_gen object at 0x7f5dcf1cc4e0> 118381.20723389523
+<scipy.stats._continuous_distns.f_gen object at 0x7f5dcf1d4400> 231111.50995093348
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f5dcf1ecdd8> 219251.0300947294
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f5dcf1f9b00> 97800.94124900049
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f5dcf17efd0> 19432.347190809396
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f5dcf197fd0> 78913.1218823849
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f5dcf1a1ef0> 38542.74063896608
+<scipy.stats._continuous_distns.norm_gen object at 0x7f5dd7f56e80> 164740.97127229747
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f5dcf1b7eb8> 133119.36125046795
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f5dcf1d4b70> 97523.15487164882
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f5dcf17efd0> 19432.347190809396
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fd7f0a7f5f8> 243.8008730861599
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fd7e7cd5b00> 228.20913319405778
+<scipy.stats._continuous_distns.expon_gen object at 0x7fd7e7ce4518> 3039.7951565421217
+<scipy.stats._continuous_distns.f_gen object at 0x7fd7e7cec438> 5161.770041466904
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fd7e7d04e10> 228.6953225793768
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fd7e7d11b38> 258.9501164657143
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fd7e7ca5c88> 219.2515131101949
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fd7e7ca9cc0> 509.00413346260035
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fd7e7cafef0> 221.311835369422
+<scipy.stats._continuous_distns.norm_gen object at 0x7fd7f0a6eeb8> 339.0335230137154
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fd7e7ccfeb8> 3436.3957751758157
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fd7e7cecba8> 225.5340089787886
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fd7e7ca5c88> 219.2515131101949
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f84e60695c0> 1074.9268752183445
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f84dd2bfac8> 17156.306789191836
+<scipy.stats._continuous_distns.expon_gen object at 0x7f84dd2ce4e0> 4025.7360689515385
+<scipy.stats._continuous_distns.f_gen object at 0x7f84dd2d6400> 13326.143504885798
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f84dd2eedd8> 1073.9569589837101
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f84dd2fbb00> 1630.2196438839946
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f84dd280fd0> 1485.2850289948133
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f84dd299fd0> 2748.902474482746
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f84dd2a3ef0> 1417.532428135255
+<scipy.stats._continuous_distns.norm_gen object at 0x7f84e6058e80> 4157.667821582705
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f84dd2b9eb8> 3947.9189797616145
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f84dd2d6b70> 1629.5335968411296
+========================================================
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f84dd2eedd8> 1073.9569589837101
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff1a636d5c0> 1350.2569266345165
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff19d5c3ac8> 19386.468506047364
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff19d5d24e0> 2495.832437984139
+<scipy.stats._continuous_distns.f_gen object at 0x7ff19d5da400> 23591.077809078168
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff19d5f2dd8> 18072.401265119544
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff19d5ffb00> 3639.3969940211095
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff19d584fd0> 2492.5920624624614
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff19d59dfd0> 5854.605237529224
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff19d5a7ef0> 2364.384398853654
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff1a635ce80> 8982.134923096357
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff19d5bdeb8> 4371.738342683318
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff19d5dab70> 3640.697310059245
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff1a636d5c0> 1350.2569266345165
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f38b8bd05f8> 8836.000000012054
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f38b8bdeb00> 7972.325165362954
+<scipy.stats._continuous_distns.expon_gen object at 0x7f38b8905518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f38b8902438> 8822.873041022072
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f38b8925e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f38b8938b38> 8836.000000012054
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f38b88c6c88> 8836.000000012054
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f38b88d0cc0> 8836.000000012054
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f38b88dbf28> 8836.000000012054
+<scipy.stats._continuous_distns.norm_gen object at 0x7f38b8bbfeb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f38b88f1ef0> 3205.0195436593663
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f38b8902ba8> 8836.000000012054
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f38b88f1ef0> 3205.0195436593663
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f1fa80df630> 8836.000000000251
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1fa80e5b00> 7972.325080952
+<scipy.stats._continuous_distns.expon_gen object at 0x7f1fa7e11518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f1fa7e0e438> 8805.415815753304
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1fa7e31e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1fa7e44b38> 8836.000000000251
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1fa7dd2c88> 8836.000000000251
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1fa7ddccc0> 8836.000000000251
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1fa7de7f28> 8836.000000000251
+<scipy.stats._continuous_distns.norm_gen object at 0x7f1fa80cbef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1fa7dfdef0> 25279120.919345073
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1fa7e0eba8> 8836.000000000251
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1fa80e5b00> 7972.325080952
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe710f83630> 8836.000000012054
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe7081d9b38> 7972.32520180481
+<scipy.stats._continuous_distns.expon_gen object at 0x7fe7081e5550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fe7081e2438> 8836.000000012054
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fe708205e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fe708215b38> 8836.000000012054
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe7081a6c88> 7310.675848441493
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fe7081aacc0> 8836.000000012054
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fe7081b5f28> 8836.000000012054
+<scipy.stats._continuous_distns.norm_gen object at 0x7fe710f6fef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe7081d2ef0> 701.5174115863654
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fe7081e2ba8> 8836.000000012054
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe7081d2ef0> 701.5174115863654
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f5078add630> 8836.000000578615
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f506fd30b00> 7982.781474192282
+<scipy.stats._continuous_distns.expon_gen object at 0x7f506fd3f518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f506fd3c438> 8833.657749274564
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f506fd5fe10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f506fd6fb38> 8836.000000578615
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f506fd00c88> 7634.879582115659
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f506fd04cc0> 8836.000000578615
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f506fd0ff28> 8836.000000578615
+<scipy.stats._continuous_distns.norm_gen object at 0x7f5078ac9ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f506fd2cef0> 1318.7678823446108
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f506fd3cba8> 8836.000000578615
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f506fd2cef0> 1318.7678823446108
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fb128207630> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fb12820cb38> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7fb127f39550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fb127f41470> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fb127f59e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fb127f6ab38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fb127efac88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fb127f04cc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fb127f0ff28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7fb1281f3ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fb127f25ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fb127f41be0> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fb12820cb38> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f67aeb105f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f67aeb1db00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f67ae844518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f67ae84c438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f67ae864e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f67ae875b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f67ae805c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f67ae80fcc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f67ae81af28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f67aeafeeb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f67ae830ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f67ae84cba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f67aeb1db00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7febbf2285f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7febbf235b00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7febbef5c518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7febbef64438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7febbef7cdd8> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7febbef8db00> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7febbef17fd0> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7febbef26fd0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7febbef2cef0> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7febbf216eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7febbef46e48> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7febbef64b70> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7febbf235b00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f279abf95f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f279ac06b00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f279a92d518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f279a935438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f279a94de10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f279a95eb38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f279a8eec88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f279a8f8cc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f279a903f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f279abe7eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f279a919ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f279a935ba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f279ac06b00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f471a990588> 289031.0539883886
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4711be6a90> 266049.22991089866
+<scipy.stats._continuous_distns.expon_gen object at 0x7f4711bf24a8> 296483.23794391647
+<scipy.stats._continuous_distns.f_gen object at 0x7f4711bfd3c8> 282979.9540009884
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f4711c15d68> 301372.32088464696
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f4711c22a90> 303772.0131098142
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4711ba7f60> 301827.63829973113
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4711bb8f60> 277829.53649317846
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f4711bcbe80> 300904.79326884996
+<scipy.stats._continuous_distns.norm_gen object at 0x7f471a97fe48> 300743.08791495545
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f4711bd9e10> 295010.16299733915
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f4711bfdb00> 315042.52839023183
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4711be6a90> 266049.22991089866
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f1131bda5c0> 646.5551602998379
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1128e30ac8> 2792.8797291852215
+<scipy.stats._continuous_distns.expon_gen object at 0x7f1128e3f4e0> 420.3550460341229
+<scipy.stats._continuous_distns.f_gen object at 0x7f1128e47400> 4442.955106008104
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1128e5fdd8> 5155.913168568854
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1128e6cb00> 54.88004612145467
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1128df1fd0> 1739.6077337734678
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1128e0afd0> 1140.58752664653
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1128e14ef0> 1251.2809370465852
+<scipy.stats._continuous_distns.norm_gen object at 0x7f1131bc9e80> 4290.180153772857
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1128e2aeb8> 1600.0530787384603
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1128e47b70> 19.788788585905493
+========================================================
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1128e47b70> 19.788788585905493
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe63cd1f5c0> 230.33439598536643
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe633f75ac8> 227.98084771165202
+<scipy.stats._continuous_distns.expon_gen object at 0x7fe633f844e0> 3043.473848455824
+<scipy.stats._continuous_distns.f_gen object at 0x7fe633f8c400> 5085.793995996648
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fe633fa4dd8> 227.9807668616236
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fe633fb1b00> 310.63668881003264
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe633f36fd0> 223.20350729032648
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fe633f4ffd0> 420.08771122771265
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fe633f59ef0> 224.40047332010673
+<scipy.stats._continuous_distns.norm_gen object at 0x7fe63cd0ee80> 286.1759267000619
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe633f6feb8> 4004.3401061306877
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fe633f8cb70> 343.9896665655403
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe633f36fd0> 223.20350729032648
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2bf86f55c0> 1144.289519012472
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2bef94bac8> 26745.799355489948
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2bef95a4e0> 3875.2186982585135
+<scipy.stats._continuous_distns.f_gen object at 0x7f2bef962400> 15058.773817935202
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2bef97add8> 1349.6978687950582
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2bef987b00> 1744.6148617047995
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2bef90cfd0> 1421.092684710255
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f2bef925fd0> 3186.4208704870466
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f2bef92fef0> 1419.1892782744337
+<scipy.stats._continuous_distns.norm_gen object at 0x7f2bf86e4e80> 4958.638405822765
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2bef945eb8> 5601.5870369558725
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2bef962b70> 1740.6997851946303
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2bf86f55c0> 1144.289519012472
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff942ac05c0> 2245.5760971107798
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff939d16ac8> 12666.161666732938
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff939d254e0> 6158.506229535698
+<scipy.stats._continuous_distns.f_gen object at 0x7ff939d2d400> 20824.672473303526
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff939d45dd8> 2245.771170828885
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff939d52b00> 2769.176034079433
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff939cd7fd0> 2796.1426394450964
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff939cf0fd0> 5720.73127227488
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff939cfaef0> 2747.61738187502
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff942aafe80> 6647.481266170528
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff939d10eb8> 8773.253883252224
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff939d2db70> 2770.46339179915
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff942ac05c0> 2245.5760971107798
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fa9d700b630> 8836.000000012054
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fa9d7020b00> 7972.325165362954
+<scipy.stats._continuous_distns.expon_gen object at 0x7fa9d6d47518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fa9d6d44438> 8822.873041022072
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fa9d6d67e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fa9d6d7ab38> 8836.000000012054
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fa9d6d08c88> 8836.000000012054
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fa9d6d12cc0> 8836.000000012054
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fa9d6d1df28> 8836.000000012054
+<scipy.stats._continuous_distns.norm_gen object at 0x7fa9d7001ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fa9d6d33ef0> 3205.0195436593663
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fa9d6d44ba8> 8836.000000012054
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fa9d6d33ef0> 3205.0195436593663
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fac0b3c35f8> 8836.000000012054
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fac02619b00> 7972.325105783535
+<scipy.stats._continuous_distns.expon_gen object at 0x7fac02628518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fac02625438> 8825.119899552017
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fac02648e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fac02658b38> 8836.000000012054
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fac025e9c88> 8836.000000012054
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fac025edcc0> 8836.000000012054
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fac025f8f28> 8836.000000012054
+<scipy.stats._continuous_distns.norm_gen object at 0x7fac0b3b2eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fac02615ef0> 8836.000000012054
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fac02625ba8> 8836.000000012054
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fac02619b00> 7972.325105783535
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fa07b6605f8> 8836.000000578613
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fa0728b6b00> 7982.781456090723
+<scipy.stats._continuous_distns.expon_gen object at 0x7fa0728c5518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fa0728c2438> 8833.021929993307
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fa0728e5e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fa0728f5b38> 8836.000000578613
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fa072886c88> 10011.899950841233
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fa07288acc0> 8836.000000578613
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fa072895f28> 7890.99461915243
+<scipy.stats._continuous_distns.norm_gen object at 0x7fa07b64feb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fa0728b2ef0> 8836.000000578613
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fa0728c2ba8> 8836.000000578613
+========================================================
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fa072895f28> 7890.99461915243
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f246106b5f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2461078b00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2460d9f518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f2460da7438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2460dbfe10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2460dd0b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2460d60c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f2460d6acc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f2460d75f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f2461059eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2460d8bef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2460da7ba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2461078b00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff9a30fb5f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff9a3108b00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff9a2e2f518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7ff9a2e37438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff9a2e4fe10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff9a2e60b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff9a2df0c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff9a2dfacc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff9a2e05f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff9a30e9ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff9a2e1bef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff9a2e37ba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff9a3108b00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7facd29db630> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7facd29e0b38> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7facd270d550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7facd2715470> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7facd272de10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7facd273eb38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7facd26cec88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7facd26d8cc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7facd26e3f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7facd29c7ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7facd26f9ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7facd2715be0> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7facd29e0b38> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7faebbfc55c0> 439125.51499571133
+<scipy.stats._continuous_distns.chi2_gen object at 0x7faeb321bac8> 396041.2730420147
+<scipy.stats._continuous_distns.expon_gen object at 0x7faeb322a4e0> 440865.35926242225
+<scipy.stats._continuous_distns.f_gen object at 0x7faeb3232400> 386281.7014642869
+<scipy.stats._continuous_distns.gamma_gen object at 0x7faeb324add8> 451105.53853375174
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7faeb3257b00> 453397.0460313499
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7faeb31e5fd0> 451477.0896025376
+<scipy.stats._continuous_distns.laplace_gen object at 0x7faeb31f4fd0> 422275.8139569122
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7faeb31edef0> 450448.8743893289
+<scipy.stats._continuous_distns.norm_gen object at 0x7faebbfb4e80> 450480.65828964557
+<scipy.stats._continuous_distns.pareto_gen object at 0x7faeb3214eb8> 437967.5876008272
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7faeb3232b70> 465130.2465932959
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7faeb3232400> 386281.7014642869
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f96572335f8> 347675.22974371625
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f964e489b00> 1215745.0463088944
+<scipy.stats._continuous_distns.expon_gen object at 0x7f964e498518> 459154.1408238035
+<scipy.stats._continuous_distns.f_gen object at 0x7f964e4a0438> 1258838.4440244471
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f964e4b8e10> 1183617.0287921831
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f964e4c5b38> 388969.4832002103
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f964e459c88> 149471.00251788984
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f964e463cc0> 453974.7178498757
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f964e46eef0> 172532.5705851667
+<scipy.stats._continuous_distns.norm_gen object at 0x7f9657222eb8> 807974.5083455308
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f964e482eb8> 555127.7233344377
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f964e4a0ba8> 1535295.1420957963
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f964e459c88> 149471.00251788984
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f0c7d2ef5f8> 49818.0592279657
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f0c74545b00> 49090.61556158398
+<scipy.stats._continuous_distns.expon_gen object at 0x7f0c74554518> 54636.76395286582
+<scipy.stats._continuous_distns.f_gen object at 0x7f0c7683d7f0> 133273.45171497483
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f0c74574dd8> 49089.52465045442
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f0c74581b00> 66229.09283504084
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0c7450ffd0> 13016.760526298882
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f0c7451efd0> 63332.322376992415
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f0c74517ef0> 22649.319766487763
+<scipy.stats._continuous_distns.norm_gen object at 0x7f0c7d2deeb8> 97720.25065828864
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f0c7453eeb8> 58769.73021065284
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f0c7455cb70> 66216.2332029704
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0c7450ffd0> 13016.760526298882
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f40296205f8> 162410.54187831897
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4020876b00> 524502.2539229029
+<scipy.stats._continuous_distns.expon_gen object at 0x7f4020885518> 317985.8628363859
+<scipy.stats._continuous_distns.f_gen object at 0x7f402088d438> 533127.652264507
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f40208a5e10> 198941.08580421453
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f40208b2b38> 198229.35104198533
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4020846c88> 82415.98903058462
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4022b6e7b8> 180795.31189875232
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f402085bef0> 122257.36276125841
+<scipy.stats._continuous_distns.norm_gen object at 0x7f402960feb8> 351637.46734712983
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f402086feb8> 355426.39288598986
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f402088dba8> 204773.8530567411
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4020846c88> 82415.98903058462
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3968cbc5c0> 175.84792022038687
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f395ff12ac8> 174.27701161008656
+<scipy.stats._continuous_distns.expon_gen object at 0x7f395ff214e0> 2830.195833463471
+<scipy.stats._continuous_distns.f_gen object at 0x7f395ff29400> 4624.880150214999
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f395ff41dd8> 173.320659992861
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f395ff4eb00> 218.1361487958746
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f395fedcfd0> 172.61657491367316
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f395feebfd0> 412.9755683108353
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f395fee4ef0> 172.7608329787182
+<scipy.stats._continuous_distns.norm_gen object at 0x7f3968cabe80> 255.95827127262305
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f395ff0beb8> 2920.5407622934995
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f395ff29b70> 278.23998084882186
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f395fedcfd0> 172.61657491367316
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f9bda6615c0> 1000.3646456161016
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9bd18b7ac8> 23596.218970234466
+<scipy.stats._continuous_distns.expon_gen object at 0x7f9bd18c64e0> 6646.468943253988
+<scipy.stats._continuous_distns.f_gen object at 0x7f9bd18ce400> 17534.607850400564
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f9bd18e6dd8> 1007.6850639459602
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f9bd18f3b00> 1503.1243010526487
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f9bd1881fd0> 921.8719826258634
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f9bd1890fd0> 3332.7746578308693
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f9bd1889ef0> 1221.5065796354384
+<scipy.stats._continuous_distns.norm_gen object at 0x7f9bda650e80> 5322.198113298735
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f9bd18b0eb8> 8919.216211212924
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f9bd18ceb70> 1504.332196498639
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f9bd1881fd0> 921.8719826258634
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6befc535c0> 1455.538783832624
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f6be6ea9ac8> 9662.730126314587
+<scipy.stats._continuous_distns.expon_gen object at 0x7f6be6eb84e0> 2452.336436700451
+<scipy.stats._continuous_distns.f_gen object at 0x7f6be6ec0400> 24808.312391972875
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f6be6ed8dd8> 21835.617982640855
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6be6ee5b00> 3653.875295111589
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6be6e73fd0> 2903.8610346326886
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f6be6e82fd0> 6721.672860894636
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f6be6e7bef0> 2698.0197738464094
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6befc42e80> 9123.965970286312
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f6be6ea2eb8> 4444.556963881025
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f6be6ec0b70> 3657.6781600750987
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6befc535c0> 1455.538783832624
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fa90257c5f8> 2.976235503630262e+26
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fa90258ab00> 334046616051.2507
+<scipy.stats._continuous_distns.expon_gen object at 0x7fa9022b1518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fa9022ae438> 8268.288768860628
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fa9022d1e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fa9022e4b38> 7.825766306024015e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fa902272c88> 2.2503852126689572e+16
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fa90227ccc0> 2.4705258738087425e+40
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fa902287f28> 8.079880001491833e+24
+<scipy.stats._continuous_distns.norm_gen object at 0x7fa90256beb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fa90229def0> 151146.23405249903
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fa9022aeba8> 1.9235569302748277e+25
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7fa9022ae438> 8268.288768860628
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6a3b21a5f8> 4.796257717512929e+27
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f6a3b228b00> 622468126384.1702
+<scipy.stats._continuous_distns.expon_gen object at 0x7f6a3af4f518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f6a3af4c438> 8251.390017566875
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f6a3af6fe10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6a3af82b38> 5.313365175883752e+38
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6a3af10c88> 8570624654100443.0
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f6a3af1acc0> 1.3794109947392154e+41
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f6a3af25f28> 1.8702553180439097e+26
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6a3b209eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f6a3af3bef0> 24730633.731613383
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f6a3af4cba8> 6.7017890669037e+26
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f6a3af4c438> 8251.390017566875
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7efedd6f85f8> 7.549271002318518e+25
+<scipy.stats._continuous_distns.chi2_gen object at 0x7efed494eb00> 96192733030.93864
+<scipy.stats._continuous_distns.expon_gen object at 0x7efed495d518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7efed495a438> 8271.129607868965
+<scipy.stats._continuous_distns.gamma_gen object at 0x7efed497de10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7efed498db38> 5.642594338134994e+24
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7efed491ec88> 440288.50406847906
+<scipy.stats._continuous_distns.laplace_gen object at 0x7efed4928cc0> 9.36567280312374e+35
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7efed4933f28> 2.592754563684712e+24
+<scipy.stats._continuous_distns.norm_gen object at 0x7efedd6e7eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7efed4949ef0> 29336.129679615977
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7efed495aba8> 5.629568303973813e+24
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7efed495a438> 8271.129607868965
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f77c56855f8> 4.6205273646124574e+23
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f77bc8dbb00> 14005926768.353672
+<scipy.stats._continuous_distns.expon_gen object at 0x7f77bc8ea518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f77bc8e7438> 8278.733297785717
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f77bc90ae10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f77bc91ab38> 3.025097913306731e+39
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f77bc8abc88> 305407.70075526123
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f77bc8b5cc0> 5.459958758850499e+34
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f77bc8c0f28> 7.3930450459932204e+22
+<scipy.stats._continuous_distns.norm_gen object at 0x7f77c5674eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f77bc8d6ef0> 153710.81351856992
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f77bc8e7ba8> 7.071251703656671e+22
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f77bc8e7438> 8278.733297785717
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f83b58fa668> 8280.99999999989
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f83b5908b70> 7.690585927004056e+18
+<scipy.stats._continuous_distns.expon_gen object at 0x7f83b562c588> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f83b56374a8> 4909030613014545.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f83b564ce80> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f83b565dba8> 8280.99998234464
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f83b55e7cf8> 1.3549860693142688e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f83b55f7d30> 8280.99999999989
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f83b55fff98> 2.4690531624925183e+25
+<scipy.stats._continuous_distns.norm_gen object at 0x7f83b58e6f28> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f83b5616ef0> 7.344442607873041e+23
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f83b5637c18> 8309.828816014857
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f83b565dba8> 8280.99998234464
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6794d9e5f8> 8280.99999999989
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f6794dabb00> 7.690585927004056e+18
+<scipy.stats._continuous_distns.expon_gen object at 0x7f6794ad2518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f6794ada438> 4909030613014545.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f6794af2e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6794b03b38> 8280.99998234464
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6794a93c88> 1.3549860693142688e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f6794a9dcc0> 8280.99999999989
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f6794aa8f28> 2.4690531624925183e+25
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6794d8ceb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f6794abeef0> 7.344442607873041e+23
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f6794adaba8> 8309.828816014857
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6794b03b38> 8280.99998234464
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f9590941630> 8280.99999999989
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9590946b38> 7.690585927004056e+18
+<scipy.stats._continuous_distns.expon_gen object at 0x7f9590673550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f959067b470> 4909030613014545.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f9590693e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f95906a5b70> 8280.99998234464
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f959062ecc0> 1.3549860693142688e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f959063ecf8> 8280.99999999989
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f9590649f60> 2.4690531624925183e+25
+<scipy.stats._continuous_distns.norm_gen object at 0x7f959092def0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f959065df28> 7.344442607873041e+23
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f959067bbe0> 8309.828816014857
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f95906a5b70> 8280.99998234464
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f1898101588> 8280.99999999989
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1898109a90> 7.690585927004056e+18
+<scipy.stats._continuous_distns.expon_gen object at 0x7f1897e2a4a8> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f1897e383c8> 4909030613014545.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1897e4dda0> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1897e61ac8> 8280.99998234464
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1897df1f98> 1.3549860693142688e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1897dfaf98> 8280.99999999989
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1897dffeb8> 2.4690531624925183e+25
+<scipy.stats._continuous_distns.norm_gen object at 0x7f18980eae48> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1897e15e48> 7.344442607873041e+23
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1897e38b38> 8309.828816014857
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1897e61ac8> 8280.99998234464
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fbe9b5d35f8> 442059.50818598643
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fbe92829b00> 409998.71411676053
+<scipy.stats._continuous_distns.expon_gen object at 0x7fbe92838518> 445103.6414097035
+<scipy.stats._continuous_distns.f_gen object at 0x7fbe92840438> 393536.6683339412
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fbe92858e10> 453992.24512380955
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fbe92865b38> 456755.047104202
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fbe927f9c88> 454825.15035694465
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fbe927fdcc0> 422560.3214718631
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fbe9280df28> 455076.3866036162
+<scipy.stats._continuous_distns.norm_gen object at 0x7fbe9b5c2eb8> 453289.27204062
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fbe9281ceb8> 442457.4946044686
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fbe92840ba8> 437358.4732489602
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7fbe92840438> 393536.6683339412
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fc9556165c0> 379856.0235805034
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fc94c86cac8> 1256365.3630876564
+<scipy.stats._continuous_distns.expon_gen object at 0x7fc94c87b4e0> 498293.4595233888
+<scipy.stats._continuous_distns.f_gen object at 0x7fc94c883400> 1298070.4871191222
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fc94c89bdd8> 1092519.8099010882
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fc94c8a8b00> 405536.5938894489
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fc94c836fd0> 180388.74767515593
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fc94c846fd0> 461440.4114030693
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fc94c83eef0> 198537.43137960442
+<scipy.stats._continuous_distns.norm_gen object at 0x7fc955605eb8> 828379.0923112308
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fc94c85feb8> 599144.9818267258
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fc94c883b70> 1573345.6048978788
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fc94c836fd0> 180388.74767515593
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f8cb74a7630> 47.121881914811645
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f8cae6fdb38> 1743.5927945636058
+<scipy.stats._continuous_distns.expon_gen object at 0x7f8cae709550> 127.0458474611458
+<scipy.stats._continuous_distns.f_gen object at 0x7f8cae711470> 2784.564833412831
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f8cae729e48> 2786.7263737646776
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f8cae730b70> 0.5701016654674051
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f8cae6c4cc0> 509.7991973842905
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f8cae6d4cf8> 390.07681822225106
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f8cae6dcf60> 243.67267674824652
+<scipy.stats._continuous_distns.norm_gen object at 0x7f8cb7493ef0> 2716.1170337973117
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f8cae6f3f28> 583.105766094212
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f8cae711be0> 3287.5708740669093
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f8cae730b70> 0.5701016654674051
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f04675155c0> 76089.03322071697
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f045e76bac8> 204608.03180582717
+<scipy.stats._continuous_distns.expon_gen object at 0x7f045e77a4e0> 120485.86414016236
+<scipy.stats._continuous_distns.f_gen object at 0x7f045e782400> 212966.72063168662
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f045e79add8> 188587.38948432432
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f045e7a7b00> 78461.21257511823
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f045e735fd0> 19128.75467711415
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f045e745fd0> 72810.81010293354
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f045e73def0> 35295.37071039776
+<scipy.stats._continuous_distns.norm_gen object at 0x7f0467504e80> 149922.70226506336
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f045e75eeb8> 134534.86495489394
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f045e782b70> 124771.24971123405
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f045e735fd0> 19128.75467711415
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7efe083325f8> 160.86294044887526
+<scipy.stats._continuous_distns.chi2_gen object at 0x7efdff585ac8> 156.62824002267294
+<scipy.stats._continuous_distns.expon_gen object at 0x7efdff5944e0> 2731.5544752700735
+<scipy.stats._continuous_distns.f_gen object at 0x7efdff59c400> 4515.146517520738
+<scipy.stats._continuous_distns.gamma_gen object at 0x7efdff5b4dd8> 157.95833960383
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7efdff5c1b00> 196.540815552681
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7efdff54ffd0> 150.05376238423597
+<scipy.stats._continuous_distns.laplace_gen object at 0x7efdff55ffd0> 438.26681376682615
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7efdff557ef0> 151.56831351262653
+<scipy.stats._continuous_distns.norm_gen object at 0x7efe0831eef0> 243.07957219673085
+<scipy.stats._continuous_distns.pareto_gen object at 0x7efdff578eb8> 2711.5431777596586
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7efdff59cb70> 159.37758001175018
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7efdff54ffd0> 150.05376238423597
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f1fa7db35c0> 1542.9882637375802
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1f9f009ac8> 1539.397120932066
+<scipy.stats._continuous_distns.expon_gen object at 0x7f1f9f0184e0> 8400.859983244827
+<scipy.stats._continuous_distns.f_gen object at 0x7f1f9f020400> 36834.331284294094
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1f9f038dd8> 1539.3381013319067
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1f9f045b00> 2192.6843672364007
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1f9efd3fd0> 1650.9517351062964
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1f9efe3fd0> 4464.740657642511
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1f9efdbef0> 1581.1338108642585
+<scipy.stats._continuous_distns.norm_gen object at 0x7f1fa7da2e80> 6215.141385876743
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1f9effceb8> 8058.725703341192
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1f9f020b70> 2192.374979053402
+========================================================
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1f9f038dd8> 1539.3381013319067
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2f43f5c550> 898.2499746487267
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2f3b1afa58> 948.6738597679201
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2f3b1bb470> 2022.2436475104619
+<scipy.stats._continuous_distns.f_gen object at 0x7f2f3b1c6390> 22784.475947674408
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2f3b1ded68> 948.5466361993666
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2f3b1eba90> 3036.5455139007813
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2f3b179f60> 2193.6608115162667
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f2f3b181f60> 6115.73201188996
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f2f3b191e80> 1928.6625362367083
+<scipy.stats._continuous_distns.norm_gen object at 0x7f2f43f48e10> 8191.512811326544
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2f3b1a6e10> 4001.9269539668003
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2f3b1c6b00> 3028.2982961506254
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2f43f5c550> 898.2499746487267
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6e1a29f5f8> 2.9762355036295716e+26
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f6e1a2adb00> 334044304186.197
+<scipy.stats._continuous_distns.expon_gen object at 0x7f6e19fd4518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f6e19fd1438> 8636.009401169074
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f6e19ff4e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6e1a007b38> 7.825766306024015e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6e19f95c88> 2.2503851526638216e+16
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f6e19f9fcc0> 2.4705258738087425e+40
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f6e19faaf28> 8.079880001480463e+24
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6e1a28eeb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f6e19fc0ef0> 149596.70740762938
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f6e19fd1ba8> 1.9235569302730734e+25
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f6e19fd1438> 8636.009401169074
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fde2340d5f8> 4.796257717512652e+27
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fde2341bb00> 622464970523.7866
+<scipy.stats._continuous_distns.expon_gen object at 0x7fde23142518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fde2313f438> 8618.73924846915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fde23162e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fde23175b38> 5.313365175883752e+38
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fde23103c88> 8570624283789774.0
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fde2310dcc0> 1.3794109947392154e+41
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fde23118f28> 1.8702553180433627e+26
+<scipy.stats._continuous_distns.norm_gen object at 0x7fde233fceb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fde2312eef0> 25832811.951048046
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fde2313fba8> 6.701789066902665e+26
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7fde2313f438> 8618.73924846915
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f123df4c5f8> 7.549271002315042e+25
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f12351a2b00> 96191492438.39244
+<scipy.stats._continuous_distns.expon_gen object at 0x7f12351b1518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f12351ae438> 8638.91267611692
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f12351d1e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f12351e1b38> 5.642594338125493e+24
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1235172c88> 437638.3345066384
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1235176cc0> 9.36567280312374e+35
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1235186f28> 2.592754563678271e+24
+<scipy.stats._continuous_distns.norm_gen object at 0x7f123df3beb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f123519def0> 28686.44014864313
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f12351aeba8> 5.629568303964322e+24
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f12351ae438> 8638.91267611692
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f099c752630> 4.6205273645852675e+23
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f09939a8b38> 14005453387.35748
+<scipy.stats._continuous_distns.expon_gen object at 0x7f09939b4550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f09939b1470> 8646.683478461167
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f09939d4e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f09939e4b70> 3.025097913306731e+39
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f099396fcc0> 303201.15259524545
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f099397fcf8> 5.459958758850499e+34
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f0993987f60> 7.39304504588446e+22
+<scipy.stats._continuous_distns.norm_gen object at 0x7f099c73eef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f099399ef28> 152148.07087356516
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f09939b1be0> 7.071251703550304e+22
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f09939b1470> 8646.683478461167
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3ced8fc630> 8649.000000000104
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f3ced901b38> 1.7922100474846022e+19
+<scipy.stats._continuous_distns.expon_gen object at 0x7f3ced62e550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f3ced636470> 9980385770407136.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f3ced64ee48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f3ced660b70> 95286126455.76448
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f3ced5e9cc0> 9.822111742120294e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f3ced5f9cf8> 8649.000000000104
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f3ced602f28> 2.0404472575283165e+27
+<scipy.stats._continuous_distns.norm_gen object at 0x7f3ced8e8ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f3ced61aef0> 6.163707947112443e+25
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f3ced636be0> 8679.034030074015
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3ced8fc630> 8649.000000000104
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff1ace73630> 8649.000000000104
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff1ace82b38> 1.7922100474846022e+19
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff1acbaf550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7ff1acbb7470> 9980385770407136.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff1acbcfe48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff1acbe1b70> 95286126455.76448
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff1acb6dcc0> 9.822111742120294e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff1acb77cf8> 8649.000000000104
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff1acb85f60> 2.0404472575283165e+27
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff1ace69ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff1acb99ef0> 6.163707947112443e+25
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff1acbb7be0> 8679.034030074015
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff1ace73630> 8649.000000000104
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fd6b6076630> 8649.000000000104
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fd6b607bb38> 1.7922100474846022e+19
+<scipy.stats._continuous_distns.expon_gen object at 0x7fd6b5da8550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fd6b5db0470> 9980385770407136.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fd6b5dc8e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fd6b80907f0> 95286126455.76448
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fd6b5d69c88> 9.822111742120294e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fd6b5d73cc0> 8649.000000000104
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fd6b5d7ef28> 2.0404472575283165e+27
+<scipy.stats._continuous_distns.norm_gen object at 0x7fd6b6062ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fd6b5d94ef0> 6.163707947112443e+25
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fd6b5db0be0> 8679.034030074015
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fd6b6076630> 8649.000000000104
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fc81bd8f630> 8649.000000000104
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fc81bd94b38> 1.7922100474846022e+19
+<scipy.stats._continuous_distns.expon_gen object at 0x7fc81bac1550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fc81bac9470> 9980385770407136.0
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fc81bae1e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fc81baf3b70> 95286126455.76448
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fc81ba7ccc0> 9.822111742120294e+28
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fc81ba8ccf8> 8649.000000000104
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fc81ba97f60> 2.0404472575283165e+27
+<scipy.stats._continuous_distns.norm_gen object at 0x7fc81bd7bef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fc81baabf28> 6.163707947112443e+25
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fc81bac9be0> 8679.034030074015
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fc81bd8f630> 8649.000000000104
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f941bd34550> 448084.2960560757
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9412f87a58> 425330.12702553184
+<scipy.stats._continuous_distns.expon_gen object at 0x7f9412f93470> 455256.0632402497
+<scipy.stats._continuous_distns.f_gen object at 0x7f9412f9e390> 435976.8446450619
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f9412fb6d68> 464695.8687096404
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f9412fc3a90> 467850.636795774
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f9412f51f60> 465416.9348857241
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f9412f59f60> 431941.1245508672
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f9412f63e80> 465437.90644116735
+<scipy.stats._continuous_distns.norm_gen object at 0x7f941bd20e10> 464179.72329495003
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f9412f7de10> 452392.5893085419
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f9412f9eb00> 477158.60367217835
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9412f87a58> 425330.12702553184
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f1d72d1a5c0> 474438.0439895528
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1d69f70ac8> 1734255.1064141984
+<scipy.stats._continuous_distns.expon_gen object at 0x7f1d69f7f4e0> 815221.8443366863
+<scipy.stats._continuous_distns.f_gen object at 0x7f1d69f87400> 1778318.8681697308
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1d69f9fdd8> 1701709.032741491
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1d69facb00> 631991.7861589622
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1d69f3afd0> 313536.1673434287
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1d69f49fd0> 599359.8491161105
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1d69f54ef0> 776179.1069974216
+<scipy.stats._continuous_distns.norm_gen object at 0x7f1d72d09e80> 1131809.2497707875
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1d69f5deb8> 945669.6645056015
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1d69f87b70> 2071697.4238697956
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1d69f3afd0> 313536.1673434287
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fb1301d3588> 61829.37317454334
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fb127429a90> 61004.38337025986
+<scipy.stats._continuous_distns.expon_gen object at 0x7fb1274354a8> 61403.777725681255
+<scipy.stats._continuous_distns.f_gen object at 0x7fb1274403c8> 135796.1911930713
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fb127455da0> 74708.0782899426
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fb127465ac8> 79520.47298545402
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fb1273f9f98> 20119.51400376899
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fb127402f98> 73625.89656802887
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fb1273fbeb8> 31525.93470557957
+<scipy.stats._continuous_distns.norm_gen object at 0x7fb1301c2e48> 110084.26677193466
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fb12741fe48> 62091.06639360496
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fb127440b38> 78721.51519843064
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fb1273f9f98> 20119.51400376899
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3ff4090588> 244614.67461886903
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f3feb2e6a58> 602074.1132726328
+<scipy.stats._continuous_distns.expon_gen object at 0x7f3feb2f2470> 319450.970051928
+<scipy.stats._continuous_distns.f_gen object at 0x7f3feb2fd390> 558991.703784376
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f3feb315d68> 597212.3413967361
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f3feb322a90> 263888.08313443663
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f3feb2b0f60> 103704.92112306449
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f3feb2b8f60> 236454.96494047638
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f3feb2c2e80> 297272.77973817976
+<scipy.stats._continuous_distns.norm_gen object at 0x7f3ff407fe48> 397852.0125799368
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f3feb2dce10> 352730.094925577
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f3feb2fdb00> 551586.5441599946
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f3feb2b0f60> 103704.92112306449
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2b04f195c0> 262.86630869260966
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2afc16fac8> 245.52016748589887
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2afc17e4e0> 3172.4653367979904
+<scipy.stats._continuous_distns.f_gen object at 0x7f2afc186400> 5334.748949454614
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2afc19edd8> 245.52014669688364
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2afc1abb00> 306.7905277977952
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2afc139fd0> 238.28450151537527
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f2afc148fd0> 447.8603015008889
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f2afc153ef0> 240.08604255648282
+<scipy.stats._continuous_distns.norm_gen object at 0x7f2b04f08e80> 330.58152009402323
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2afc15ceb8> 3568.996482336657
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2afc186b70> 249.14015589016924
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2afc139fd0> 238.28450151537527
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3db3b2e5c0> 1020.7455036545754
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f3daad84ac8> 16769.7669386316
+<scipy.stats._continuous_distns.expon_gen object at 0x7f3daad934e0> 3976.821593509138
+<scipy.stats._continuous_distns.f_gen object at 0x7f3daad9b400> 16746.621828226074
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f3daadb3dd8> 954.1408718357278
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f3daadc0b00> 1383.2073706497981
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f3daad4efd0> 1279.2596107079266
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f3daad5dfd0> 2563.207427882174
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f3daad68ef0> 1193.800365585491
+<scipy.stats._continuous_distns.norm_gen object at 0x7f3db3b1de80> 4030.659104425954
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f3daad71eb8> 5630.749477769394
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f3daad9bb70> 1382.4191727621642
+========================================================
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f3daadb3dd8> 954.1408718357278
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f33d658c5c0> 2397.242605294062
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f33cd7e2ac8> 2455.0404679395224
+<scipy.stats._continuous_distns.expon_gen object at 0x7f33cd7f14e0> 2609.093517299094
+<scipy.stats._continuous_distns.f_gen object at 0x7f33cd7f9400> 28745.68787093187
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f33cd811dd8> 5073.132682296871
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f33cd81eb00> 7302.8430286963485
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f33cd7acfd0> 5061.056437916917
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f33cd7bbfd0> 10228.183804567734
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f33cd7c6ef0> 4644.33681525063
+<scipy.stats._continuous_distns.norm_gen object at 0x7f33d657be80> 14211.091820888923
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f33cd7cfeb8> 4351.862758156811
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f33cd7f9b70> 7309.327789635269
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f33d658c5c0> 2397.242605294062
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f1bc8c445f8> 8463.99999997883
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f1bc8c52b00> 7627.40053198872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f1bc8979518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f1bc8976438> 8451.152408847161
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f1bc8999e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f1bc89acb38> 8463.99999997883
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f1bc893ac88> 8463.99999997883
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f1bc8944cc0> 8463.99999997883
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f1bc894ff28> 8463.99999997883
+<scipy.stats._continuous_distns.norm_gen object at 0x7f1bc8c33eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1bc8965ef0> 3207.0069749367135
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f1bc8976ba8> 8463.99999997883
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f1bc8965ef0> 3207.0069749367135
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fa95866c5f8> 8464.000000000962
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fa95867ab00> 7627.400450257547
+<scipy.stats._continuous_distns.expon_gen object at 0x7fa9583a1518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fa95839e438> 8434.06658689432
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fa9583c1e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fa9583d4b38> 8464.000000000962
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fa958362c88> 8464.000000000962
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fa95836ccc0> 8464.000000000962
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fa958377f28> 8464.000000000962
+<scipy.stats._continuous_distns.norm_gen object at 0x7fa95865beb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fa95838def0> 25281721.841330558
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fa95839eba8> 8464.000000000962
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fa95867ab00> 7627.400450257547
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f0bae5ee5f8> 8464.000000023094
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f0ba5844b00> 7627.4005673294205
+<scipy.stats._continuous_distns.expon_gen object at 0x7f0ba5853518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f0ba5850438> 8464.000000023094
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f0ba5873e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f0ba5883b38> 8464.000000023094
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0ba5814c88> 6971.891264514761
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f0ba581ecc0> 8464.000000023094
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f0ba5821f28> 8464.000000023094
+<scipy.stats._continuous_distns.norm_gen object at 0x7f0bae5ddeb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f0ba5831ef0> 679.5734935471066
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f0ba5850ba8> 8464.000000023094
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f0ba5831ef0> 679.5734935471066
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fc721e92588> 8464.000000554253
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fc7190e8a90> 7637.510424708333
+<scipy.stats._continuous_distns.expon_gen object at 0x7fc7190f44a8> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fc7190f53c8> 8461.70758441226
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fc719114da0> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fc719127ac8> 8464.000000554253
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fc7190b8f98> 7285.942564735639
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fc7190c1f98> 8464.000000554253
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fc7190baeb8> 8464.000000554253
+<scipy.stats._continuous_distns.norm_gen object at 0x7fc721e81e48> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fc7190dee48> 1218.4871149227572
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fc7190f5b38> 8464.000000554253
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fc7190dee48> 1218.4871149227572
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fac30bc1630> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fac30bc6b38> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7fac308f3550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fac308fb470> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fac30913e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fac30925b70> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fac308aec88> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fac308becc0> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fac308c9f28> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7fac30badef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fac308dfef0> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fac308fbbe0> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fac30bc6b38> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff57a7fa5c0> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff57a807a90> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff57a5284a8> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7ff57a5363c8> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff57a54bda0> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff57a55fac8> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff57a4eff98> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff57a4f8f98> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff57a4fdeb8> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff57a7e8e80> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff57a513e48> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff57a536b38> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff57a807a90> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f55dadf75f8> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f55dae04b00> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7f55dab2b518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f55dab33438> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f55dab4be10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f55dab5cb38> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f55daaecc88> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f55daaf6cc0> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f55dab01f28> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7f55dade5eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f55dab17ef0> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f55dab33ba8> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f55dae04b00> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f501f12a5f8> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f501f137b00> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7f501ee5e518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f501ee66438> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f501ee7ee10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f501ee8fb38> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f501ee1fc88> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f501ee29cc0> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f501ee34f28> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7f501f118eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f501ee4aef0> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f501ee66ba8> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f501f137b00> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f90bbe0d5f8> 261791.9614182723
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f90b3063ac8> 246274.6968957617
+<scipy.stats._continuous_distns.expon_gen object at 0x7f90b30724e0> 279693.4801719425
+<scipy.stats._continuous_distns.f_gen object at 0x7f90b307a400> 266054.9393875106
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f90b308fdd8> 286679.83421070344
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f90b309cb00> 288535.69851074804
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f90b3024fd0> 287470.1070836046
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f90b303cfd0> 265753.60477518983
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f90b3048ef0> 286289.79551488586
+<scipy.stats._continuous_distns.norm_gen object at 0x7f90bbdfceb8> 286155.27388447715
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f90b305deb8> 279689.67311335605
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f90b307ab70> 299983.4332481346
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f90b3063ac8> 246274.6968957617
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f73608f6550> 323.9395681120358
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f7357b49a58> 2827.8812551572523
+<scipy.stats._continuous_distns.expon_gen object at 0x7f7357b55470> 378.6498493725533
+<scipy.stats._continuous_distns.f_gen object at 0x7f7357b60390> 4488.822589669449
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f7357b75d68> 5200.956895067787
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f7357b82a90> 22.368983410483406
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f7357b0af60> 1531.916479111785
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f7357b1af60> 1021.8871211476875
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f7357b2ee80> 1018.6160409337674
+<scipy.stats._continuous_distns.norm_gen object at 0x7f73608e2e10> 4324.15592160505
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f7357b3ce10> 1496.8981383016262
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f7357b60b00> 4927.397159375317
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f7357b82a90> 22.368983410483406
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6b169805f8> 346.64649741434386
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f6b0dbd6b00> 5802.9179897183485
+<scipy.stats._continuous_distns.expon_gen object at 0x7f6b0dbe5518> 3463.4850220918797
+<scipy.stats._continuous_distns.f_gen object at 0x7f6b0dbed438> 5835.691074085219
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f6b0dc02e10> 345.79645100531604
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6b0dc0fb38> 446.60511879770127
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6b0dba6c88> 340.6789039268108
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f6b0dbb0cc0> 496.6530739016815
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f6b0dbbcef0> 341.9931168374259
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6b1696feb8> 405.2325496554972
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f6b0dbd0eb8> 3866.8976722972566
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f6b0dbedba8> 356.5982886160109
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6b0dba6c88> 340.6789039268108
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f7bdbd4c7f0> 979.3367613994542
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f7bd9a54ac8> 29636.55335083965
+<scipy.stats._continuous_distns.expon_gen object at 0x7f7bd9a634e0> 4525.574038430685
+<scipy.stats._continuous_distns.f_gen object at 0x7f7bd9a6b400> 10125.858284450262
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f7bd9a80dd8> 5076.800936586084
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f7bd9a8db00> 1718.7632559419735
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f7bd9a15fd0> 1208.9554540345566
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f7bd9a2dfd0> 3519.675202551195
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f7bd9a39ef0> 1385.935657932424
+<scipy.stats._continuous_distns.norm_gen object at 0x7f7be27edeb8> 4943.816719884083
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f7bd9a4eeb8> 6375.167451535294
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f7bd9a6bb70> 1720.1526434434174
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f7bdbd4c7f0> 979.3367613994542
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe1258755c0> 1113.953551224803
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe11cacbac8> 22831.887356314866
+<scipy.stats._continuous_distns.expon_gen object at 0x7fe11cada4e0> 3213.9485012577766
+<scipy.stats._continuous_distns.f_gen object at 0x7fe11cae2400> 13469.27781045827
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fe11caf7dd8> 11886.383429702588
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fe11cb04b00> 1972.2763343777597
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe11ca8cfd0> 1929.339563951247
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fe11caa4fd0> 4170.050658273882
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fe11cab0ef0> 1842.1975766736186
+<scipy.stats._continuous_distns.norm_gen object at 0x7fe125864e80> 5223.297370093851
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe11cac5eb8> 5086.5995589177755
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fe11cae2b70> 1988.0170288514673
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe1258755c0> 1113.953551224803
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7feb5c4a2668> 2.9762355036288817e+26
+<scipy.stats._continuous_distns.chi2_gen object at 0x7feb5c4b0b70> 334041992329.1492
+<scipy.stats._continuous_distns.expon_gen object at 0x7feb5c1d4550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7feb5c1d1470> 9011.730033400485
+<scipy.stats._continuous_distns.gamma_gen object at 0x7feb5c1f4e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7feb5c207b38> 7.825766306024015e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7feb5c195c88> 2.2503850926586868e+16
+<scipy.stats._continuous_distns.laplace_gen object at 0x7feb5c19fcc0> 2.4705258738087425e+40
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7feb5c1aaf28> 8.079880001469093e+24
+<scipy.stats._continuous_distns.norm_gen object at 0x7feb5c48ef28> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7feb5c1c0ef0> 148055.48292635457
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7feb5c1d1be0> 1.923556930271319e+25
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7feb5c1d1470> 9011.730033400485
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fd0b2b35668> 2.7676878813780614e+26
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fd0a9d8bb38> 179256744278.00885
+<scipy.stats._continuous_distns.expon_gen object at 0x7fd0a9d97550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fd0a9d94470> 9014.004048125089
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fd0a9db4e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fd0a9dc7b70> 3.592365140951792e+29
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fd0a9d49cc0> 4370264597.320422
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fd0a9d62cf8> 1.8755599041842218e+39
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fd0a9d6ef60> 6.570198989885765e+24
+<scipy.stats._continuous_distns.norm_gen object at 0x7fd0b2b21f28> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fd0a9d82f28> 2128693156697169.2
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fd0a9d94be0> 8.569107681824926e+24
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7fd0a9d94470> 9014.004048125089
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3754bc35f8> 2.6055319349155603e+23
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f374be19b00> 14004996651.979452
+<scipy.stats._continuous_distns.expon_gen object at 0x7f374be28518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f374be25438> 9021.990246077727
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f374be45e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f374be58b38> 1.3391558864151317e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f374bde9c88> 8646.55219002268
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f374bdf3cc0> 4.402898890773465e+40
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f374bdfff28> 4.690836991858528e+19
+<scipy.stats._continuous_distns.norm_gen object at 0x7f3754bb2eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f374be15ef0> 7.185083401319898e+18
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f374be25ba8> 1.4614498950618343e+23
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f374bde9c88> 8646.55219002268
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f70ae8cd630> 1.1461554481681863e+50
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f70ae8d2b38> 8.084047887618774e+39
+<scipy.stats._continuous_distns.expon_gen object at 0x7f70ae5ff550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f70ae607470> 2.2746523941624833e+32
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f70ae61fe48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f70ae631b70> 1.451852738132366e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f70ae5bacc0> 6.584124322167285e+39
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f70ae5cacf8> 7.113214195212364e+35
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f70ae5d5f60> 2.605639862619327e+37
+<scipy.stats._continuous_distns.norm_gen object at 0x7f70ae8b9ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f70ae5e9f28> 1.1785457154452847e+36
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f70ae607be0> 2.1596333694748434e+49
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f70ae607470> 2.2746523941624833e+32
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f20507f45f8> 1.1461554481681863e+50
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2050801b00> 8.084047887618774e+39
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2050528518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f2050530438> 2.2746523941624833e+32
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2050548e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2050559b38> 1.451852738132366e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f20504e9c88> 6.584124322167285e+39
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f20504f3cc0> 7.113214195212364e+35
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f20504fef28> 2.605639862619327e+37
+<scipy.stats._continuous_distns.norm_gen object at 0x7f20507e2eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2050514ef0> 1.1785457154452847e+36
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2050530ba8> 2.1596333694748434e+49
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f2050530438> 2.2746523941624833e+32
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f483d0d4630> 1.1461554481681863e+50
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f483d0d9b38> 8.084047887618774e+39
+<scipy.stats._continuous_distns.expon_gen object at 0x7f483ce06550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f483ce0e470> 2.2746523941624833e+32
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f483ce26e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f483ce38b70> 1.451852738132366e+35
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f483cdc1cc0> 6.584124322167285e+39
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f483cdd1cc0> 7.113214195212364e+35
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f483cddcf28> 2.605639862619327e+37
+<scipy.stats._continuous_distns.norm_gen object at 0x7f483d0c0ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f483cdf2ef0> 1.1785457154452847e+36
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f483ce0ebe0> 2.1596333694748434e+49
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f483ce0e470> 2.2746523941624833e+32
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f333b0715c0> 265100.33311392914
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f33322c7ac8> 264219.7913142191
+<scipy.stats._continuous_distns.expon_gen object at 0x7f33322d64e0> 288015.4533952676
+<scipy.stats._continuous_distns.f_gen object at 0x7f33322de400> 260087.53975994056
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f33322f6dd8> 294068.2165296986
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f3332303b00> 296083.66579981305
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f3332291fd0> 294749.7588733236
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f33322a0fd0> 272274.186786724
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f3332299ef0> 293582.7203693217
+<scipy.stats._continuous_distns.norm_gen object at 0x7f333b060e80> 293439.1115119584
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f33322bbeb8> 286232.86736306694
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f33322deb70> 308053.60853026825
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f33322de400> 260087.53975994056
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f49215225c0> 399.7833270641818
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4918778ac8> 2674.527187764228
+<scipy.stats._continuous_distns.expon_gen object at 0x7f49187874e0> 376.1522473734476
+<scipy.stats._continuous_distns.f_gen object at 0x7f491878f400> 4225.731285387795
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f49187a7dd8> 4897.483290647044
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f49187b4b00> 37.504969855740946
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4918742fd0> 1578.077884813007
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4918751fd0> 1025.313533005123
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f491874aef0> 1098.3519846002864
+<scipy.stats._continuous_distns.norm_gen object at 0x7f4921511e80> 4070.31938797163
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f491876ceb8> 1479.464676361503
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f491878fb70> 17.276996139720413
+========================================================
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f491878fb70> 17.276996139720413
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f0f6a44e5c0> 222.75346503648126
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f0f616a4ac8> 219.33070952097043
+<scipy.stats._continuous_distns.expon_gen object at 0x7f0f616b34e0> 2934.202546221838
+<scipy.stats._continuous_distns.f_gen object at 0x7f0f616bb400> 5001.5972085012445
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f0f616d3dd8> 219.33073766723558
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f0f616e0b00> 330.80740907907676
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0f6166efd0> 216.8275597136131
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f0f6167dfd0> 421.5859838795773
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f0f61676ef0> 217.46868872960906
+<scipy.stats._continuous_distns.norm_gen object at 0x7f0f6a43de80> 251.71213157985875
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f0f61698eb8> 3296.818417620014
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f0f616bbb70> 238.56554415493932
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0f6166efd0> 216.8275597136131
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fc995ff45f8> 1293.358704497113
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fc98d24ab00> 27566.036455673184
+<scipy.stats._continuous_distns.expon_gen object at 0x7fc98d259518> 4704.141455673674
+<scipy.stats._continuous_distns.f_gen object at 0x7fc98d261438> 19662.98651532638
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fc98d279dd8> 1292.8910657030742
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fc98d286b00> 1793.504895614676
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fc98d214fd0> 1529.8944441183996
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fc98d223fd0> 3100.917767946754
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fc98d21cef0> 1523.9775647517226
+<scipy.stats._continuous_distns.norm_gen object at 0x7fc995fe3eb8> 4716.519529648793
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fc98d23eeb8> 6472.376907934674
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fc98d261ba8> 1792.9919847271042
+========================================================
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fc98d279dd8> 1292.8910657030742
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f746fc13550> 1286.885455742917
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f7466e66a58> 21206.224259950905
+<scipy.stats._continuous_distns.expon_gen object at 0x7f7466e72470> 3276.6678908856634
+<scipy.stats._continuous_distns.f_gen object at 0x7f7466e7d390> 12027.854415390095
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f7466e95d68> 10440.1334767591
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f7466ea2a90> 1957.7824000709825
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f7466e30f60> 1910.6784043532866
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f7466e38f60> 3970.911352780031
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f7466e42e80> 1854.6090295574356
+<scipy.stats._continuous_distns.norm_gen object at 0x7f746fbffe10> 4861.798699783362
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f7466e5ce10> 5006.731566039454
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f7466e7db00> 1958.108146685415
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f746fc13550> 1286.885455742917
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7efd58a44630> 8463.99999997883
+<scipy.stats._continuous_distns.chi2_gen object at 0x7efd58a4ab38> 7627.40053198872
+<scipy.stats._continuous_distns.expon_gen object at 0x7efd58776550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7efd58773438> 8451.152408847161
+<scipy.stats._continuous_distns.gamma_gen object at 0x7efd58796e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7efd587a9b38> 8463.99999997883
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7efd58737c88> 8463.99999997883
+<scipy.stats._continuous_distns.laplace_gen object at 0x7efd58741cc0> 8463.99999997883
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7efd5874cf28> 8463.99999997883
+<scipy.stats._continuous_distns.norm_gen object at 0x7efd58a30ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7efd58762ef0> 3207.0069749367135
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7efd58773ba8> 8463.99999997883
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7efd58762ef0> 3207.0069749367135
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f9c78a965f8> 8464.000000023094
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9c6fcecb00> 7627.400474319774
+<scipy.stats._continuous_distns.expon_gen object at 0x7f9c6fcfb518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f9c6fcf8438> 8453.351393368264
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f9c6fd1be10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f9c6fd2bb38> 8464.000000023094
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f9c6fcbcc88> 8464.000000023094
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f9c6fcc6cc0> 8464.000000023094
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f9c6fcd1f28> 8464.000000023094
+<scipy.stats._continuous_distns.norm_gen object at 0x7f9c78a85eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f9c6fce0ef0> 8464.000000023094
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f9c6fcf8ba8> 8464.000000023094
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9c6fcecb00> 7627.400474319774
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f164850e5f8> 8464.000000554253
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f163f764b00> 7637.510407323848
+<scipy.stats._continuous_distns.expon_gen object at 0x7f163f773518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f163f770438> 8461.08529321668
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f163f793e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f163f7a3b38> 8464.000000554253
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f163f734c88> 9640.3045886361
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f163f73ecc0> 8464.000000554253
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f163f749f28> 7558.571505715717
+<scipy.stats._continuous_distns.norm_gen object at 0x7f16484fdeb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f163f758ef0> 8464.000000554253
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f163f770ba8> 8464.000000554253
+========================================================
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f163f749f28> 7558.571505715717
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fd4880a9588> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fd4880b1a90> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7fd487dd24a8> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fd487de03c8> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fd487df5da0> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fd487e09ac8> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fd487d99f98> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fd487da2f98> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fd487da7eb8> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7fd488092e48> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fd487dbde48> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fd487de0b38> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fd4880b1a90> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2e9cbb35f8> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2e9cbc0b00> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2e9c8e7518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f2e9c8ef438> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2e9c907e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2e9c918b38> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2e9c8a8c88> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f2e9c8b2cc0> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f2e9c8bdf28> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7f2e9cba1eb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2e9c8d3ef0> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2e9c8efba8> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2e9cbc0b00> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f32e473c630> 8464.0000000001
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f32e4741b38> 7118.8936885232615
+<scipy.stats._continuous_distns.expon_gen object at 0x7f32e446e550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f32e4476470> 7635.813089909558
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f32e448ee48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f32e6756828> 8464.0000000001
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f32e442fc88> 8463.999782286997
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f32e4439cc0> 8464.0000000001
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f32e4444f28> 8464.0000000001
+<scipy.stats._continuous_distns.norm_gen object at 0x7f32e4728ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f32e445aef0> 8464.0000000001
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f32e4476be0> 8542.291436097325
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f32e4741b38> 7118.8936885232615
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f572698d5c0> 428842.3328092005
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f571dbe3ac8> 390356.2716300008
+<scipy.stats._continuous_distns.expon_gen object at 0x7f571dbf24e0> 431009.139362079
+<scipy.stats._continuous_distns.f_gen object at 0x7f571dbfa400> 412161.3472513728
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f571dc12dd8> 440731.9413985819
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f571dc1fb00> 443214.4567223706
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f571dbabfd0> 441233.77190159826
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f571dbbdfd0> 410962.8859046566
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f571dbbcef0> 440933.41206119244
+<scipy.stats._continuous_distns.norm_gen object at 0x7f572697ce80> 440063.97069070383
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f571dbddeb8> 428223.850846102
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f571dbfab70> 456655.8969687777
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f571dbe3ac8> 390356.2716300008
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6372a445c0> 537014.7827637981
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f6369c9aac8> 1762340.2785668876
+<scipy.stats._continuous_distns.expon_gen object at 0x7f6369ca94e0> 821968.8170652667
+<scipy.stats._continuous_distns.f_gen object at 0x7f6369cb1400> 1805334.9879881311
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f6369cc9dd8> 1730886.211719839
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f6369cd6b00> 617793.0243241158
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6369c62fd0> 277409.09966085927
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f6369c74fd0> 592446.5648809476
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f6369c73ef0> 770565.923902395
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6372a33eb8> 1138149.682276947
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f6369c94eb8> 958377.4097194374
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f6369cb1b70> 2098821.9707847317
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f6369c62fd0> 277409.09966085927
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f6476d1e5f8> 272.76332117323454
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f646df74ac8> 1465.0630535777202
+<scipy.stats._continuous_distns.expon_gen object at 0x7f646df834e0> 91.45282280578223
+<scipy.stats._continuous_distns.f_gen object at 0x7f646df8b400> 71.25571153212235
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f646dfa3dd8> 2878.709757687088
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f646dfb0b00> 3.1677022998256406
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f646df3cfd0> 429.91130955948825
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f646df4efd0> 326.0100301810554
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f646df4def0> 208.31645135993983
+<scipy.stats._continuous_distns.norm_gen object at 0x7f6476d0deb8> 2320.5673503530256
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f646df6eeb8> 454.29097505892264
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f646df8bb70> 2708.2204227476304
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f646dfb0b00> 3.1677022998256406
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fce0d6af5c0> 41920.40960382292
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fce04905ac8> 42658.17473524789
+<scipy.stats._continuous_distns.expon_gen object at 0x7fce049144e0> 43000.41806760935
+<scipy.stats._continuous_distns.f_gen object at 0x7fce0491c400> 50406.40889021999
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fce04934dd8> 82692.03797989516
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fce04941b00> 77086.52257008279
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fce048cdfd0> 7142.326638572417
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fce048dffd0> 56813.54948754515
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fce048deef0> 18709.80031935725
+<scipy.stats._continuous_distns.norm_gen object at 0x7fce0d69ee80> 149123.07818512977
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fce048ffeb8> 41913.40878056764
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fce0491cb70> 89350.82270772444
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fce048cdfd0> 7142.326638572417
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fccf6023550> 265.6866631839814
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fcced276a58> 261.5126503812518
+<scipy.stats._continuous_distns.expon_gen object at 0x7fcced282470> 3064.1028639121014
+<scipy.stats._continuous_distns.f_gen object at 0x7fcced28d390> 5127.162369860966
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fcced2a5d68> 261.5128236664579
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fcced2b2a90> 319.4761228473299
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fcced23ef60> 252.6902643595912
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fcced248f60> 454.064072147221
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fcced25be80> 254.94900877992768
+<scipy.stats._continuous_distns.norm_gen object at 0x7fccf600fe10> 346.55893762529746
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fcced269e10> 3452.7158728661007
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fcced28db00> 265.7298395032075
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fcced23ef60> 252.6902643595912
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f5735b285f8> 977.1879576017762
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f572cd7eb00> 17867.847339980803
+<scipy.stats._continuous_distns.expon_gen object at 0x7f572cd8d518> 4633.116114341696
+<scipy.stats._continuous_distns.f_gen object at 0x7f572cd95438> 17772.127397621938
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f572cdaddd8> 16959.91247693425
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f572cdbab00> 1301.6810135366245
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f572cd46fd0> 1276.480337788372
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f572cd58fd0> 2402.4580645543138
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f572cd57ef0> 1159.8082160764507
+<scipy.stats._continuous_distns.norm_gen object at 0x7f5735b17eb8> 3922.140498245088
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f572cd78eb8> 4526.5010444529535
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f572cd95ba8> 1302.734893943209
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f5735b285f8> 977.1879576017762
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f4bb4979550> 996.7273408522398
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4babbcca58> 9865.251871787566
+<scipy.stats._continuous_distns.expon_gen object at 0x7f4babbd8470> 1640.4176837151538
+<scipy.stats._continuous_distns.f_gen object at 0x7f4babbe3390> 21939.156819740365
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f4babbfbd68> 17338.399870390924
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f4babc08a90> 3995.6470767376586
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4babb94f60> 2564.5035754663654
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4babb9ef60> 6294.591351942603
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f4babbb1e80> 2301.847337304781
+<scipy.stats._continuous_distns.norm_gen object at 0x7f4bb4965e10> 9007.85072199574
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f4babbbfe10> 3107.758574642079
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f4babbe3b00> 3998.4636621677614
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f4bb4979550> 996.7273408522398
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fd5e31e5630> 8836.000000012056
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fd5e31ebb00> 7972.325165362957
+<scipy.stats._continuous_distns.expon_gen object at 0x7fd5e2f17518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fd5e2f14438> 8822.873041022076
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fd5e2f37e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fd5e2f4ab38> 8836.000000012056
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fd5e2ed8c88> 8836.000000012056
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fd5e2ee2cc0> 8836.000000012056
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fd5e2eedf28> 8836.000000012056
+<scipy.stats._continuous_distns.norm_gen object at 0x7fd5e31d1ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fd5e2f03ef0> 3205.0195436593676
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fd5e2f14ba8> 8836.000000012056
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fd5e2f03ef0> 3205.0195436593676
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe4278e35c0> 8836.000000000251
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe4278f1a90> 7972.325080952
+<scipy.stats._continuous_distns.expon_gen object at 0x7fe4276154a8> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fe4276163c8> 8805.415815753304
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fe427635da0> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fe42764bac8> 8836.000000000251
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe4275d9f98> 8836.000000000251
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fe4275e2f98> 8836.000000000251
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fe4275dbeb8> 8836.000000000251
+<scipy.stats._continuous_distns.norm_gen object at 0x7fe4278d2e80> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe4275fbe48> 13126506.363725148
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fe427616b38> 8836.000000000251
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe4278f1a90> 7972.325080952
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f22277e8588> 8836.000000012056
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f221ea3ea90> 7972.325201804812
+<scipy.stats._continuous_distns.expon_gen object at 0x7f221ea4a4a8> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f221ea4b3c8> 8836.000000012056
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f221ea6ada0> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f221ea7dac8> 8836.000000012056
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f221ea0ef98> 7310.675848441496
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f221ea18f98> 8836.000000012056
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f221ea23eb8> 8836.000000012056
+<scipy.stats._continuous_distns.norm_gen object at 0x7f22277d7e48> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f221ea31e48> 701.517411586366
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f221ea4bb38> 8836.000000012056
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f221ea31e48> 701.517411586366
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f4feff67630> 8836.000000578613
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4fe71bdb38> 7982.781474192279
+<scipy.stats._continuous_distns.expon_gen object at 0x7f4fe71c9550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f4fe71c6470> 8833.657749274562
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f4fe71e9e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f4fe71f9b70> 8836.000000578613
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4fe7182cc0> 7634.879582115656
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4fe7194cc0> 8836.000000578613
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f4fe719ef28> 8836.000000578613
+<scipy.stats._continuous_distns.norm_gen object at 0x7f4feff53ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f4fe71b6ef0> 1318.76788234461
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f4fe71c6be0> 8836.000000578613
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f4fe71b6ef0> 1318.76788234461
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff7c44205f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff7c442db00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff7c4154518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7ff7c415c438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff7c4174e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff7c4185b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff7c4115c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff7c411fcc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff7c412af28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff7c440eeb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff7c4140ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff7c415cba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff7c442db00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f135fe0e5f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f135fe1bb00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f135fb42518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f135fb4a438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f135fb62e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f135fb73b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f135fb03c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f135fb0dcc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f135fb18f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f135fdfceb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f135fb2eef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f135fb4aba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f135fe1bb00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f0a071c6630> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f0a071cbb38> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f0a096ef2b0> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f0a06f00438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f0a06f18e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f0a06f29b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f0a06eb9c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f0a06ec3cc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f0a06ecef28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f0a071b2ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f0a06ee4ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f0a06f00ba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f0a071cbb38> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f3fecab6630> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f3fecabbb38> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f3fec7e8550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f3fec7f0470> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f3fec808e48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f3fec81ab38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f3fec7a9c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f3fec7b3cc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f3fec7bef28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f3fecaa2ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f3fec7d4ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f3fec7f0be0> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f3fecabbb38> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f2f261c3630> 439196.1838425176
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2f1d419b00> 373425.28950443934
+<scipy.stats._continuous_distns.expon_gen object at 0x7f2f1d425518> 441595.9954743341
+<scipy.stats._continuous_distns.f_gen object at 0x7f2f1f70e7b8> 415302.36630045384
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f2f1d445dd8> 451677.19891328487
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f2f1d452b00> 454300.28228053084
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f2f1d3d7fd0> 452273.13037197606
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f2f1d3f0fd0> 421474.0169846722
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f2f1d3faef0> 451533.9545956687
+<scipy.stats._continuous_distns.norm_gen object at 0x7f2f261afef0> 451121.32744416926
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2f1d410eb8> 441601.9263716295
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2f1d42db70> 435079.5634077848
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f2f1d419b00> 373425.28950443934
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f9e18554630> 436981.6379632509
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f9e0f7aab00> 1403547.484079609
+<scipy.stats._continuous_distns.expon_gen object at 0x7f9e0f7b6518> 605112.5277411045
+<scipy.stats._continuous_distns.f_gen object at 0x7f9e0f7be438> 1446386.1219877636
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f9e0f7d6e10> 1247808.1085205656
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f9e0f7e3b38> 480891.07184622687
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f9e0f777c88> 225188.30484411144
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f9e0f77bcc0> 507335.42465531925
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f9e0f781f28> 252761.92313271615
+<scipy.stats._continuous_distns.norm_gen object at 0x7f9e18540ef0> 943761.7214363322
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f9e0f7a3ef0> 718026.7868973756
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f9e0f7beba8> 1726905.3416532816
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f9e0f777c88> 225188.30484411144
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f8a448f15c0> 17.68346799236748
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f8a3bb47ac8> 1668.1499860118793
+<scipy.stats._continuous_distns.expon_gen object at 0x7f8a3bb564e0> 117.12881810707404
+<scipy.stats._continuous_distns.f_gen object at 0x7f8a3bb5e400> 2780.2149483981593
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f8a3bb76dd8> 2775.9907463522113
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f8a3bb83b00> 0.7625942989299687
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f8a3bb08fd0> 455.5957574554461
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f8a3bb21fd0> 360.55840386752817
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f8a3bb2bef0> 211.25334321035143
+<scipy.stats._continuous_distns.norm_gen object at 0x7f8a448e0e80> 2705.4682144307126
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f8a3bb41eb8> 540.1853228439182
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f8a3bb5eb70> 3284.333002986839
+========================================================
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f8a3bb83b00> 0.7625942989299687
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fa7cc0c95f8> 64929.56828693784
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fa7c331fb00> 203781.90459773652
+<scipy.stats._continuous_distns.expon_gen object at 0x7fa7c332e518> 117127.13136824664
+<scipy.stats._continuous_distns.f_gen object at 0x7fa7c3336438> 212465.34915995537
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fa7c334ee10> 182955.8595002267
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fa7c335bb00> 78984.80353208682
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fa7c32e0fd0> 18278.1303170155
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fa7c32f9fd0> 72358.78239708899
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fa7c3303ef0> 34380.225833306446
+<scipy.stats._continuous_distns.norm_gen object at 0x7fa7cc0b8eb8> 152677.4255321911
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fa7c3319eb8> 131334.92824254456
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fa7c3336ba8> 78875.70795959728
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fa7c32e0fd0> 18278.1303170155
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f4e1ca5f5c0> 165.51424925788967
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4e13cb5ac8> 163.83052553353903
+<scipy.stats._continuous_distns.expon_gen object at 0x7f4e13cc44e0> 2918.245406009235
+<scipy.stats._continuous_distns.f_gen object at 0x7f4e13ccc400> 4845.872776492702
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f4e13ce4dd8> 163.83050633839522
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f4e13cf1b00> 234.34992081599304
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4e13c76fd0> 161.8037975678058
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4e13c8ffd0> 424.7010731564048
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f4e13c99ef0> 162.21839133649598
+<scipy.stats._continuous_distns.norm_gen object at 0x7f4e1ca4ee80> 218.52841303801557
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f4e13cafeb8> 3287.4996614123434
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f4e13cccb70> 175.96363354621775
+========================================================
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4e13c76fd0> 161.8037975678058
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f979a4375c0> 1321.333246451499
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f979168dac8> 25139.05299558165
+<scipy.stats._continuous_distns.expon_gen object at 0x7f979169c4e0> 7437.163700668899
+<scipy.stats._continuous_distns.f_gen object at 0x7f97916a4400> 1292.0881174116707
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f97916bcdd8> 18789.908840555483
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f97916c9ac8> 1708.1117347859545
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f979165df98> 1297.4608164404244
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f9791666f60> 3649.743286825604
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f9791672e80> 1468.674581921902
+<scipy.stats._continuous_distns.norm_gen object at 0x7f979a426e80> 5495.025905258505
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f979167ae10> 9796.948707017393
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f97916a4b70> 1707.7637183867296
+========================================================
+<scipy.stats._continuous_distns.f_gen object at 0x7f97916a4400> 1292.0881174116707
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f4c9d78d5c0> 696.9572291101267
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f4c949e3ac8> 673.1946768254186
+<scipy.stats._continuous_distns.expon_gen object at 0x7f4c949f24e0> 1773.3214272697226
+<scipy.stats._continuous_distns.f_gen object at 0x7f4c949fa400> 13090.095915805137
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f4c94a12dd8> 673.1606784455989
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f4c94a1fb00> 2771.201759134363
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f4c949a4fd0> 1786.0883076108491
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f4c949bdfd0> 5475.437618383559
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f4c949c7ef0> 1560.7688172333617
+<scipy.stats._continuous_distns.norm_gen object at 0x7f4c9d77ce80> 7988.00147620753
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f4c949ddeb8> 3649.36733433194
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f4c949fab70> 2753.867854264596
+========================================================
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f4c94a12dd8> 673.1606784455989
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fdf35913550> 8836.000000012054
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fdf35919b38> 7972.325165362954
+<scipy.stats._continuous_distns.expon_gen object at 0x7fdf35645550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fdf35642438> 8822.873041022072
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fdf35665e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fdf35678b38> 8836.000000012054
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fdf35606c88> 8836.000000012054
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fdf35610cc0> 8836.000000012054
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fdf3561bf28> 8836.000000012054
+<scipy.stats._continuous_distns.norm_gen object at 0x7fdf358fff28> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fdf35631ef0> 3205.0195436593663
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fdf35642ba8> 8836.000000012054
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fdf35631ef0> 3205.0195436593663
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe45b9c8630> 8836.000000000251
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe45b9ceb38> 7972.325080952
+<scipy.stats._continuous_distns.expon_gen object at 0x7fe45b6fa550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fe45b6f7470> 8805.415815753304
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fe45b71ae48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fe45b72db38> 8836.000000000251
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe45b6bbfd0> 8836.000000000251
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fe45b6c4f98> 8836.000000000251
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fe45b6bdeb8> 8836.000000000251
+<scipy.stats._continuous_distns.norm_gen object at 0x7fe45b9b4ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe45b6dde48> 26383904.06076528
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fe45b6f7be0> 8836.000000000251
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe45b9ceb38> 7972.325080952
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fe7ec8d45f8> 8836.000000012054
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fe7e3b27b00> 7972.324434928279
+<scipy.stats._continuous_distns.expon_gen object at 0x7fe7e3b36518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fe7e3b33438> 8825.808709095378
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fe7e3b56e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fe7e3b66b38> 8836.000000012054
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fe7e3af7c88> 8836.000000012054
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fe7e3afbcc0> 8836.000000012054
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fe7e3b06f28> 8836.000000012054
+<scipy.stats._continuous_distns.norm_gen object at 0x7fe7ec8c0ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe7e3b23ef0> 853.9285694244543
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fe7e3b33ba8> 8836.000000012054
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fe7e3b23ef0> 853.9285694244543
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7fea1331a668> 8836.000000578615
+<scipy.stats._continuous_distns.chi2_gen object at 0x7fea0a570b38> 7982.78150606427
+<scipy.stats._continuous_distns.expon_gen object at 0x7fea0a57c550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7fea0a579470> 8833.658572904127
+<scipy.stats._continuous_distns.gamma_gen object at 0x7fea0a59ce48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7fea0a5acb38> 8836.000000578615
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7fea0a53dc88> 8835.999996378276
+<scipy.stats._continuous_distns.laplace_gen object at 0x7fea0a541cc0> 8836.000000578615
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7fea0a54cf28> 8836.000000578615
+<scipy.stats._continuous_distns.norm_gen object at 0x7fea13306f28> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fea0a569ef0> 3249.9578421223973
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7fea0a579be0> 8836.000000578615
+========================================================
+<scipy.stats._continuous_distns.pareto_gen object at 0x7fea0a569ef0> 3249.9578421223973
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f78ebf7f5f8> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f78ebf8cb00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f78ebcb3518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f78ebcbb438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f78ebcd3e10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f78ebce4b38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f78ebc74c88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f78ebc7ecc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f78ebc89f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f78ebf6deb8> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f78ebc9fef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f78ebcbbba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f78ebf8cb00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f24019e1518> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f24019f6b00> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f240171d518> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f2401725438> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f240173de10> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f240174eb38> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f24016dec88> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f24016e8cc0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f24016f3f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f24019d7ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f2401709ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f2401725ba8> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f24019f6b00> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7f10ab76a630> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f10ab76fb38> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7f10ab49c550> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7f10ab4a4470> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7f10ab4bce48> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7f10ab4ceb70> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7f10ab457cc0> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7f10ab467cf8> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7f10ab472f28> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7f10ab756ef0> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7f10ab488ef0> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7f10ab4a4be0> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7f10ab76fb38> 7442.596304102872
+========================================================
+<scipy.stats._continuous_distns.beta_gen object at 0x7ff5b76365c0> 8836.000000000067
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff5b7643ac8> 7442.596304102872
+<scipy.stats._continuous_distns.expon_gen object at 0x7ff5b736a4e0> nan
+<scipy.stats._continuous_distns.f_gen object at 0x7ff5b7372400> 7979.957141778915
+<scipy.stats._continuous_distns.gamma_gen object at 0x7ff5b738add8> nan
+<scipy.stats._continuous_distns.gumbel_r_gen object at 0x7ff5b739bb00> 8836.000000000067
+<scipy.stats._continuous_distns.invgamma_gen object at 0x7ff5b7325fd0> 8835.999770611617
+<scipy.stats._continuous_distns.laplace_gen object at 0x7ff5b7334fd0> 8836.000000000067
+<scipy.stats._continuous_distns.lognorm_gen object at 0x7ff5b733aeb8> 8836.000000000067
+<scipy.stats._continuous_distns.norm_gen object at 0x7ff5b7624e80> nan
+<scipy.stats._continuous_distns.pareto_gen object at 0x7ff5b734fe48> 8836.000000000067
+<scipy.stats._continuous_distns.weibull_max_gen object at 0x7ff5b7372b70> 8917.473239030405
+========================================================
+<scipy.stats._continuous_distns.chi2_gen object at 0x7ff5b7643ac8> 7442.596304102872
+========================================================
