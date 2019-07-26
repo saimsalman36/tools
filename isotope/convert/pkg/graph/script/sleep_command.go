@@ -18,7 +18,8 @@ import (
 	"encoding/json"
 	"log"
 	"time"
-	"fmt"
+	// "fmt"
+	"math/rand"
 
 	"github.com/jmcvetta/randutil"
 	"gonum.org/v1/gonum/stat/distuv"
@@ -30,7 +31,17 @@ const (
 	Static       CommandType = "static"
 	Histogram    CommandType = "histogram"
 	Distribution CommandType = "dist"
+	RawData CommandType = "raw"
 )
+
+type SleepCommandRaw struct {
+	List []float64 `json:"list"`
+}
+
+func (c SleepCommandRaw) Duration() time.Duration {
+	rand.Seed(time.Now().Unix()) // initialize global pseudo random generator
+	return time.Duration(c.List[rand.Intn(len(c.List))] * 1e6)
+}
 
 type SleepCommandStatic struct {
 	Time time.Duration `json:"time"`
@@ -48,7 +59,6 @@ type SleepCommandDistribution struct {
 }
 
 func (c SleepCommandDistribution) Duration() time.Duration {
-	fmt.Println(c.Dist.Rand())
 	return time.Duration(c.Dist.Rand() * 1e6)
 }
 
@@ -251,6 +261,18 @@ func (c *SleepCommand) UnmarshalJSON(b []byte) (err error) {
 		var HistCmd SleepCommandHistogram
 		HistCmd.Histogram = ret
 		*c = SleepCommand{command.Type, HistCmd}
+	case RawData:
+		var rawData map[string][]float64
+		err = json.Unmarshal(command.Data, &rawData)
+
+		if err != nil {
+			return
+		}
+
+		var RawCmd SleepCommandRaw
+		RawCmd.List = rawData["list"]
+		*c = SleepCommand{command.Type, RawCmd}
+
 
 	}
 	return
