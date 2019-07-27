@@ -40,7 +40,7 @@ type SleepCommandRaw struct {
 
 func (c SleepCommandRaw) Duration() time.Duration {
 	rand.Seed(time.Now().Unix()) // initialize global pseudo random generator
-	return (time.Duration(c.List[rand.Intn(len(c.List))]) * 1e3)
+	return (time.Duration(c.List[rand.Intn(len(c.List))]))
 }
 
 type SleepCommandStatic struct {

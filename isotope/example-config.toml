@@ -9,7 +9,7 @@ policy_files = [
 
 ## NONE, ISTIO
 environments = [
-  "NONE",
+  "ISTIO",
 ]
 
 [cluster]
@@ -18,7 +18,7 @@ project_id = "absolute-garden-516"
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
 # In total (N + 2) nodes per zone.
-name = "exp-11"
+name = "new-exp-1"
 # One can specify multiple zones for the cluster. The control place 
 # would be in the first zone you specify but the nodes would be 
 # spread around the zones.
@@ -31,8 +31,8 @@ archive_url = "https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.
 [server]
 machine_type = "n1-standard-1"
 disk_size_gb = 32
-num_nodes = 5
-image = "saimsalman/isotope:v6"
+num_nodes = 6
+image = "saimsalman/isotope:v7"
 
 [client]
 machine_type = "n1-highcpu-4"
@@ -40,8 +40,8 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = "1"
-duration = "100m"
+qps = "100"
+duration = "1m"
 num_concurrent_connections = 1
 
 [application]
