@@ -32,9 +32,9 @@ type BasicData struct {
 
 type RawOutput struct {
 	BasicData
-	TimeInformation         []dist.HasDistributionData `json:"TimeInformation"`
-	RequestSizeInformation  []dist.HasDistributionData `json:"RequestSizeInformation"`
-	ResponseSizeInformation []dist.HasDistributionData `json:"ResponseSizeInformation"`
+	TimeInformation         []dist.HasDistributionData `json:"-"`
+	RequestSizeInformation  []dist.HasDistributionData `json:"-"`
+	ResponseSizeInformation []dist.HasDistributionData `json:"-"`
 }
 
 type DistributionOutput struct {
@@ -77,7 +77,7 @@ func GenerateOutput(data parser.TraceData) []byte {
 	fmt.Println("Generating Time Information ...")
 
 	for _, trace := range traces {
-		g, err := graph.GenerateGraph(trace.Spans)
+		g, err := graph.GenerateGraph(trace.Spans, trace.Processes)
 
 		if err != nil {
 			continue

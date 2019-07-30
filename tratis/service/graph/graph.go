@@ -25,12 +25,13 @@ import (
 )
 
 type NodeData struct {
-	SpanID        jaeger.SpanID `json:"spanID,omitempty"`
-	OperationName string        `json:"operationName,omitempty"`
+	ServiceName   string        `json:"service,omitempty"`
+	SpanID        jaeger.SpanID `json:"-"`
+	OperationName string        `json:"OperationName"`
 	StartTime     uint64        `json:"-"`
 	Duration      uint64        `json:"-"`
 	RequestType   string        `json:"requestType"`
-	NodeID        string        `json:"nodeID"`
+	NodeID        string        `json:"-"`
 	RequestSize   string        `json:"-"`
 	ResponseSize  string        `json:"-"`
 }
@@ -152,39 +153,44 @@ func findTags(tags []jaeger.KeyValue) (reqType string,
 	return
 }
 
-func GenerateGraph(data []jaeger.Span) (*Graph, error) {
-	rootSpan, err := findRootSpan(data)
+func GenerateGraph(spans []jaeger.Span,
+	               processes map[jaeger.ProcessID]jaeger.Process) (*Graph, error) {
+	rootSpan, err := findRootSpan(spans)
 	if err != nil {
 		return nil, err
 	}
 
 	reqType, nodeID, respSize, reqSize := findTags(rootSpan.Tags)
+	svcName := processes[rootSpan.ProcessID].ServiceName
 
-	d := NodeData{rootSpan.SpanID, rootSpan.OperationName,
+	d := NodeData{svcName, rootSpan.SpanID, rootSpan.OperationName,
 		rootSpan.StartTime, rootSpan.Duration, reqType, nodeID,
 		reqSize, respSize}
-	childrenList := UpdateChildren(data, rootSpan.SpanID)
+	childrenList := UpdateChildren(spans, rootSpan.SpanID, processes)
 	root := Node{d, &childrenList}
 	return &Graph{&root}, nil
 }
 
-func UpdateChildren(data []jaeger.Span, spanID jaeger.SpanID) []Node {
+func UpdateChildren(spans []jaeger.Span, spanID jaeger.SpanID,
+	                processes map[jaeger.ProcessID]jaeger.Process) []Node {
 	children := make([]Node, 0)
 
-	for _, v := range data {
-		if len(v.References) == 0 {
+	for _, span := range spans {
+		if len(span.References) == 0 {
 			continue
 		}
 
-		ref := v.References[0]
+		ref := span.References[0]
 		if ref.RefType == jaeger.ChildOf && ref.SpanID == spanID {
-			reqType, nodeID, respSize, reqSize := findTags(v.Tags)
+			reqType, nodeID, respSize, reqSize := findTags(span.Tags)
+			svcName := processes[span.ProcessID].ServiceName
 
-			d := NodeData{v.SpanID, v.OperationName,
-				v.StartTime, v.Duration, reqType, nodeID,
+
+			d := NodeData{svcName, span.SpanID, span.OperationName,
+				span.StartTime, span.Duration, reqType, nodeID,
 				reqSize, respSize}
 
-			nodeChildren := UpdateChildren(data, v.SpanID)
+			nodeChildren := UpdateChildren(spans, span.SpanID, processes)
 			children = append(children, Node{d, &nodeChildren})
 		}
 	}
