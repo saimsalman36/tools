@@ -38,17 +38,18 @@ def main(args: argparse.Namespace) -> None:
     else:
         for topology_path in config.topology_paths:
             for env_name in config.environments:
-                entrypoint_service_name = entrypoint.extract_name(topology_path)
-                mesh_environment = mesh.for_state(
-                    env_name, entrypoint_service_name,
-                    consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
-                pipeline.run(topology_path, mesh_environment,
-                             config.server_image,
-                             config.client_image, config.istio_archive_url,
-                             config.policy_files, config.client_qps,
-                             config.client_duration,
-                             config.client_num_conc_conns,
-                             config.labels(), None)
+                entrypoint_service_names = entrypoint.extract_name(topology_path)
+                for entrypoint_service_name in entrypoint_service_names:
+                    mesh_environment = mesh.for_state(
+                        env_name, entrypoint_service_name,
+                        consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
+                    pipeline.run(topology_path, mesh_environment,
+                                 config.server_image,
+                                 config.client_image, config.istio_archive_url,
+                                 config.policy_files, config.client_qps,
+                                 config.client_duration,
+                                 config.client_num_conc_conns,
+                                 config.labels(), None)
 
 
 def parse_args() -> argparse.Namespace:
