@@ -12,12 +12,12 @@ def extract_name(topology_path: str) -> str:
 
     services = topology['services']
     entrypoint_services = [svc for svc in services if svc.get('isEntrypoint')]
-    if len(entrypoint_services) != 1:
+    if len(entrypoint_services) == 0:
         raise ValueError(
-            'topology at {} should only have one entrypoint'.format(
+            'topology at {} should have at least one entrypoint'.format(
                 topology_path))
-    entrypoint_name = entrypoint_services[0]['name']
-    return entrypoint_name
+    entrypoint_names = [srv['name'] for srv in entrypoint_services]
+    return entrypoint_names
 
 
 def extract_url(topology_path: str) -> str:
