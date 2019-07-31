@@ -33,6 +33,7 @@ def main(args: argparse.Namespace) -> None:
                      [], config.client_qps,
                      config.client_duration,
                      config.client_num_conc_conns,
+                     config.client_attempts,
                      config.labels(),
                      config.app_yaml_dir)
     else:
@@ -48,6 +49,7 @@ def main(args: argparse.Namespace) -> None:
                              config.policy_files, config.client_qps,
                              config.client_duration,
                              config.client_num_conc_conns,
+                             config.client_attempts,
                              config.labels(), None)
 
 

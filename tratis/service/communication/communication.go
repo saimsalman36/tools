@@ -23,6 +23,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
 func FindNumServices(toolAddr string, toolPortNum string) []byte {
@@ -44,9 +45,23 @@ func FindNumServices(toolAddr string, toolPortNum string) []byte {
 }
 
 func ExtractTraces(toolAddr string, toolPortNum string,
-	appEntryPoint string, numTraces int) []byte {
-	pageAddress := fmt.Sprintf("http://%s:%s/jaeger/api/traces?service=%s&limit=%d",
-		toolAddr, toolPortNum, appEntryPoint, numTraces)
+	appEntryPoint string, numTraces int,
+    startTime string, endTime string) []byte {
+	start, err := time.Parse(time.RFC3339, startTime)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	// start = start.Add(-7*time.Hour)
+
+	end, err := time.Parse(time.RFC3339, endTime)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	// end = end.Add(-7*time.Hour)
+	// fmt.Println(end.Unix())
+
+	pageAddress := fmt.Sprintf("http://%s:%s/jaeger/api/traces?service=%s&limit=%d&lookback=custom&start=%d&end=%d",
+		toolAddr, toolPortNum, appEntryPoint, numTraces, start.Unix() * 1000000, end.Unix() * 1000000)
 
 	resp, err := http.Get(pageAddress)
 	if err != nil {
