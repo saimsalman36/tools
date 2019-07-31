@@ -13,12 +13,12 @@ environments = [
 ]
 
 [cluster]
-project_id = "absolute-garden-516"
+project_id = "saim-247903"
 # Cluster will be created with one n1-standard-1 node per zone in the default node-pool.
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
 # In total (N + 2) nodes per zone.
-name = "new-exp-9"
+name = "random-1"
 # One can specify multiple zones for the cluster. The control place 
 # would be in the first zone you specify but the nodes would be 
 # spread around the zones.
@@ -46,8 +46,14 @@ num_concurrent_connections = [64]
 num_attempts = 1
 
 [application]
-application_name = "bookinfo"
-entrypoint_service_name = "productpage"
-entrypoint_port_number = 9080
-path = "productpage"
-yaml_files = "app-policies"
+application_name = "hipster"
+entrypoint_service_names = ["", "cart", "cart/checkout"]
+entrypoint_port_number = 80
+path = "frontend"
+yaml_files = "app-policies/hipster"
+
+# application_name = "hipster"
+# entrypoint_service_names = 
+# entrypoint_port_number = 9080
+# path = "productpage"
+# yaml_files = "app-policies/bookinfo"
