@@ -16,12 +16,13 @@ package consts
 
 const (
 	// Traces Limit
-	NumTraces = 3000
+	NumTraces = 20000
 
-	MinNumTraces = 1
+	MinNumTraces = 500
 
-	StartTime = "2019-07-31T02:25:12.582569423Z"
-	EndTime = "2019-07-31T02:27:25.450182732Z"
+	DateFiltering = false
+	StartTime = "2019-08-31T02:25:12.582569423Z"
+	EndTime = "2019-09-31T02:27:25.450182732Z"
 
 	// Distribution Fitting File Path
 	DistFilePath = "Distribution"
@@ -32,8 +33,19 @@ const (
 	TracingToolAddress = "localhost"
 	// Tarcing Tool Port Number
 	TracingToolPortNumber = "15032"
-	// Tracing Tool EntryPoint Service
-	TracingToolEntryPoint = "istio-ingressgateway"
 	// Output can be either `RAW` or `DIST`
 	OutputType = "RAW"
+)
+
+var (
+	TracingToolEntryPoints = []string{"frontend.service-graph",
+                                      "adservice.service-graph",
+                                      "cartservice.service-graph",
+                                      "checkoutservice.service-graph",
+                                      "currencyservice.service-graph",
+                                      "emailservice.service-graph",
+                                      "paymentservice.service-graph",
+                                      "productcatalogservice.service-graph",
+                                      "recommendationservice.service-graph",
+                                      "shippingservice.service-graph"}
 )

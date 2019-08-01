@@ -34,10 +34,27 @@ type TraceData struct {
 func ParseJSON(toolName string) (appTrace TraceData,
 	err error) {
 
+	ret := TraceData{}
+
+
 	if toolName == "jaeger" {
-		return ParseJaeger(comm.ExtractTraces(consts.TracingToolAddress,
-			consts.TracingToolPortNumber, consts.TracingToolEntryPoint,
-			consts.NumTraces, consts.StartTime, consts.EndTime))
+		for _, EntryService := range consts.TracingToolEntryPoints {
+			temp, err := ParseJaeger(comm.ExtractTraces(consts.TracingToolAddress,
+				consts.TracingToolPortNumber, EntryService,
+				consts.NumTraces, consts.StartTime, consts.EndTime,
+				consts.DateFiltering))
+
+			if err != nil {
+				return temp, err
+			}
+
+			ret.Traces = append(ret.Traces, temp.Traces...)
+			ret.Total = ret.Total + temp.Total
+			ret.Limit = ret.Limit + temp.Limit
+			ret.Offset = ret.Offset + temp.Offset
+		}
+
+		return ret, nil
 	}
 
 	log.Fatalf(`tracing tool "%s" is not correctly supported`, toolName)

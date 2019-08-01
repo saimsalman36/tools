@@ -80,16 +80,10 @@ func _CompGraphHelper(node1 *Node, node2 *Node) bool {
 
 	if node1.Data.OperationName == node2.Data.OperationName &&
 		node1.Data.RequestType == node2.Data.RequestType &&
+		node1.Data.ServiceName == node2.Data.ServiceName &&
 		len(*node1.Children) == len(*node2.Children) {
-
-		if (strings.Contains(node1.Data.NodeID, "ingressgateway") &&
-			strings.Contains(node1.Data.NodeID, "ingressgateway")) ||
-			node1.Data.NodeID == node2.Data.NodeID {
-			for i := 0; i < len(*node1.Children); i++ {
-				ret = ret && _CompGraphHelper(&(*node1.Children)[i], &(*node2.Children)[i])
-			}
-		} else {
-			return false
+		for i := 0; i < len(*node1.Children); i++ {
+			ret = ret && _CompGraphHelper(&(*node1.Children)[i], &(*node2.Children)[i])
 		}
 	} else {
 		return false

@@ -20,9 +20,26 @@ import (
 	"log"
 	"os"
 
+	jaeger "github.com/jaegertracing/jaeger/model/json"
 	"istio.io/tools/tratis/service/output"
 	parser "istio.io/tools/tratis/service/parsing"
 )
+
+func unique(data []jaeger.Trace) []jaeger.Trace {
+	ret := make([]jaeger.Trace, 0)
+	set := make(map[jaeger.TraceID]bool)
+
+	for _, trace := range data {
+		_, ok := set[trace.TraceID]
+
+		if !ok {
+			set[trace.TraceID] = true
+			ret = append(ret, trace)
+		}
+	}
+
+	return ret
+}
 
 func main() {
 	fmt.Println("Starting Tratis ...")
@@ -42,6 +59,14 @@ func main() {
 		log.Fatalf(`Connection between "%s" and tratis is broken`,
 			TracingToolName)
 	}
+
+	fmt.Println(len(data.Traces), " traces generated")
+
+	fmt.Println("Removing Duplicate Traces ...")
+
+	data.Traces = unique(data.Traces)
+
+	fmt.Println(len(data.Traces), " unique traces generated")
 
 	fmt.Println("Writing Traces to File ...")
 
