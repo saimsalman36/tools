@@ -22,21 +22,19 @@ def main(args: argparse.Namespace) -> None:
         config.client_machine_type, config.client_disk_size_gb)
 
     if args.real_app == 'True':
-        entrypoint_service_names = config.app_svc_names
-        for entrypoint_service_name in entrypoint_service_names:
-            mesh_environment = mesh.for_state(
-                "REAL", entrypoint_service_name,
-                consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
+        mesh_environment = mesh.for_state(
+            "REAL", config.app_svc_name,
+            consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
 
-            pipeline.run(None, mesh_environment,
-                         None,
-                         config.client_image, config.istio_archive_url,
-                         [], config.client_qps,
-                         config.client_duration,
-                         config.client_num_conc_conns,
-                         config.client_attempts,
-                         config.labels(),
-                         config.app_yaml_dir)
+        pipeline.run(None, mesh_environment,
+                     None,
+                     config.client_image, config.istio_archive_url,
+                     [], config.client_qps,
+                     config.client_duration,
+                     config.client_num_conc_conns,
+                     config.client_attempts,
+                     config.labels(),
+                     config.app_yaml_dir)
     else:
         for topology_path in config.topology_paths:
             for env_name in config.environments:

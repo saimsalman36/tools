@@ -18,9 +18,8 @@ class RunnerConfig:
                  client_image: str, client_qps: List[Optional[int]],
                  client_duration: List[str], 
                  client_num_conc_conns: List[int],
-                 client_attempts: int, app_name: str, app_svc_names: str,
-                 app_port_num: int, app_path: str,
-                 app_yaml_dir: str) -> None:
+                 client_attempts: int, app_name: str, app_svc_name: str,
+                 app_port_num: int, app_yaml_dir: str) -> None:
         self.topology_paths = topology_paths
         self.policy_files = policy_files
         self.environments = environments
@@ -41,9 +40,8 @@ class RunnerConfig:
         self.client_num_conc_conns = client_num_conc_conns
         self.client_attempts = client_attempts
         self.app_name = app_name
-        self.app_svc_names = app_svc_names
+        self.app_svc_name = app_svc_name
         self.app_port_num = app_port_num
-        self.app_path = app_path
         self.app_yaml_dir = app_yaml_dir
 
     def labels(self) -> Dict[str, str]:
@@ -98,9 +96,8 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
 
     application = d['application']
     app_name = application['application_name']
-    app_svc_names = application['entrypoint_service_names']
+    app_svc_name = application['entrypoint_service_names']
     app_port_num = int(application['entrypoint_port_number'])
-    app_path = application['path']
     app_yaml_dir = application['yaml_files']
 
     return RunnerConfig(
@@ -124,9 +121,8 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
         client_num_conc_conns=client_num_conc_conns,
         client_attempts=client_attempts,
         app_name=app_name,
-        app_svc_names=app_svc_names,
+        app_svc_name=app_svc_name,
         app_port_num=app_port_num,
-        app_path=app_path,
         app_yaml_dir=app_yaml_dir)
 
 
