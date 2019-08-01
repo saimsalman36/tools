@@ -22,7 +22,7 @@ def main(args: argparse.Namespace) -> None:
         config.client_machine_type, config.client_disk_size_gb)
 
     if args.real_app == 'True':
-        entrypoint_service_names = config.app_svc_name
+        entrypoint_service_names = config.app_svc_names
         for entrypoint_service_name in entrypoint_service_names:
             mesh_environment = mesh.for_state(
                 "REAL", entrypoint_service_name,
@@ -51,6 +51,7 @@ def main(args: argparse.Namespace) -> None:
                                  config.policy_files, config.client_qps,
                                  config.client_duration,
                                  config.client_num_conc_conns,
+                                 config.client_attempts,
                                  config.labels(), None)
 
 

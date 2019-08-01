@@ -17,7 +17,7 @@
 # ----------------------------------------------------------
 
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: emailservice
@@ -30,6 +30,8 @@ spec:
       labels:
         app: emailservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -59,7 +61,7 @@ spec:
             memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: emailservice
@@ -73,7 +75,7 @@ spec:
     targetPort: 8080
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: checkoutservice
@@ -86,6 +88,8 @@ spec:
       labels:
         app: checkoutservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       containers:
         - name: server
           image: gcr.io/google-samples/microservices-demo/checkoutservice:v0.1.1
@@ -123,7 +127,7 @@ spec:
               memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: checkoutservice
@@ -137,7 +141,7 @@ spec:
     targetPort: 5050
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: recommendationservice
@@ -150,6 +154,8 @@ spec:
       labels:
         app: recommendationservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -180,7 +186,7 @@ spec:
             memory: 450Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: recommendationservice
@@ -194,7 +200,7 @@ spec:
     targetPort: 8080
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: frontend
@@ -207,6 +213,8 @@ spec:
       labels:
         app: frontend
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       containers:
         - name: server
           image: gcr.io/google-samples/microservices-demo/frontend:v0.1.1
@@ -256,7 +264,7 @@ spec:
               memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: frontend
@@ -270,7 +278,7 @@ spec:
     targetPort: 8080
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: frontend-external
@@ -284,7 +292,7 @@ spec:
     targetPort: 8080
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: paymentservice
@@ -297,6 +305,8 @@ spec:
       labels:
         app: paymentservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -321,7 +331,7 @@ spec:
             memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: paymentservice
@@ -335,7 +345,7 @@ spec:
     targetPort: 50051
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: productcatalogservice
@@ -348,6 +358,8 @@ spec:
       labels:
         app: productcatalogservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -375,7 +387,7 @@ spec:
             memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: productcatalogservice
@@ -389,7 +401,7 @@ spec:
     targetPort: 3550
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: cartservice
@@ -402,6 +414,8 @@ spec:
       labels:
         app: cartservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -433,7 +447,7 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:7070"]
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: cartservice
@@ -447,7 +461,7 @@ spec:
     targetPort: 7070
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: loadgenerator
@@ -461,6 +475,8 @@ spec:
       labels:
         app: loadgenerator
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       restartPolicy: Always
       initContainers:
@@ -491,7 +507,7 @@ spec:
             memory: 512Mi
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: currencyservice
@@ -504,6 +520,8 @@ spec:
       labels:
         app: currencyservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -529,7 +547,7 @@ spec:
             memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: currencyservice
@@ -543,7 +561,7 @@ spec:
     targetPort: 7000
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: shippingservice
@@ -556,6 +574,8 @@ spec:
       labels:
         app: shippingservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       containers:
       - name: server
         image: gcr.io/google-samples/microservices-demo/shippingservice:v0.1.1
@@ -583,7 +603,7 @@ spec:
             memory: 128Mi
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: shippingservice
@@ -597,7 +617,7 @@ spec:
     targetPort: 50051
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: redis-cart
@@ -610,6 +630,8 @@ spec:
       labels:
         app: redis-cart
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       containers:
       - name: redis
         image: redis:alpine
@@ -638,7 +660,7 @@ spec:
         emptyDir: {}
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: redis-cart
@@ -652,7 +674,7 @@ spec:
     targetPort: 6379
 ---
 apiVersion: apps/v1
-kind:.*
+kind: Deployment
 metadata:
   namespace: service-graph
   name: adservice
@@ -665,6 +687,8 @@ spec:
       labels:
         app: adservice
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: service-graph-pool
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
@@ -695,7 +719,7 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:9555"]
 ---
 apiVersion: v1
-kind:.*
+kind: Service
 metadata:
   namespace: service-graph
   name: adservice
