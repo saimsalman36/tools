@@ -19,9 +19,10 @@ _MAIN_GO_PATH = os.path.join(_REPO_ROOT, 'convert', 'main.go')
 
 def run(topology_path: str, env: mesh.Environment, service_image: str,
         client_image: str, istio_archive_url: str, policy_files: List[str],
-        test_qps: Optional[int], test_duration: str,
-        test_num_concurrent_connections: int, static_labels: Dict[str, str],
-        app_yaml_dir: str, deploy_prometheus=False) -> None:
+        test_qps: List[Optional[int]], test_duration: List[str],
+        test_num_concurrent_connections: List[int], client_attempts: int,
+        static_labels: Dict[str, str], app_yaml_dir: str,
+        deploy_prometheus=False) -> None:
     """Runs a load test on the topology in topology_path with the environment.
 
     Args:
@@ -64,7 +65,7 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
 
     with env.context() as ingress_url:
         logging.info('starting test with environment "%s"', env.name)
-        result_output_path = '{}_{}.json'.format(topology_name, env.name)
+        result_output_path = '{}_{}'.format(topology_name, env.name)
 
         if service_image == None:
             actual_app = True
@@ -75,6 +76,7 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
                             result_output_path, ingress_url,
                             test_qps, test_duration,
                             test_num_concurrent_connections,
+                            client_attempts,
                             actual_app)
 
 
@@ -118,7 +120,7 @@ def _gen_load_gen_yaml(client_image: str, app_yaml_dir: str):
     return resources.SERVICE_GRAPH_GEN_YAML_PATH
 
 def _gen_yaml(topology_path: str, service_image: str,
-              max_idle_connections_per_host: int, client_image: str,
+              max_idle_connections_per_host: List[int], client_image: str,
               env_name: str) -> str:
     """Converts topology_path to Kubernetes manifests.
 
@@ -140,7 +142,7 @@ def _gen_yaml(topology_path: str, service_image: str,
         [
             'go', 'run', _MAIN_GO_PATH, 'kubernetes', '--service-image',
             service_image, '--service-max-idle-connections-per-host',
-            str(max_idle_connections_per_host), '--client-image', client_image,
+            str(max(max_idle_connections_per_host)), '--client-image', client_image,
             "--environment-name", env_name,
             '--service-node-selector', service_graph_node_selector,
             '--client-node-selector', client_node_selector,
@@ -159,9 +161,10 @@ def _get_gke_node_selector(node_pool_name: str) -> str:
 
 def _test_service_graph(env: mesh.Environment, yaml_path: str,
                         policy_files: List[str], test_result_output_path: str,
-                        test_target_url: str, test_qps: Optional[int],
-                        test_duration: str,
-                        test_num_concurrent_connections: int,
+                        test_target_url: str, test_qps: List[Optional[int]],
+                        test_duration: List[str],
+                        test_num_concurrent_connections: List[int],
+                        client_attempts: str,
                         actual_app: bool) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
@@ -178,16 +181,20 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
         time.sleep(40)
 
         _run_load_test(test_result_output_path, test_target_url, test_qps,
-                       test_duration, test_num_concurrent_connections)
+                       test_duration, test_num_concurrent_connections,
+                       client_attempts)
 
         wait.until_prometheus_has_scraped()
 
+    sh.run_kubectl(['delete', 'ns', consts.SERVICE_GRAPH_NAMESPACE],
+           check=True)
     wait.until_namespace_is_deleted(consts.SERVICE_GRAPH_NAMESPACE)
 
 
 def _run_load_test(result_output_path: str, test_target_url: str,
-                   test_qps: Optional[int], test_duration: str,
-                   test_num_concurrent_connections: int) -> None:
+                   test_qps: List[Optional[int]], test_duration: List[str],
+                   test_num_concurrent_connections: List[int],
+                   client_attempts: int) -> None:
     """Sends an HTTP request to the client; expecting a JSON response.
 
     The HTTP request's query string contains the necessary info to perform
@@ -202,16 +209,31 @@ def _run_load_test(result_output_path: str, test_target_url: str,
         test_num_concurrent_connections: the number of simultaneous connections
                 for the client to make
     """
-    logging.info('starting load test')
-    with kubectl.port_forward("app", consts.CLIENT_NAME, consts.CLIENT_PORT,
-                              consts.DEFAULT_NAMESPACE) as local_port:
-        qps = -1 if test_qps is None else test_qps  # -1 indicates max QPS.
-        url = ('http://localhost:{}/fortio'
-               '?json=on&qps={}&t={}&c={}&load=Start&url={}').format(
-                   local_port, qps, test_duration,
-                   test_num_concurrent_connections, test_target_url)
-        result = _http_get_json(url)
-    _write_to_file(result_output_path, result)
+    for qps in test_qps:
+        for num_connections in test_num_concurrent_connections:
+            for duration in test_duration:
+                for attempt in range(client_attempts):
+                    logging.info('starting load test, [QPS: %s, Number Connections: %s, Duration: %s, Attempt: %s]',
+                                 str(qps),
+                                 str(num_connections),
+                                 duration,
+                                 str(attempt))
+
+                    with kubectl.port_forward("app", consts.CLIENT_NAME, consts.CLIENT_PORT,
+                                              consts.DEFAULT_NAMESPACE) as local_port:
+                        qps = -1 if qps is None else qps  # -1 indicates max QPS.
+                        percentiles = ','.join([str(percentile) for percentile in range(1, 100)])
+                        url = ('http://localhost:{}/fortio'
+                               '?json=on&qps={}&t={}&c={}&load=Start&p={}&url={}').format(
+                                   local_port, qps, duration,
+                                   num_connections, percentiles,test_target_url)
+                        result = _http_get_json(url)
+                    output_path = result_output_path + "_" + \
+                                   str(qps) + "_" + str(num_connections) + "_" + \
+                                   str(duration) + "_" + str(attempt) + ".json"
+                    _write_to_file(output_path, result)
+                    logging.info("Sleeping for 120 seconds")
+                    time.sleep(120)
 
 
 def _http_get_json(url: str) -> str:
