@@ -96,7 +96,7 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
 
     application = d['application']
     app_name = application['application_name']
-    app_svc_name = application['entrypoint_service_names']
+    app_svc_name = application['entrypoint_service_name']
     app_port_num = int(application['entrypoint_port_number'])
     app_yaml_dir = application['yaml_files']
 
