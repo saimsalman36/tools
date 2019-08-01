@@ -12,7 +12,7 @@ These three functions make it simple for use in a with-statement.
 from __future__ import print_function
 
 import contextlib
-from typing import Callable, Generator, List
+from typing import Callable, Generator, List, Optional
 
 from . import config, consts, istio as istio_lib
 
@@ -52,8 +52,8 @@ def none(entrypoint_service_name: str, entrypoint_service_port: int,
 
 
 def istio(entrypoint_service_name: str, entrypoint_service_namespace: str,
-          archive_url: str, values: str, app_yaml_dir: str,
-          tear_down=False) -> Environment:
+          app_path: Optional[str], archive_url: str, values: str,
+          app_yaml_dir: str, tear_down=False) -> Environment:
     def set_up() -> None:
         istio_lib.set_up(entrypoint_service_name, entrypoint_service_namespace,
                          archive_url, values, app_yaml_dir)
@@ -65,7 +65,7 @@ def istio(entrypoint_service_name: str, entrypoint_service_namespace: str,
         name='istio',
         set_up=set_up,
         tear_down=td,
-        get_ingress_url=istio_lib.get_ingress_gateway_url)
+        get_ingress_url=(lambda: istio_lib.get_ingress_gateway_url(app_path)))
 
 
 def for_state(name: str, entrypoint_service_name: str,
@@ -81,7 +81,8 @@ def for_state(name: str, entrypoint_service_name: str,
             yaml_dir = None
 
         env = istio(entrypoint_service_name, entrypoint_service_namespace,
-                    config.istio_archive_url, values, yaml_dir)
+                    config.app_path, config.istio_archive_url,
+                    values, yaml_dir)
     else:
         raise ValueError('{} is not a known environment'.format(name))
 

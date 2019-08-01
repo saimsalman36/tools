@@ -6,7 +6,7 @@ import logging
 import os
 import tarfile
 import tempfile
-from typing import Any, Dict, Generator, List
+from typing import Any, Dict, Generator, List, Optional
 
 import yaml
 import time
@@ -72,13 +72,16 @@ def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
                               app_yaml_dir)
 
 
-def get_ingress_gateway_url() -> str:
+def get_ingress_gateway_url(app_path: Optional[str]) -> str:
     ip = wait.until_output([
         'kubectl', '--namespace', consts.ISTIO_NAMESPACE, 'get', 'service',
         'istio-ingressgateway', '-o',
         'jsonpath={.status.loadBalancer.ingress[0].ip}'
     ])
-    return 'http://{}:{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT)
+    if app_path == None:
+        return 'http://{}:{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT)
+    else:
+        return 'http://{}:{}/{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT, app_path)
 
 
 def _download(archive_url: str, path: str) -> None:
