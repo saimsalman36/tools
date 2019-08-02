@@ -194,6 +194,7 @@ def _work_dir(path: str) -> Generator[None, None, None]:
 def _create_ingress_rules(entrypoint_service_name: str,
                           entrypoint_service_namespace: str,
                           app_yaml_dir: str) -> None:
+    sh.run_kubectl(['create', 'namespace', entrypoint_service_namespace])
     if app_yaml_dir is not None:
         for file in os.listdir(app_yaml_dir):
             if 'gateway' in file:
