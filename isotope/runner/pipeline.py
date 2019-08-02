@@ -168,7 +168,7 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
                         actual_app: bool) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
-    with kubectl.manifest(yaml_path):
+    with kubectl.manifest(yaml_path, consts.SERVICE_GRAPH_NAMESPACE):
         wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
         if not actual_app:
             wait.until_service_graph_is_ready()

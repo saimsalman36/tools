@@ -198,8 +198,10 @@ def _create_ingress_rules(entrypoint_service_name: str,
     if app_yaml_dir is not None:
         for file in os.listdir(app_yaml_dir):
             if 'gateway' in file:
-                f = (os.path.join(app_yaml_dir, file))
-                kubectl.apply_file(f)
+                file_path = (os.path.join(app_yaml_dir, file))
+                dicts = kubectl.inject_namespace(file_path,
+                    entrypoint_service_namespace)
+                kubectl.apply_text(dicts)
                 return
     else:
         logging.info('creating istio ingress rules')
