@@ -38,7 +38,7 @@ class Environment:
 
 
 def none(entrypoint_service_name: str, entrypoint_service_port: int,
-         entrypoint_service_namespace: str) -> Environment:
+         entrypoint_service_namespace: str, app_yaml_dir: str) -> Environment:
     def get_ingress_url() -> str:
         return 'http://{}.{}.svc.cluster.local:{}'.format(
             entrypoint_service_name, entrypoint_service_namespace,
@@ -73,16 +73,16 @@ def istio(entrypoint_service_name: str,
 
 def for_state(name: str, entrypoint_service_name: str,
               entrypoint_service_namespace: str, config: config.RunnerConfig,
-              values: str) -> Environment:
+              values: str, real_application: bool) -> Environment:
+    if real_application == True:
+        yaml_dir = config.app_yaml_dir
+    else:
+        yaml_dir = None
+
     if name == 'NONE':
         env = none(entrypoint_service_name, consts.SERVICE_PORT,
-                   consts.SERVICE_GRAPH_NAMESPACE)
-    elif (name == 'ISTIO' or name == "REAL"):
-        if name == "REAL":
-            yaml_dir = config.app_yaml_dir
-        else:
-            yaml_dir = None
-
+                   consts.SERVICE_GRAPH_NAMESPACE, yaml_dir)
+    elif name == 'ISTIO':
         env = istio(entrypoint_service_name, entrypoint_service_namespace,
                     config.app_path, config.istio_archive_url, values,
                     yaml_dir)

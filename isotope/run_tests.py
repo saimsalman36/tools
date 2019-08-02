@@ -9,10 +9,10 @@ def main(args: argparse.Namespace) -> None:
     logging.basicConfig(level=log_level, format='%(levelname)s\t> %(message)s')
 
     config = cfg.from_toml_file(args.config_path)
-    
+
     if args.clean_up == 'True':
-        cluster.clean_up(
-            config.cluster_project_id, config.cluster_name, config.cluster_zones)
+        cluster.clean_up(config.cluster_project_id, config.cluster_name,
+                         config.cluster_zones)
         return
 
     cluster.set_up_if_not_exists(
@@ -22,35 +22,32 @@ def main(args: argparse.Namespace) -> None:
         config.client_machine_type, config.client_disk_size_gb)
 
     if args.real_app == 'True':
-        mesh_environment = mesh.for_state(
-            "REAL", config.app_svc_name,
-            consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
+        for env_name in config.environments:
+            mesh_environment = mesh.for_state(env_name, config.app_svc_name,
+                                              consts.SERVICE_GRAPH_NAMESPACE,
+                                              config, args.helm_values, True)
 
-        pipeline.run(None, mesh_environment,
-                     None,
-                     config.client_image, config.istio_archive_url,
-                     [], config.client_qps,
-                     config.client_duration,
-                     config.client_num_conc_conns,
-                     config.client_attempts,
-                     config.labels(),
-                     config.app_yaml_dir)
+            pipeline.run(None, mesh_environment, None, config.client_image,
+                         config.istio_archive_url, [], config.client_qps,
+                         config.client_duration,
+                         config.client_num_conc_conns, config.client_attempts,
+                         config.labels(), config.app_yaml_dir)
     else:
         for topology_path in config.topology_paths:
             for env_name in config.environments:
-                entrypoint_service_names = entrypoint.extract_name(topology_path)
+                entrypoint_service_names = entrypoint.extract_name(
+                    topology_path)
                 for entrypoint_service_name in entrypoint_service_names:
                     mesh_environment = mesh.for_state(
                         env_name, entrypoint_service_name,
-                        consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values)
+                        consts.SERVICE_GRAPH_NAMESPACE, config,
+                        args.helm_values, False)
                     pipeline.run(topology_path, mesh_environment,
-                                 config.server_image,
-                                 config.client_image, config.istio_archive_url,
-                                 config.policy_files, config.client_qps,
-                                 config.client_duration,
+                                 config.server_image, config.client_image,
+                                 config.istio_archive_url, config.policy_files,
+                                 config.client_qps, config.client_duration,
                                  config.client_num_conc_conns,
-                                 config.client_attempts,
-                                 config.labels(), None)
+                                 config.client_attempts, config.labels(), None)
 
 
 def parse_args() -> argparse.Namespace:
