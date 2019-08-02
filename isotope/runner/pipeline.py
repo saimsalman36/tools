@@ -17,11 +17,18 @@ _REPO_ROOT = os.path.join(os.getcwd(),
 _MAIN_GO_PATH = os.path.join(_REPO_ROOT, 'convert', 'main.go')
 
 
-def run(topology_path: str, env: mesh.Environment, service_image: str,
-        client_image: str, istio_archive_url: str, policy_files: List[str],
-        test_qps: List[Optional[int]], test_duration: List[str],
-        test_num_concurrent_connections: List[int], client_attempts: int,
-        static_labels: Dict[str, str], app_yaml_dir: str,
+def run(topology_path: str,
+        env: mesh.Environment,
+        service_image: str,
+        client_image: str,
+        istio_archive_url: str,
+        policy_files: List[str],
+        test_qps: List[Optional[int]],
+        test_duration: List[str],
+        test_num_concurrent_connections: List[int],
+        client_attempts: int,
+        static_labels: Dict[str, str],
+        app_yaml_dir: str,
         deploy_prometheus=False) -> None:
     """Runs a load test on the topology in topology_path with the environment.
 
@@ -42,8 +49,8 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
         manifest_path = _gen_load_gen_yaml(client_image, app_yaml_dir)
     else:
         manifest_path = _gen_yaml(topology_path, service_image,
-                                  test_num_concurrent_connections, client_image,
-                                  env.name)
+                                  test_num_concurrent_connections,
+                                  client_image, env.name)
 
     if service_image == None:
         topology_name = None
@@ -73,11 +80,9 @@ def run(topology_path: str, env: mesh.Environment, service_image: str,
             actual_app = False
 
         _test_service_graph(env, manifest_path, policy_files,
-                            result_output_path, ingress_url,
-                            test_qps, test_duration,
-                            test_num_concurrent_connections,
-                            client_attempts,
-                            actual_app)
+                            result_output_path, ingress_url, test_qps,
+                            test_duration, test_num_concurrent_connections,
+                            client_attempts, actual_app)
 
 
 def _apply_policy_files(policy_files: List[str], namespace: str) -> None:
@@ -85,15 +90,14 @@ def _apply_policy_files(policy_files: List[str], namespace: str) -> None:
 
     for policy_file in policy_files:
         with open(policy_file, 'r') as f:
-            sh.run_kubectl(
-                ['apply', '-n',
-                 namespace, '-f',
-                 policy_file],
-                 check=True)
+            sh.run_kubectl(['apply', '-n', namespace, '-f', policy_file],
+                           check=True)
+
 
 def _get_basename_no_ext(path: str) -> str:
     basename = os.path.basename(path)
     return os.path.splitext(basename)[0]
+
 
 def _gen_load_gen_yaml(client_image: str, app_yaml_dir: str):
     """Generates Kubernetes manifests about fortio client
@@ -107,17 +111,23 @@ def _gen_load_gen_yaml(client_image: str, app_yaml_dir: str):
     """
     logging.info('generating Load Generator manifests from')
     client_node_selector = _get_gke_node_selector(consts.CLIENT_NODE_POOL_NAME)
-    gen = sh.run(
-        [
-            'go', 'run', _MAIN_GO_PATH, 'fortio', '--client-image',
-            client_image, '--client-node-selector',
-            client_node_selector, app_yaml_dir,
-        ],
-        check=True)
+    gen = sh.run([
+        'go',
+        'run',
+        _MAIN_GO_PATH,
+        'fortio',
+        '--client-image',
+        client_image,
+        '--client-node-selector',
+        client_node_selector,
+        app_yaml_dir,
+    ],
+                 check=True)
     with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
         f.write(gen.stdout)
 
     return resources.SERVICE_GRAPH_GEN_YAML_PATH
+
 
 def _gen_yaml(topology_path: str, service_image: str,
               max_idle_connections_per_host: List[int], client_image: str,
@@ -138,17 +148,26 @@ def _gen_yaml(topology_path: str, service_image: str,
     service_graph_node_selector = _get_gke_node_selector(
         consts.SERVICE_GRAPH_NODE_POOL_NAME)
     client_node_selector = _get_gke_node_selector(consts.CLIENT_NODE_POOL_NAME)
-    gen = sh.run(
-        [
-            'go', 'run', _MAIN_GO_PATH, 'kubernetes', '--service-image',
-            service_image, '--service-max-idle-connections-per-host',
-            str(max(max_idle_connections_per_host)), '--client-image', client_image,
-            "--environment-name", env_name,
-            '--service-node-selector', service_graph_node_selector,
-            '--client-node-selector', client_node_selector,
-            topology_path,
-        ],
-        check=True)
+    gen = sh.run([
+        'go',
+        'run',
+        _MAIN_GO_PATH,
+        'kubernetes',
+        '--service-image',
+        service_image,
+        '--service-max-idle-connections-per-host',
+        str(max(max_idle_connections_per_host)),
+        '--client-image',
+        client_image,
+        "--environment-name",
+        env_name,
+        '--service-node-selector',
+        service_graph_node_selector,
+        '--client-node-selector',
+        client_node_selector,
+        topology_path,
+    ],
+                 check=True)
     with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
         f.write(gen.stdout)
 
@@ -164,8 +183,7 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
                         test_target_url: str, test_qps: List[Optional[int]],
                         test_duration: List[str],
                         test_num_concurrent_connections: List[int],
-                        client_attempts: str,
-                        actual_app: bool) -> None:
+                        client_attempts: str, actual_app: bool) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
     with kubectl.manifest(yaml_path, consts.SERVICE_GRAPH_NAMESPACE):
@@ -187,7 +205,7 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
         wait.until_prometheus_has_scraped()
 
     sh.run_kubectl(['delete', 'ns', consts.SERVICE_GRAPH_NAMESPACE],
-           check=True)
+                   check=True)
     wait.until_namespace_is_deleted(consts.SERVICE_GRAPH_NAMESPACE)
 
 
@@ -213,20 +231,21 @@ def _run_load_test(result_output_path: str, test_target_url: str,
         for num_connections in test_num_concurrent_connections:
             for duration in test_duration:
                 for attempt in range(client_attempts):
-                    logging.info('starting load test, [QPS: %s, Number Connections: %s, Duration: %s, Attempt: %s]',
-                                 str(qps),
-                                 str(num_connections),
-                                 duration,
-                                 str(attempt))
+                    logging.info(
+                        'starting load test, [QPS: %s, Number Connections: %s, Duration: %s, Attempt: %s]',
+                        str(qps), str(num_connections), duration, str(attempt))
 
-                    with kubectl.port_forward("app", consts.CLIENT_NAME, consts.CLIENT_PORT,
-                                              consts.DEFAULT_NAMESPACE) as local_port:
+                    with kubectl.port_forward(
+                            "app", consts.CLIENT_NAME, consts.CLIENT_PORT,
+                            consts.DEFAULT_NAMESPACE) as local_port:
                         qps = -1 if qps is None else qps  # -1 indicates max QPS.
-                        percentiles = ','.join([str(percentile) for percentile in range(1, 100)])
-                        url = ('http://localhost:{}/fortio'
-                               '?json=on&qps={}&t={}&c={}&load=Start&p={}&url={}').format(
-                                   local_port, qps, duration,
-                                   num_connections, percentiles,test_target_url)
+                        percentiles = ','.join(
+                            [str(percentile) for percentile in range(1, 100)])
+                        url = (
+                            'http://localhost:{}/fortio'
+                            '?json=on&qps={}&t={}&c={}&load=Start&p={}&url={}'
+                        ).format(local_port, qps, duration, num_connections,
+                                 percentiles, test_target_url)
                         result = _http_get_json(url)
                     output_path = result_output_path + "_" + \
                                    str(qps) + "_" + str(num_connections) + "_" + \

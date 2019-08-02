@@ -26,15 +26,16 @@ def run_with_k8s_api(args: List[str],
         logging.debug('Kubernetes connection failed; retrying...')
         # Wait until `kubectl version` completes, indicating the
         # Kubernetes API is responsive.
-        wait.until(
-            lambda: run_kubectl(['version']).returncode == 0,
-            retry_interval_seconds=5)
+        wait.until(lambda: run_kubectl(['version']).returncode == 0,
+                   retry_interval_seconds=5)
         proc = run(args)
 
     if check and proc.returncode != 0:
         logging.error('%s\n%s\n%s', proc, proc.stdout, proc.stderr)
-        raise subprocess.CalledProcessError(
-            proc.returncode, proc.args, output=proc.stdout, stderr=proc.stderr)
+        raise subprocess.CalledProcessError(proc.returncode,
+                                            proc.args,
+                                            output=proc.stdout,
+                                            stderr=proc.stderr)
 
     return proc
 
@@ -54,12 +55,11 @@ def run(args: List[str], check=False,
     logging.debug('%s', args)
 
     try:
-        proc = subprocess.run(
-            args,
-            check=check,
-            env=env,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
+        proc = subprocess.run(args,
+                              check=check,
+                              env=env,
+                              stdout=subprocess.PIPE,
+                              stderr=subprocess.PIPE)
     except subprocess.CalledProcessError as e:
         _decode(e)
         if check:

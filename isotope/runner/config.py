@@ -16,8 +16,7 @@ class RunnerConfig:
                  server_num_nodes: int, server_image: str,
                  client_machine_type: str, client_disk_size_gb: int,
                  client_image: str, client_qps: List[Optional[int]],
-                 client_duration: List[str], 
-                 client_num_conc_conns: List[int],
+                 client_duration: List[str], client_num_conc_conns: List[int],
                  client_attempts: int, app_name: str, app_svc_name: str,
                  app_port_num: int, app_yaml_dir: str, app_path: str) -> None:
         self.topology_paths = topology_paths
@@ -90,7 +89,9 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
     client_disk_size_gb = client['disk_size_gb']
     client_image = client['image']
     client_qps = client['qps']
-    client_qps = [int(qps) if client_qps != "None" else None for qps in client_qps]
+    client_qps = [
+        int(qps) if client_qps != "None" else None for qps in client_qps
+    ]
     client_duration = client['duration']
     client_num_conc_conns = client['num_concurrent_connections']
     client_attempts = client['num_attempts']
@@ -102,31 +103,30 @@ def from_dict(d: Dict[str, Any]) -> RunnerConfig:
     app_yaml_dir = application['yaml_files']
     app_path = application['path']
 
-    return RunnerConfig(
-        topology_paths=topology_paths,
-        policy_files=policy_files,
-        environments=environments,
-        istio_archive_url=istio_archive_url,
-        cluster_project_id=cluster_project_id,
-        cluster_name=cluster_name,
-        cluster_zones=cluster_zones,
-        cluster_version=cluster_version,
-        server_machine_type=server_machine_type,
-        server_disk_size_gb=server_disk_size_gb,
-        server_image=server_image,
-        server_num_nodes=server_num_nodes,
-        client_machine_type=client_machine_type,
-        client_disk_size_gb=client_disk_size_gb,
-        client_image=client_image,
-        client_qps=client_qps,
-        client_duration=client_duration,
-        client_num_conc_conns=client_num_conc_conns,
-        client_attempts=client_attempts,
-        app_name=app_name,
-        app_svc_name=app_svc_name,
-        app_port_num=app_port_num,
-        app_yaml_dir=app_yaml_dir,
-        app_path=app_path)
+    return RunnerConfig(topology_paths=topology_paths,
+                        policy_files=policy_files,
+                        environments=environments,
+                        istio_archive_url=istio_archive_url,
+                        cluster_project_id=cluster_project_id,
+                        cluster_name=cluster_name,
+                        cluster_zones=cluster_zones,
+                        cluster_version=cluster_version,
+                        server_machine_type=server_machine_type,
+                        server_disk_size_gb=server_disk_size_gb,
+                        server_image=server_image,
+                        server_num_nodes=server_num_nodes,
+                        client_machine_type=client_machine_type,
+                        client_disk_size_gb=client_disk_size_gb,
+                        client_image=client_image,
+                        client_qps=client_qps,
+                        client_duration=client_duration,
+                        client_num_conc_conns=client_num_conc_conns,
+                        client_attempts=client_attempts,
+                        app_name=app_name,
+                        app_svc_name=app_svc_name,
+                        app_port_num=app_port_num,
+                        app_yaml_dir=app_yaml_dir,
+                        app_path=app_path)
 
 
 def from_toml_file(path: str) -> RunnerConfig:

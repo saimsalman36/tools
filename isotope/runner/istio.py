@@ -49,27 +49,21 @@ def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
         extracted_dir_path = os.path.join(tmp_dir_path, 'istio')
         extracted_istio_path = _extract(archive_path, extracted_dir_path)
 
-        crd_path = os.path.join(extracted_istio_path, 'install',
-                                'kubernetes', 'helm', 'istio-init')
+        crd_path = os.path.join(extracted_istio_path, 'install', 'kubernetes',
+                                'helm', 'istio-init')
 
         chart_path = os.path.join(extracted_istio_path, 'install',
                                   'kubernetes', 'helm', 'istio')
 
-        _apply_crds(
-            crd_path,
-            'istio-init',
-            consts.ISTIO_NAMESPACE)
+        _apply_crds(crd_path, 'istio-init', consts.ISTIO_NAMESPACE)
 
-        _install(
-            chart_path,
-            consts.ISTIO_NAMESPACE,
-            intermediate_file_path=resources.ISTIO_GEN_YAML_PATH,
-            values=values)
-
+        _install(chart_path,
+                 consts.ISTIO_NAMESPACE,
+                 intermediate_file_path=resources.ISTIO_GEN_YAML_PATH,
+                 values=values)
 
         _create_ingress_rules(entrypoint_service_name,
-                              entrypoint_service_namespace,
-                              app_yaml_dir)
+                              entrypoint_service_namespace, app_yaml_dir)
 
 
 def get_ingress_gateway_url(app_path: Optional[str]) -> str:
@@ -81,7 +75,8 @@ def get_ingress_gateway_url(app_path: Optional[str]) -> str:
     if app_path == None:
         return 'http://{}:{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT)
     else:
-        return 'http://{}:{}/{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT, app_path)
+        return 'http://{}:{}/{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT,
+                                        app_path)
 
 
 def _download(archive_url: str, path: str) -> None:
@@ -109,21 +104,14 @@ def _extract(archive_path: str, extracted_dir_path: str) -> str:
             'archive at {} did not contain a single directory'.format(
                 archive_path))
     return os.path.join(extracted_dir_path, extracted_items[0])
-    
+
+
 def _apply_crds(path: str, name: str, namespace: str) -> None:
     logging.info('applying crd definitions for Istio')
     sh.run_kubectl(['create', 'namespace', namespace])
 
     istio_yaml = sh.run(
-        [
-            'helm',
-            'template',
-            path,
-            '--name',
-            name,
-            '--namespace',
-            namespace
-        ],
+        ['helm', 'template', path, '--name', name, '--namespace', namespace],
         check=True).stdout
     kubectl.apply_text(istio_yaml)
 
@@ -137,15 +125,7 @@ def _apply_crds(path: str, name: str, namespace: str) -> None:
     sh.run_kubectl(['create', 'namespace', namespace])
 
     istio_yaml = sh.run(
-        [
-            'helm',
-            'template',
-            path,
-            '--name',
-            name,
-            '--namespace',
-            namespace
-        ],
+        ['helm', 'template', path, '--name', name, '--namespace', namespace],
         check=True).stdout
     kubectl.apply_text(istio_yaml)
 
@@ -154,19 +134,13 @@ def _apply_crds(path: str, name: str, namespace: str) -> None:
     wait.until_deployments_are_ready(namespace)
 
 
-
-def _install(chart_path: str, namespace: str,
-             intermediate_file_path: str, values: str) -> None:
+def _install(chart_path: str, namespace: str, intermediate_file_path: str,
+             values: str) -> None:
     logging.info('installing Helm chart for Istio')
     istio_yaml = sh.run(
         [
-            'helm',
-            'template',
-            chart_path,
-            '--namespace',
-            namespace,
-            '--values',
-            values
+            'helm', 'template', chart_path, '--namespace', namespace,
+            '--values', values
             # TODO: Use a values file, specified in the TOML configuration.
             # Consider replacing environments with a list of values files, then
             # each of those values files represents the environment. This code
@@ -176,8 +150,8 @@ def _install(chart_path: str, namespace: str,
             # '--set=global.defaultResources.requests.cpu=1000m',
         ],
         check=True).stdout
-    kubectl.apply_text(
-        istio_yaml, intermediate_file_path=intermediate_file_path)
+    kubectl.apply_text(istio_yaml,
+                       intermediate_file_path=intermediate_file_path)
     wait.until_deployments_are_ready(namespace)
 
 
@@ -200,7 +174,7 @@ def _create_ingress_rules(entrypoint_service_name: str,
             if 'gateway' in file:
                 file_path = (os.path.join(app_yaml_dir, file))
                 dicts = kubectl.inject_namespace(file_path,
-                    entrypoint_service_namespace)
+                                                 entrypoint_service_namespace)
                 kubectl.apply_text(dicts)
                 return
     else:
@@ -208,7 +182,8 @@ def _create_ingress_rules(entrypoint_service_name: str,
         ingress_yaml = _get_ingress_yaml(entrypoint_service_name,
                                          entrypoint_service_namespace)
         kubectl.apply_text(
-            ingress_yaml, intermediate_file_path=resources.ISTIO_INGRESS_YAML_PATH)
+            ingress_yaml,
+            intermediate_file_path=resources.ISTIO_INGRESS_YAML_PATH)
 
 
 def _get_ingress_yaml(entrypoint_service_name: str,
@@ -242,9 +217,9 @@ def _get_gateway_dict() -> Dict[str, Any]:
     }
 
 
-def _get_virtual_service_dict(
-        entrypoint_service_name: str,
-        entrypoint_service_namespace: str) -> Dict[str, Any]:
+def _get_virtual_service_dict(entrypoint_service_name: str,
+                              entrypoint_service_namespace: str
+                              ) -> Dict[str, Any]:
     return {
         'apiVersion': 'networking.istio.io/v1alpha3',
         'kind': 'VirtualService',

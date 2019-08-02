@@ -51,25 +51,23 @@ def _apply_prometheus_values(path: str) -> None:
 
 def _update_prometheus(values_path: str) -> None:
     logging.debug('updating coreos/kube-prometheus')
-    sh.run_with_k8s_api(
-        [
-            'helm', 'upgrade', _HELM_RELEASE_NAME, 'coreos/kube-prometheus',
-            '--values', values_path
-        ],
-        check=True)
+    sh.run_with_k8s_api([
+        'helm', 'upgrade', _HELM_RELEASE_NAME, 'coreos/kube-prometheus',
+        '--values', values_path
+    ],
+                        check=True)
     # TODO: Should wait until Prometheus is actually updated.
     time.sleep(5 * 60)
 
 
 def _install_prometheus(values_path: str) -> None:
     logging.debug('installing coreos/kube-prometheus')
-    sh.run_with_k8s_api(
-        [
-            'helm', 'install', 'coreos/kube-prometheus', '--name',
-            _HELM_RELEASE_NAME, '--namespace', consts.MONITORING_NAMESPACE,
-            '--values', values_path
-        ],
-        check=True)
+    sh.run_with_k8s_api([
+        'helm', 'install', 'coreos/kube-prometheus', '--name',
+        _HELM_RELEASE_NAME, '--namespace', consts.MONITORING_NAMESPACE,
+        '--values', values_path
+    ],
+                        check=True)
     wait.until_stateful_sets_are_ready(consts.MONITORING_NAMESPACE)
 
 
@@ -111,9 +109,10 @@ def _get_prometheus_config(labels: Dict[str, str]) -> Dict[str, Any]:
     }
 
 
-def _get_service_monitor(
-        name: str, port: int, namespace: str, match_labels: Dict[str, str],
-        metric_relabelings: List[Dict[str, Any]]) -> Dict[str, Any]:
+def _get_service_monitor(name: str, port: int, namespace: str,
+                         match_labels: Dict[str, str],
+                         metric_relabelings: List[Dict[str, Any]]
+                         ) -> Dict[str, Any]:
     return {
         'name':
         name,

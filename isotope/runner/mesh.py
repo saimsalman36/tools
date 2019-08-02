@@ -44,16 +44,19 @@ def none(entrypoint_service_name: str, entrypoint_service_port: int,
             entrypoint_service_name, entrypoint_service_namespace,
             entrypoint_service_port)
 
-    return Environment(
-        name='none',
-        set_up=_do_nothing,
-        tear_down=_do_nothing,
-        get_ingress_url=get_ingress_url)
+    return Environment(name='none',
+                       set_up=_do_nothing,
+                       tear_down=_do_nothing,
+                       get_ingress_url=get_ingress_url)
 
 
-def istio(entrypoint_service_name: str, entrypoint_service_namespace: str,
-          app_path: Optional[str], archive_url: str, values: str,
-          app_yaml_dir: str, tear_down=False) -> Environment:
+def istio(entrypoint_service_name: str,
+          entrypoint_service_namespace: str,
+          app_path: Optional[str],
+          archive_url: str,
+          values: str,
+          app_yaml_dir: str,
+          tear_down=False) -> Environment:
     def set_up() -> None:
         istio_lib.set_up(entrypoint_service_name, entrypoint_service_namespace,
                          archive_url, values, app_yaml_dir)
@@ -69,8 +72,8 @@ def istio(entrypoint_service_name: str, entrypoint_service_namespace: str,
 
 
 def for_state(name: str, entrypoint_service_name: str,
-              entrypoint_service_namespace: str,
-              config: config.RunnerConfig, values: str) -> Environment:
+              entrypoint_service_namespace: str, config: config.RunnerConfig,
+              values: str) -> Environment:
     if name == 'NONE':
         env = none(entrypoint_service_name, consts.SERVICE_PORT,
                    consts.SERVICE_GRAPH_NAMESPACE)
@@ -81,8 +84,8 @@ def for_state(name: str, entrypoint_service_name: str,
             yaml_dir = None
 
         env = istio(entrypoint_service_name, entrypoint_service_namespace,
-                    config.app_path, config.istio_archive_url,
-                    values, yaml_dir)
+                    config.app_path, config.istio_archive_url, values,
+                    yaml_dir)
     else:
         raise ValueError('{} is not a known environment'.format(name))
 
