@@ -66,17 +66,19 @@ def set_up(entrypoint_service_name: str, entrypoint_service_namespace: str,
                               entrypoint_service_namespace, app_yaml_dir)
 
 
-def get_ingress_gateway_url(app_path: Optional[str]) -> str:
+def get_ingress_gateway_urls(app_paths: Optional[List[str]]) -> List[str]:
     ip = wait.until_output([
         'kubectl', '--namespace', consts.ISTIO_NAMESPACE, 'get', 'service',
         'istio-ingressgateway', '-o',
         'jsonpath={.status.loadBalancer.ingress[0].ip}'
     ])
     if app_path == None:
-        return 'http://{}:{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT)
+        return ['http://{}:{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT)]
     else:
-        return 'http://{}:{}/{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT,
-                                        app_path)
+        return [
+            'http://{}:{}/{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT,
+                                     app_path) for app_path in app_paths
+        ]
 
 
 def _download(archive_url: str, path: str) -> None:

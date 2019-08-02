@@ -4,7 +4,7 @@ Any new environments should add an entry to the if-else chain in `for_state`
 and define three functions:
 
 1. set_up: creates the necessary Kubernetes resources
-2. get_ingress_url: returns the URL to access the ingress or entrypoint
+2. get_ingress_urls: returns the URLs to access the ingress or entrypoint
 3. tear_down: deletes the previously created resources
 
 These three functions make it simple for use in a with-statement.
@@ -22,37 +22,39 @@ class Environment:
 
     def __init__(self, name: str, set_up: Callable[[], None],
                  tear_down: Callable[[], None],
-                 get_ingress_url: Callable[[], str]) -> None:
+                 get_ingress_urls: Callable[[], List[str]]) -> None:
         self.name = name
         self.set_up = set_up
         self.tear_down = tear_down
-        self.get_ingress_url = get_ingress_url
+        self.get_ingress_urls = get_ingress_urls
 
     @contextlib.contextmanager
-    def context(self) -> Generator[str, None, None]:
+    def context(self) -> Generator[List[str], None, None]:
         try:
             self.set_up()
-            yield self.get_ingress_url()
+            yield self.get_ingress_urls()
         finally:
             self.tear_down()
 
 
 def none(entrypoint_service_name: str, entrypoint_service_port: int,
          entrypoint_service_namespace: str, app_yaml_dir: str) -> Environment:
-    def get_ingress_url() -> str:
-        return 'http://{}.{}.svc.cluster.local:{}'.format(
-            entrypoint_service_name, entrypoint_service_namespace,
-            entrypoint_service_port)
+    def get_ingress_urls() -> List[str]:
+        return [
+            'http://{}.{}.svc.cluster.local:{}'.format(
+                entrypoint_service_name, entrypoint_service_namespace,
+                entrypoint_service_port)
+        ]
 
     return Environment(name='none',
                        set_up=_do_nothing,
                        tear_down=_do_nothing,
-                       get_ingress_url=get_ingress_url)
+                       get_ingress_urls=get_ingress_urls)
 
 
 def istio(entrypoint_service_name: str,
           entrypoint_service_namespace: str,
-          app_path: Optional[str],
+          app_paths: Optional[List[str]],
           archive_url: str,
           values: str,
           app_yaml_dir: str,
@@ -68,7 +70,8 @@ def istio(entrypoint_service_name: str,
         name='istio',
         set_up=set_up,
         tear_down=td,
-        get_ingress_url=(lambda: istio_lib.get_ingress_gateway_url(app_path)))
+        get_ingress_urls=(
+            lambda: istio_lib.get_ingress_gateway_urls(app_paths)))
 
 
 def for_state(name: str, entrypoint_service_name: str,
@@ -76,16 +79,17 @@ def for_state(name: str, entrypoint_service_name: str,
               values: str, real_application: bool) -> Environment:
     if real_application == True:
         yaml_dir = config.app_yaml_dir
+        app_paths = config.app_paths
     else:
         yaml_dir = None
+        app_paths = None
 
     if name == 'NONE':
         env = none(entrypoint_service_name, consts.SERVICE_PORT,
                    consts.SERVICE_GRAPH_NAMESPACE, yaml_dir)
     elif name == 'ISTIO':
         env = istio(entrypoint_service_name, entrypoint_service_namespace,
-                    config.app_path, config.istio_archive_url, values,
-                    yaml_dir)
+                    app_paths, config.istio_archive_url, values, yaml_dir)
     else:
         raise ValueError('{} is not a known environment'.format(name))
 
