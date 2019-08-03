@@ -55,6 +55,27 @@ func (g *Graph) ExtractGraphData() []byte {
 	return bytes
 }
 
+func CombineGraphs(g1 *Graph, g2 *Graph) *Graph {
+	node := _CombineGraphHelper(g1.Root, g2.Root)
+	return &Graph{node}
+}
+
+func _CombineGraphHelper(node1 *Node, node2 *Node) *Node {
+	ret := &Node{}
+	if node1.Data.OperationName == node2.Data.OperationName &&
+		node1.Data.RequestType == node2.Data.RequestType &&
+		node1.Data.ServiceName == node2.Data.ServiceName {
+			
+			ret.Data.OperationName = node1.Data.OperationName
+			ret.Data.RequestType = node1.Data.RequestType
+			ret.Data.ServiceName = node1.Data.ServiceName
+
+			*ret.Children = append(*node1.Children, *node2.Children...)
+		}
+
+	return ret
+}
+
 func findTag(tags []jaeger.KeyValue, key string) jaeger.KeyValue {
 	for _, tag := range tags {
 		if tag.Key == key {
