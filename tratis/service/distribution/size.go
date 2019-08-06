@@ -15,8 +15,10 @@
 package distribution
 
 import (
+	"sort"
 	"strconv"
 
+	"gonum.org/v1/gonum/stat"
 	"istio.io/tools/tratis/service/graph"
 )
 
@@ -31,11 +33,17 @@ type MessageSizeInfo struct {
 }
 
 type CombinedSizeInformation struct {
-	Size          [][]uint64 `json:"sizes"`
-	OperationName string     `json:"operationName"`
+	Size [][]float64 `json:"sizes"`
+	// Sums          []float64   `json:sum"`
+	Average  []float64 `json:"average"`
+	Variance []float64 `json:"variance"`
+	Median   []float64 `json:"median"`
+	// Min          []uint64   `json:"minimum"`
+	// Max          []uint64   `json:"maximum"`
+	OperationName string `json:"operationName"`
 }
 
-func (data CombinedSizeInformation) GetDistributionData() [][]uint64 {
+func (data CombinedSizeInformation) GetDistributionData() [][]float64 {
 	return data.Size
 }
 
@@ -58,20 +66,30 @@ func CombineSizeInformation(data [][]MessageSizeInfo, isResponse bool) []Combine
 			ret[idx].OperationName = span.OperationName
 
 			if len(ret[idx].Size) == 0 {
-				ret[idx].Size = make([][]uint64, len(span.MsgInfo))
+				ret[idx].Size = make([][]float64, len(span.MsgInfo))
 			}
 
 			for sizeIndex, size := range span.MsgInfo {
 				if isResponse {
 					value, _ := strconv.Atoi(size.ResponseSize)
 					ret[idx].Size[sizeIndex] =
-						append(ret[idx].Size[sizeIndex], uint64(value))
+						append(ret[idx].Size[sizeIndex], float64(value))
 				} else {
 					value, _ := strconv.Atoi(size.RequestSize)
 					ret[idx].Size[sizeIndex] =
-						append(ret[idx].Size[sizeIndex], uint64(value))
+						append(ret[idx].Size[sizeIndex], float64(value))
 				}
 			}
+		}
+	}
+
+	for idx, op := range ret {
+		for _, slice := range op.Size {
+			ret[idx].Average = append(ret[idx].Average, stat.Mean(slice, nil))
+			ret[idx].Variance = append(ret[idx].Variance, stat.Variance(slice, nil))
+
+			sort.Float64s(slice)
+			ret[idx].Median = append(ret[idx].Median, stat.Quantile(0.5, stat.Empirical, slice, nil))
 		}
 	}
 

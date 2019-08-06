@@ -18,11 +18,11 @@ const (
 	// Traces Limit
 	NumTraces = 20000
 
-	MinNumTraces = 500
+	MinNumTraces = 1
 
-	DateFiltering = false
-	StartTime = "2019-08-31T02:25:12.582569423Z"
-	EndTime = "2019-09-31T02:27:25.450182732Z"
+	DateFiltering = true
+	StartTime     = "2019-08-05T21:55:51.534891301Z"
+	EndTime       = "2019-08-05T21:59:51.534891301Z"
 
 	// Distribution Fitting File Path
 	DistFilePath = "Distribution"
@@ -38,14 +38,5 @@ const (
 )
 
 var (
-	TracingToolEntryPoints = []string{"frontend.service-graph",
-                                      "adservice.service-graph",
-                                      "cartservice.service-graph",
-                                      "checkoutservice.service-graph",
-                                      "currencyservice.service-graph",
-                                      "emailservice.service-graph",
-                                      "paymentservice.service-graph",
-                                      "productcatalogservice.service-graph",
-                                      "recommendationservice.service-graph",
-                                      "shippingservice.service-graph"}
+	TracingToolEntryPoints = []string{"productpage.service-graph"}
 )

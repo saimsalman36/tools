@@ -36,7 +36,6 @@ func ParseJSON(toolName string) (appTrace TraceData,
 
 	ret := TraceData{}
 
-
 	if toolName == "jaeger" {
 		for _, EntryService := range consts.TracingToolEntryPoints {
 			temp, err := ParseJaeger(comm.ExtractTraces(consts.TracingToolAddress,
@@ -49,9 +48,9 @@ func ParseJSON(toolName string) (appTrace TraceData,
 			}
 
 			ret.Traces = append(ret.Traces, temp.Traces...)
-			ret.Total = ret.Total + temp.Total
-			ret.Limit = ret.Limit + temp.Limit
-			ret.Offset = ret.Offset + temp.Offset
+			ret.Total += temp.Total
+			ret.Limit += temp.Limit
+			ret.Offset += temp.Offset
 		}
 
 		return ret, nil

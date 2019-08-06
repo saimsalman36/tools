@@ -36,7 +36,7 @@ type TotalDistributions struct {
 }
 
 type HasDistributionData interface {
-	GetDistributionData() [][]uint64
+	GetDistributionData() [][]float64
 	GetOperation() string
 }
 
@@ -76,7 +76,7 @@ func InfoToDist(fileName string,
 	return ret
 }
 
-func GeneratePythonCommand(fileName string, funcName string, data []uint64,
+func GeneratePythonCommand(fileName string, funcName string, data []float64,
 	isTime bool) string {
 	var command strings.Builder
 

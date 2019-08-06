@@ -20,10 +20,10 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"net/http"
-	"sync"
-	"time"
 	"os"
 	"strconv"
+	"sync"
+	"time"
 
 	"istio.io/tools/isotope/convert/pkg/consts"
 
@@ -65,6 +65,7 @@ func executeSleepCommand(cmd script.SleepCommand) {
 	if err != nil {
 		log.Fatalf(`env var "%s" is not an integer`, consts.LoadEnvKey)
 	}
+	fmt.Println(load)
 
 	for _, command := range cmd.SleepCommand {
 		if uint64(load) >= command.Load.Minimum && uint64(load) <= command.Load.Maximum {

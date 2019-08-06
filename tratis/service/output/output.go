@@ -32,9 +32,9 @@ type BasicData struct {
 
 type RawOutput struct {
 	BasicData
-	TimeInformation         []dist.HasDistributionData `json:"-"`
-	RequestSizeInformation  []dist.HasDistributionData `json:"-"`
-	ResponseSizeInformation []dist.HasDistributionData `json:"-"`
+	TimeInformation         []dist.HasDistributionData `json:"TimeInformation"`
+	RequestSizeInformation  []dist.HasDistributionData `json:"RequestSizeInformation"`
+	ResponseSizeInformation []dist.HasDistributionData `json:"ResponseSizeInformation"`
 }
 
 type DistributionOutput struct {

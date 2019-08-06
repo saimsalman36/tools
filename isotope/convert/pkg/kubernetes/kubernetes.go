@@ -18,9 +18,9 @@ package kubernetes
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"strings"
 	"time"
-	"strconv"
 
 	"github.com/ghodss/yaml"
 	appsv1 "k8s.io/api/apps/v1"
@@ -94,7 +94,7 @@ func ServiceGraphToKubernetesManifests(
 	clientNodeSelector map[string]string,
 	clientImage string,
 	environmentName string,
-    loadLevel int) ([]byte, error) {
+	loadLevel int) ([]byte, error) {
 	numServices := len(serviceGraph.Services)
 	numManifests := numManifestsPerService*numServices + numConfigMaps
 	manifests := make([]string, 0, numManifests)
@@ -127,7 +127,7 @@ func ServiceGraphToKubernetesManifests(
 		k8sDeployment := makeDeployment(
 			service, serviceNodeSelector, serviceImage,
 			serviceMaxIdleConnectionsPerHost,
-		    loadLevel)
+			loadLevel)
 		innerErr := appendManifest(k8sDeployment)
 		if innerErr != nil {
 			return nil, innerErr
@@ -224,7 +224,7 @@ func makeService(service svc.Service) (k8sService apiv1.Service) {
 func makeDeployment(
 	service svc.Service, nodeSelector map[string]string,
 	serviceImage string, serviceMaxIdleConnectionsPerHost int,
-    loadLevel int) (
+	loadLevel int) (
 	k8sDeployment appsv1.Deployment) {
 
 	if service.Version == "" {

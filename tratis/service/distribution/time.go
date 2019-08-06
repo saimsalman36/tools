@@ -15,6 +15,9 @@
 package distribution
 
 import (
+	"sort"
+
+	"gonum.org/v1/gonum/stat"
 	"istio.io/tools/tratis/service/graph"
 )
 
@@ -30,11 +33,14 @@ type TimeInformation struct {
 }
 
 type CombinedTimeInformation struct {
-	Duration      [][]uint64 `json:"durations"`
-	OperationName string     `json:"operationName"`
+	Duration      [][]float64 `json:"durations"`
+	Average       []float64   `json:"average"`
+	Variance      []float64   `json:"variance"`
+	Median        []float64   `json:"median"`
+	OperationName string      `json:"operationName"`
 }
 
-func (data CombinedTimeInformation) GetDistributionData() [][]uint64 {
+func (data CombinedTimeInformation) GetDistributionData() [][]float64 {
 	return data.Duration
 }
 
@@ -57,13 +63,23 @@ func CombineTimeInformation(data [][]TimeInformation) []CombinedTimeInformation 
 			ret[idx].OperationName = span.OperationName
 
 			if len(ret[idx].Duration) == 0 {
-				ret[idx].Duration = make([][]uint64, len(span.TimeData))
+				ret[idx].Duration = make([][]float64, len(span.TimeData))
 			}
 
 			for timeIndex, duration := range span.TimeData {
 				ret[idx].Duration[timeIndex] =
-					append(ret[idx].Duration[timeIndex], duration.Duration)
+					append(ret[idx].Duration[timeIndex], float64(duration.Duration))
 			}
+		}
+	}
+
+	for idx, op := range ret {
+		for _, slice := range op.Duration {
+			ret[idx].Average = append(ret[idx].Average, stat.Mean(slice, nil))
+			ret[idx].Variance = append(ret[idx].Variance, stat.Variance(slice, nil))
+
+			sort.Float64s(slice)
+			ret[idx].Median = append(ret[idx].Median, stat.Quantile(0.5, stat.Empirical, slice, nil))
 		}
 	}
 

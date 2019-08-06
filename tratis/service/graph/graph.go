@@ -65,13 +65,13 @@ func _CombineGraphHelper(node1 *Node, node2 *Node) *Node {
 	if node1.Data.OperationName == node2.Data.OperationName &&
 		node1.Data.RequestType == node2.Data.RequestType &&
 		node1.Data.ServiceName == node2.Data.ServiceName {
-			
-			ret.Data.OperationName = node1.Data.OperationName
-			ret.Data.RequestType = node1.Data.RequestType
-			ret.Data.ServiceName = node1.Data.ServiceName
 
-			*ret.Children = append(*node1.Children, *node2.Children...)
-		}
+		ret.Data.OperationName = node1.Data.OperationName
+		ret.Data.RequestType = node1.Data.RequestType
+		ret.Data.ServiceName = node1.Data.ServiceName
+
+		*ret.Children = append(*node1.Children, *node2.Children...)
+	}
 
 	return ret
 }
@@ -121,7 +121,7 @@ func findRootSpan(spans []jaeger.Span) (jaeger.Span, error) {
 		}
 	}
 
-	return jaeger.Span{}, errors.New("Root Span not present in spans")
+	return jaeger.Span{}, errors.New("root span not present in spans")
 }
 
 func findTags(tags []jaeger.KeyValue) (reqType string,
@@ -169,7 +169,7 @@ func findTags(tags []jaeger.KeyValue) (reqType string,
 }
 
 func GenerateGraph(spans []jaeger.Span,
-	               processes map[jaeger.ProcessID]jaeger.Process) (*Graph, error) {
+	processes map[jaeger.ProcessID]jaeger.Process) (*Graph, error) {
 	rootSpan, err := findRootSpan(spans)
 	if err != nil {
 		return nil, err
@@ -187,7 +187,7 @@ func GenerateGraph(spans []jaeger.Span,
 }
 
 func UpdateChildren(spans []jaeger.Span, spanID jaeger.SpanID,
-	                processes map[jaeger.ProcessID]jaeger.Process) []Node {
+	processes map[jaeger.ProcessID]jaeger.Process) []Node {
 	children := make([]Node, 0)
 
 	for _, span := range spans {
@@ -199,7 +199,6 @@ func UpdateChildren(spans []jaeger.Span, spanID jaeger.SpanID,
 		if ref.RefType == jaeger.ChildOf && ref.SpanID == spanID {
 			reqType, nodeID, respSize, reqSize := findTags(span.Tags)
 			svcName := processes[span.ProcessID].ServiceName
-
 
 			d := NodeData{svcName, span.SpanID, span.OperationName,
 				span.StartTime, span.Duration, reqType, nodeID,

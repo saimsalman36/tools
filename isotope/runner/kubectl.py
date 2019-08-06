@@ -14,58 +14,14 @@ from . import sh
 
 
 @contextlib.contextmanager
-def manifest(path: str, namespace: Optional[str],
-             cleanup=False) -> Generator[None, None, None]:
+def manifest(path: str, cleanup=False) -> Generator[None, None, None]:
     """Runs `kubectl apply -f path` on entry and opposing delete on exit."""
     try:
-        if namespace:
-            dicts = inject_namespace(path, namespace)
-            apply_text(dicts)
-        else:
-            apply_file(path)
-
+        apply_file(path)
         yield
     finally:
         if cleanup:
             delete_file(path)
-
-
-def inject_namespace(file_path: str, namespace: str) -> str:
-    dicts = None
-    with open(file_path, "r") as yaml_file:
-        dicts = list(yaml.load_all(yaml_file))
-
-        for d in dicts:
-            if d == None or "metadata" not in d:
-                continue
-            else:
-                if "namespace" not in d["metadata"]:
-                    d["metadata"]["namespace"] = namespace
-
-    return yaml.dump_all(dicts)
-
-
-def inject_node_selector(file_path: str, node_pool: str) -> str:
-    dicts = None
-    with open(file_path, "r") as yaml_file:
-        dicts = list(yaml.load_all(yaml_file))
-
-        for d in dicts:
-            if d == None or "kind" not in d or d["kind"] != "Deployment":
-                continue
-            else:
-                if "spec" not in d:
-                    d["spec"] = {}
-                if "template" not in d["spec"]:
-                    d["spec"]["template"] = {}
-                if "spec" not in d["spec"]["template"]:
-                    d["spec"]["template"]["spec"] = {}
-
-                d["spec"]["template"]["spec"]["nodeSelector"] = {}
-                d["spec"]["template"]["spec"]["nodeSelector"][
-                    "cloud.google.com/gke-nodepool"] = node_pool
-
-    return yaml.dump_all(dicts)
 
 
 def apply_file(path: str) -> None:

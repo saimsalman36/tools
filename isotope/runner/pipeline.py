@@ -190,7 +190,7 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
                         client_attempts: str, actual_app: bool) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
-    with kubectl.manifest(yaml_path, consts.SERVICE_GRAPH_NAMESPACE):
+    with kubectl.manifest(yaml_path):
         wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
         if not actual_app:
             wait.until_service_graph_is_ready()
@@ -215,10 +215,10 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
 
 def _set_env_variable(namespace: str, env_var_key: str, env_var_value: str):
     sh.run_kubectl([
-        'ns', namespace, 'set', 'env', 'deployments', '--all',
+        'set', 'env', '-n', namespace, 'deployments', '--all',
         env_var_key + "=" + env_var_value
     ])
-
+    wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
 
 def _run_load_test(result_output_path: str, test_target_urls: List[str],
                    test_qps: List[Optional[int]], test_duration: List[str],
@@ -271,8 +271,8 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                                        str(qps) + "_" + str(num_connections) + "_" + \
                                        str(duration) + "_" + str(attempt) + ".json"
                         _write_to_file(output_path, result)
-                        logging.info("Sleeping for 120 seconds")
-                        time.sleep(120)
+                        logging.info("Sleeping for 10 seconds")
+                        time.sleep(10)
 
 
 def _http_get_json(url: str) -> str:

@@ -46,7 +46,7 @@ func FindNumServices(toolAddr string, toolPortNum string) []byte {
 
 func ExtractTraces(toolAddr string, toolPortNum string,
 	appEntryPoint string, numTraces int,
-    startTime string, endTime string, dateFilter bool) []byte {
+	startTime string, endTime string, dateFilter bool) []byte {
 
 	pageAddress := ""
 
@@ -62,10 +62,10 @@ func ExtractTraces(toolAddr string, toolPortNum string,
 		}
 
 		pageAddress = fmt.Sprintf("http://%s:%s/jaeger/api/traces?service=%s&limit=%d&lookback=custom&start=%d&end=%d",
-			toolAddr, toolPortNum, appEntryPoint, numTraces, start.Unix() * 1000000, end.Unix() * 1000000)
+			toolAddr, toolPortNum, appEntryPoint, numTraces, start.Unix()*1000000, end.Unix()*1000000)
 	} else {
 		pageAddress = fmt.Sprintf("http://%s:%s/jaeger/api/traces?service=%s&limit=%d",
-			toolAddr, toolPortNum, appEntryPoint, numTraces)		
+			toolAddr, toolPortNum, appEntryPoint, numTraces)
 	}
 
 	resp, err := http.Get(pageAddress)

@@ -72,7 +72,7 @@ def get_ingress_gateway_urls(app_paths: Optional[List[str]]) -> List[str]:
         'istio-ingressgateway', '-o',
         'jsonpath={.status.loadBalancer.ingress[0].ip}'
     ])
-    if app_path == None:
+    if app_paths == None:
         return ['http://{}:{}'.format(ip, consts.ISTIO_INGRESS_GATEWAY_PORT)]
     else:
         return [
@@ -175,9 +175,7 @@ def _create_ingress_rules(entrypoint_service_name: str,
         for file in os.listdir(app_yaml_dir):
             if 'gateway' in file:
                 file_path = (os.path.join(app_yaml_dir, file))
-                dicts = kubectl.inject_namespace(file_path,
-                                                 entrypoint_service_namespace)
-                kubectl.apply_text(dicts)
+                kubectl.apply_text(file_path)
                 return
     else:
         logging.info('creating istio ingress rules')
