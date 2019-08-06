@@ -45,6 +45,9 @@ const (
 	// value is the version number of the service.
 	ServiceVersionNumEnvKey = "VERSION_NUMBER"
 
+	// Load Level (QPS) of the experiment.
+	LoadEnvKey = "LOAD"
+
 	// FortioMetricsPort is the port on which /metrics is available.
 	FortioMetricsPort = 42422
 )
