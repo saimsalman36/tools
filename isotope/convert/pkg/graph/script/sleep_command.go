@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"log"
 	"time"
+	"fmt"
 	"math/rand"
 
 	"github.com/jmcvetta/randutil"
@@ -111,15 +112,15 @@ func (c *SleepCommand) UnmarshalJSON(b []byte) (err error) {
 		b = []byte(s)
 	}
 
-	var commands []SleepCommandWrapper
+	var commands map[string][]SleepCommandWrapper
 	err = json.Unmarshal(b, &commands)
 	if err != nil {
 		return
 	}
 
-	// c.SleepCommand = make([]SleepCommandData, len(commands))
+	fmt.Println()
 
-	for _, command := range commands {
+	for _, command := range commands["SleepCommand"] {
 		switch command.Type {
 		case Static:
 			var cmd map[string]interface{}

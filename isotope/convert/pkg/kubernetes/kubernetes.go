@@ -20,6 +20,7 @@ import (
 	"math/rand"
 	"strings"
 	"time"
+	"strconv"
 
 	"github.com/ghodss/yaml"
 	appsv1 "k8s.io/api/apps/v1"
@@ -92,7 +93,8 @@ func ServiceGraphToKubernetesManifests(
 	serviceMaxIdleConnectionsPerHost int,
 	clientNodeSelector map[string]string,
 	clientImage string,
-	environmentName string) ([]byte, error) {
+	environmentName string,
+    loadLevel int) ([]byte, error) {
 	numServices := len(serviceGraph.Services)
 	numManifests := numManifestsPerService*numServices + numConfigMaps
 	manifests := make([]string, 0, numManifests)
@@ -124,7 +126,8 @@ func ServiceGraphToKubernetesManifests(
 	for _, service := range serviceGraph.Services {
 		k8sDeployment := makeDeployment(
 			service, serviceNodeSelector, serviceImage,
-			serviceMaxIdleConnectionsPerHost)
+			serviceMaxIdleConnectionsPerHost,
+		    loadLevel)
 		innerErr := appendManifest(k8sDeployment)
 		if innerErr != nil {
 			return nil, innerErr
@@ -220,7 +223,8 @@ func makeService(service svc.Service) (k8sService apiv1.Service) {
 
 func makeDeployment(
 	service svc.Service, nodeSelector map[string]string,
-	serviceImage string, serviceMaxIdleConnectionsPerHost int) (
+	serviceImage string, serviceMaxIdleConnectionsPerHost int,
+    loadLevel int) (
 	k8sDeployment appsv1.Deployment) {
 
 	if service.Version == "" {
@@ -267,6 +271,7 @@ func makeDeployment(
 						Env: []apiv1.EnvVar{
 							{Name: consts.ServiceNameEnvKey, Value: service.Name},
 							{Name: consts.ServiceVersionNumEnvKey, Value: service.Version[1:]},
+							{Name: consts.LoadEnvKey, Value: strconv.Itoa(loadLevel)},
 						},
 						VolumeMounts: []apiv1.VolumeMount{
 							{

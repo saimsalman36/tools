@@ -148,26 +148,29 @@ def _gen_yaml(topology_path: str, service_image: str,
     service_graph_node_selector = _get_gke_node_selector(
         consts.SERVICE_GRAPH_NODE_POOL_NAME)
     client_node_selector = _get_gke_node_selector(consts.CLIENT_NODE_POOL_NAME)
-    gen = sh.run([
-        'go',
-        'run',
-        _MAIN_GO_PATH,
-        'kubernetes',
-        '--service-image',
-        service_image,
-        '--service-max-idle-connections-per-host',
-        str(max(max_idle_connections_per_host)),
-        '--client-image',
-        client_image,
-        "--environment-name",
-        env_name,
-        '--service-node-selector',
-        service_graph_node_selector,
-        '--client-node-selector',
-        client_node_selector,
-        topology_path,
-    ],
-                 check=True)
+    gen = sh.run(
+        [
+            'go',
+            'run',
+            _MAIN_GO_PATH,
+            'kubernetes',
+            '--service-image',
+            service_image,
+            '--service-max-idle-connections-per-host',
+            str(max(max_idle_connections_per_host)),
+            '--client-image',
+            client_image,
+            "--environment-name",
+            env_name,
+            '--service-node-selector',
+            service_graph_node_selector,
+            '--client-node-selector',
+            client_node_selector,
+            '--load-level',
+            str(consts.INITIAL_LOAD_LEVEL),
+            topology_path,
+        ],
+        check=True)
     with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
         f.write(gen.stdout)
 
@@ -210,6 +213,13 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
     wait.until_namespace_is_deleted(consts.SERVICE_GRAPH_NAMESPACE)
 
 
+def _set_env_variable(namespace: str, env_var_key: str, env_var_value: str):
+    sh.run_kubectl([
+        'ns', namespace, 'set', 'env', 'deployments', '--all',
+        env_var_key + "=" + env_var_value
+    ])
+
+
 def _run_load_test(result_output_path: str, test_target_urls: List[str],
                    test_qps: List[Optional[int]], test_duration: List[str],
                    test_num_concurrent_connections: List[int],
@@ -229,6 +239,7 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                 for the client to make
     """
     for qps in test_qps:
+        _set_env_variable(consts.SERVICE_GRAPH_NAMESPACE, "LOAD", str(qps))
         for num_connections in test_num_concurrent_connections:
             for duration in test_duration:
                 for test_target_url in test_target_urls:
