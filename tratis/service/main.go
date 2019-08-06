@@ -46,22 +46,22 @@ func main() {
 	fmt.Println("Starting Tratis ...")
 
 	start := flag.String("start", "",
-		"Start Time\nExample: -start=2019-08-05T21:55:51.534891301Z")
-	end := flag.String("end", "",
-		"End Time\nExample: -start=2019-08-05T21:59:51.534891301Z")
+		"Start Time (RFC3339 Format)\nExample: -start 2019-08-05T21:55:51.534891301Z")
+	duration := flag.String("duration", "60s",
+		"Duration\nExample: -duration 3h")
 	tool := flag.String("tool", "jaeger",
-		"Tool Name\nExample: --tool=jaeger/zipkin")
+		"Tool Name\nExample: -tool jaeger/zipkin")
 	tracesFile := flag.String("traces", "Traces.json",
-		"File to Record Raw Data (Traces)\nExample: --traces=Traces.json")
+		"File to Record Raw Data (Traces)\nExample: -traces Traces.json")
 	resultFile := flag.String("results", "Results.json",
-		"File to Record Results\nExample: --results=Output.json")
+		"File to Record Results\nExample: -results Output.json")
 
 	flag.Parse()
 
 	if len(os.Args) < 5 {
 		log.Fatalf(`Input Arguments not correctly provided: go run main.go 
 			-start=<START_TIME> 
-			-end=<END_TIME>
+			-duration=<DURATION (minutes)>
 			-tool=<TOOL_NAME> 
 			-trace=<TRACE_FILE_NAME.json> 
 			-results=<RESULTS_FILE_NAME.json>`)
@@ -73,7 +73,7 @@ func main() {
 
 	fmt.Println("Generating Traces ...")
 
-	data, err := parser.ParseJSON(TracingToolName, *start, *end)
+	data, err := parser.ParseJSON(TracingToolName, *start, *duration)
 	if err != nil {
 		log.Fatalf(`Connection between "%s" and tratis is broken`,
 			TracingToolName)

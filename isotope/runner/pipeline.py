@@ -6,6 +6,7 @@ import os
 import time
 import yaml
 from typing import Dict, Generator, Optional, List
+import json
 
 import requests
 
@@ -204,7 +205,7 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
 
         _run_load_test(test_result_output_path, test_target_urls, test_qps,
                        test_duration, test_num_concurrent_connections,
-                       client_attempts)
+                       client_attempts, actual_app)
 
         wait.until_prometheus_has_scraped()
 
@@ -223,7 +224,7 @@ def _set_env_variable(namespace: str, env_var_key: str, env_var_value: str):
 def _run_load_test(result_output_path: str, test_target_urls: List[str],
                    test_qps: List[Optional[int]], test_duration: List[str],
                    test_num_concurrent_connections: List[int],
-                   client_attempts: int) -> None:
+                   client_attempts: int, actual_app: bool) -> None:
     """Sends an HTTP request to the client; expecting a JSON response.
 
     The HTTP request's query string contains the necessary info to perform
@@ -239,7 +240,9 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                 for the client to make
     """
     for qps in test_qps:
-        _set_env_variable(consts.SERVICE_GRAPH_NAMESPACE, "LOAD", str(qps))
+        if not actual_app:
+            _set_env_variable(consts.SERVICE_GRAPH_NAMESPACE, "LOAD", str(qps))
+
         for num_connections in test_num_concurrent_connections:
             for duration in test_duration:
                 for test_target_url in test_target_urls:
@@ -270,10 +273,23 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                         output_path = result_output_path + "_" + \
                                        str(qps) + "_" + str(num_connections) + "_" + \
                                        str(duration) + "_" + str(attempt) + ".json"
-                        _write_to_file(output_path, result)
-                        logging.info("Sleeping for 10 seconds")
-                        time.sleep(10)
 
+                        _run_tratis(json.loads(result)["StartTime"], 
+                                    (duration), output_path)
+
+                        _write_to_file(output_path, result)
+                        logging.info("Sleeping for 30 seconds")
+                        time.sleep(30)
+
+def _run_tratis(start_time: str, duration: str, file_name: str) -> None:
+    traces_file = "TRACES_" + file_name
+    results_file = "RESULTS_" + file_name
+
+    command = ["go", "run", "main.go", "-start", start_time, "-duration",
+               duration, "-tool", "jaeger", "-traces", traces_file,
+               "-results", results_file]
+
+    sh.run(command, cwd="../tratis/service/", check=True)
 
 def _http_get_json(url: str) -> str:
     """Sends an HTTP GET request to url, returning its JSON response."""

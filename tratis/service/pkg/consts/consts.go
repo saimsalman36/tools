@@ -20,10 +20,6 @@ const (
 
 	MinNumTraces = 1
 
-	DateFiltering = true
-	StartTime     = "2019-08-05T21:55:51.534891301Z"
-	EndTime       = "2019-08-05T21:59:51.534891301Z"
-
 	// Distribution Fitting File Path
 	DistFilePath = "Distribution"
 	// Distribution Fitting Function Name
@@ -38,5 +34,5 @@ const (
 )
 
 var (
-	TracingToolEntryPoints = []string{"productpage.service-graph"}
+	TracingToolEntryPoints = []string{"istio-ingressgateway"}
 )

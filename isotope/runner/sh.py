@@ -41,7 +41,8 @@ def run_with_k8s_api(args: List[str],
 
 
 def run(args: List[str], check=False,
-        env: Dict[str, str] = None) -> subprocess.CompletedProcess:
+        env: Dict[str, str] = None,
+        cwd: str = None) -> subprocess.CompletedProcess:
     """Delegates to subprocess.run, capturing stdout and stderr.
 
     Args:
@@ -58,6 +59,7 @@ def run(args: List[str], check=False,
         proc = subprocess.run(args,
                               check=check,
                               env=env,
+                              cwd=cwd,
                               stdout=subprocess.PIPE,
                               stderr=subprocess.PIPE)
     except subprocess.CalledProcessError as e:

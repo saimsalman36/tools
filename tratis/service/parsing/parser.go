@@ -31,7 +31,7 @@ type TraceData struct {
 	Offset int            `json:"offset"`
 }
 
-func ParseJSON(toolName string) (appTrace TraceData,
+func ParseJSON(toolName string, startTime string, duration string) (appTrace TraceData,
 	err error) {
 
 	ret := TraceData{}
@@ -40,8 +40,7 @@ func ParseJSON(toolName string) (appTrace TraceData,
 		for _, EntryService := range consts.TracingToolEntryPoints {
 			temp, err := ParseJaeger(comm.ExtractTraces(consts.TracingToolAddress,
 				consts.TracingToolPortNumber, EntryService,
-				consts.NumTraces, consts.StartTime, consts.EndTime,
-				consts.DateFiltering))
+				consts.NumTraces, startTime, duration))
 
 			if err != nil {
 				return temp, err

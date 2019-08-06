@@ -175,7 +175,7 @@ def _create_ingress_rules(entrypoint_service_name: str,
         for file in os.listdir(app_yaml_dir):
             if 'gateway' in file:
                 file_path = (os.path.join(app_yaml_dir, file))
-                kubectl.apply_text(file_path)
+                kubectl.apply_file(file_path)
                 return
     else:
         logging.info('creating istio ingress rules')
