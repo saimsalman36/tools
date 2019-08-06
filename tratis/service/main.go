@@ -16,6 +16,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -44,17 +45,35 @@ func unique(data []jaeger.Trace) []jaeger.Trace {
 func main() {
 	fmt.Println("Starting Tratis ...")
 
-	if len(os.Args) != 4 {
-		log.Fatalf(`Input Arguments not correctly provided: go run main.go <TOOL_NAME=jaeger/zipkin> <INPUT_TRACES> <RESULTS_JSON_FILE>`)
+	start := flag.String("start", "",
+		"Start Time\nExample: -start=2019-08-05T21:55:51.534891301Z")
+	end := flag.String("end", "",
+		"End Time\nExample: -start=2019-08-05T21:59:51.534891301Z")
+	tool := flag.String("tool", "jaeger",
+		"Tool Name\nExample: --tool=jaeger/zipkin")
+	tracesFile := flag.String("traces", "Traces.json",
+		"File to Record Raw Data (Traces)\nExample: --traces=Traces.json")
+	resultFile := flag.String("results", "Results.json",
+		"File to Record Results\nExample: --results=Output.json")
+
+	flag.Parse()
+
+	if len(os.Args) < 5 {
+		log.Fatalf(`Input Arguments not correctly provided: go run main.go 
+			-start=<START_TIME> 
+			-end=<END_TIME>
+			-tool=<TOOL_NAME> 
+			-trace=<TRACE_FILE_NAME.json> 
+			-results=<RESULTS_FILE_NAME.json>`)
 	}
 
-	TracingToolName := os.Args[1]
-	traceFileName := os.Args[2]
-	jsonFileName := os.Args[3]
+	TracingToolName := *tool
+	traceFileName := *tracesFile
+	jsonFileName := *resultFile
 
 	fmt.Println("Generating Traces ...")
 
-	data, err := parser.ParseJSON(TracingToolName)
+	data, err := parser.ParseJSON(TracingToolName, *start, *end)
 	if err != nil {
 		log.Fatalf(`Connection between "%s" and tratis is broken`,
 			TracingToolName)
@@ -80,7 +99,8 @@ func main() {
 		log.Fatalf("Unable to write json to %s: %v", jsonFileName, err)
 	}
 
-	_, _ = fmt.Fprintf(os.Stderr, "Successfully wrote %d bytes of Json data to %s\n", n, traceFileName)
+	_, _ = fmt.Fprintf(os.Stderr,
+		"Successfully wrote %d bytes of Json data to %s\n", n, traceFileName)
 
 	results := output.GenerateOutput(data)
 
@@ -92,5 +112,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to write json to %s: %v", jsonFileName, err)
 	}
-	_, _ = fmt.Fprintf(os.Stderr, "Successfully wrote %d bytes of Json data to %s\n", n, jsonFileName)
+	_, _ = fmt.Fprintf(os.Stderr,
+		"Successfully wrote %d bytes of Json data to %s\n", n, jsonFileName)
 }
