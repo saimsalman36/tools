@@ -189,27 +189,28 @@ def _test_service_graph(
         actual_app: bool, app_yaml_dir: str) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
-    with kubectl.manifest(yaml_path):
-        wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
-        if not actual_app:
-            wait.until_service_graph_is_ready()
+    try:
+        with kubectl.manifest(yaml_path):
+            wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
+            if not actual_app:
+                wait.until_service_graph_is_ready()
 
-        if env.name == "istio":
-            _apply_policy_files(policy_files, consts.ISTIO_NAMESPACE)
+            if env.name == "istio":
+                _apply_policy_files(policy_files, consts.ISTIO_NAMESPACE)
 
-        # TODO: Why is this extra buffer necessary?
-        logging.debug('sleeping for 40 seconds as an extra buffer')
-        time.sleep(40)
+            # TODO: Why is this extra buffer necessary?
+            logging.debug('sleeping for 40 seconds as an extra buffer')
+            time.sleep(40)
 
-        _run_load_test(test_result_output_path, test_target_urls, test_qps,
-                       test_duration, test_num_concurrent_connections,
-                       client_attempts, actual_app, app_yaml_dir)
+            _run_load_test(test_result_output_path, test_target_urls, test_qps,
+                           test_duration, test_num_concurrent_connections,
+                           client_attempts, actual_app, app_yaml_dir)
 
-        wait.until_prometheus_has_scraped()
-
-    sh.run_kubectl(['delete', 'ns', consts.SERVICE_GRAPH_NAMESPACE],
-                   check=True)
-    wait.until_namespace_is_deleted(consts.SERVICE_GRAPH_NAMESPACE)
+            wait.until_prometheus_has_scraped()
+    finally:
+        sh.run_kubectl(['delete', 'ns', consts.SERVICE_GRAPH_NAMESPACE],
+                       check=True)
+        wait.until_namespace_is_deleted(consts.SERVICE_GRAPH_NAMESPACE)
 
 
 def _set_env_variable(namespace: str, env_var_key: str, env_var_value: str):
@@ -276,7 +277,8 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                                 duration)
 
                         if actual_app:
-                            output_path += "_" + app_yaml_dir + "_" + str(
+                            path = app_yaml_dir.replace('/', '_')
+                            output_path += "_" + path + "_" + str(
                                 attempt) + ".json"
                         else:
                             output_path += "_" + str(attempt) + ".json"

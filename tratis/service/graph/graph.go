@@ -20,6 +20,7 @@ import (
 	"log"
 	"sort"
 	"strings"
+	// "fmt"
 
 	jaeger "github.com/jaegertracing/jaeger/model/json"
 )
@@ -27,11 +28,11 @@ import (
 type NodeData struct {
 	ServiceName   string        `json:"service,omitempty"`
 	SpanID        jaeger.SpanID `json:"-"`
-	OperationName string        `json:"OperationName"`
+	OperationName string        `json:"operationName"`
 	StartTime     uint64        `json:"-"`
 	Duration      uint64        `json:"-"`
 	RequestType   string        `json:"requestType"`
-	NodeID        string        `json:"-"`
+	NodeID        string        `json:"nodeID"`
 	RequestSize   string        `json:"-"`
 	ResponseSize  string        `json:"-"`
 }
@@ -102,6 +103,7 @@ func _CompGraphHelper(node1 *Node, node2 *Node) bool {
 	if node1.Data.OperationName == node2.Data.OperationName &&
 		node1.Data.RequestType == node2.Data.RequestType &&
 		node1.Data.ServiceName == node2.Data.ServiceName &&
+		node1.Data.NodeID == node2.Data.NodeID &&
 		len(*node1.Children) == len(*node2.Children) {
 		for i := 0; i < len(*node1.Children); i++ {
 			ret = ret && _CompGraphHelper(&(*node1.Children)[i], &(*node2.Children)[i])
@@ -157,13 +159,25 @@ func findTags(tags []jaeger.KeyValue) (reqType string,
 	}
 
 	tag = findTag(tags, "node_id")
-	nodeID = tag.Value.(string)
+	if tag.Value == nil {
+		nodeID = ""
+	} else {
+		nodeID = tag.Value.(string)
+	}
 
 	tag = findTag(tags, "response_size")
-	respSize = tag.Value.(string)
+	if tag.Value == nil {
+		respSize = ""
+	} else {
+		respSize = tag.Value.(string)
+	}
 
 	tag = findTag(tags, "request_size")
-	reqSize = tag.Value.(string)
+	if tag.Value == nil {
+		reqSize = ""
+	} else {
+		reqSize = tag.Value.(string)
+	}
 
 	return
 }

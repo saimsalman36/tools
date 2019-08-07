@@ -76,12 +76,10 @@ def istio(entrypoint_service_name: str,
 
 def for_state(name: str, entrypoint_service_name: str,
               entrypoint_service_namespace: str, config: config.RunnerConfig,
-              values: str, real_application: bool) -> Environment:
+              values: str, real_application: bool, yaml_dir: str) -> Environment:
     if real_application == True:
-        yaml_dir = config.app_yaml_dir
         app_paths = config.app_paths
     else:
-        yaml_dir = None
         app_paths = None
 
     if name == 'NONE':
