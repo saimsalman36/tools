@@ -27,7 +27,7 @@ def main(args: argparse.Namespace) -> None:
                 mesh_environment = mesh.for_state(
                     env_name, config.app_svc_name,
                     consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values,
-                    True)
+                    True, policies)
 
                 pipeline.run(None, mesh_environment, None, config.client_image,
                              config.istio_archive_url, [], config.client_qps,
@@ -43,7 +43,7 @@ def main(args: argparse.Namespace) -> None:
                     mesh_environment = mesh.for_state(
                         env_name, entrypoint_service_name,
                         consts.SERVICE_GRAPH_NAMESPACE, config,
-                        args.helm_values, False)
+                        args.helm_values, False, None)
                     pipeline.run(topology_path, mesh_environment,
                                  config.server_image, config.client_image,
                                  config.istio_archive_url, config.policy_files,
