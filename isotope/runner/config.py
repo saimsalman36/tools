@@ -18,7 +18,7 @@ class RunnerConfig:
                  client_image: str, client_qps: List[Optional[int]],
                  client_duration: List[str], client_num_conc_conns: List[int],
                  client_attempts: int, app_name: str, app_svc_name: str,
-                 app_port_num: int, app_yaml_dir: str,
+                 app_port_num: int, app_yaml_dir: List[str],
                  app_paths: List[str]) -> None:
         self.topology_paths = topology_paths
         self.policy_files = policy_files

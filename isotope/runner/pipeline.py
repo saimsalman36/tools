@@ -83,7 +83,7 @@ def run(topology_path: str,
         _test_service_graph(env, manifest_path, policy_files,
                             result_output_path, ingress_urls, test_qps,
                             test_duration, test_num_concurrent_connections,
-                            client_attempts, actual_app)
+                            client_attempts, actual_app, app_yaml_dir)
 
 
 def _apply_policy_files(policy_files: List[str], namespace: str) -> None:
@@ -149,29 +149,28 @@ def _gen_yaml(topology_path: str, service_image: str,
     service_graph_node_selector = _get_gke_node_selector(
         consts.SERVICE_GRAPH_NODE_POOL_NAME)
     client_node_selector = _get_gke_node_selector(consts.CLIENT_NODE_POOL_NAME)
-    gen = sh.run(
-        [
-            'go',
-            'run',
-            _MAIN_GO_PATH,
-            'kubernetes',
-            '--service-image',
-            service_image,
-            '--service-max-idle-connections-per-host',
-            str(max(max_idle_connections_per_host)),
-            '--client-image',
-            client_image,
-            "--environment-name",
-            env_name,
-            '--service-node-selector',
-            service_graph_node_selector,
-            '--client-node-selector',
-            client_node_selector,
-            '--load-level',
-            str(consts.INITIAL_LOAD_LEVEL),
-            topology_path,
-        ],
-        check=True)
+    gen = sh.run([
+        'go',
+        'run',
+        _MAIN_GO_PATH,
+        'kubernetes',
+        '--service-image',
+        service_image,
+        '--service-max-idle-connections-per-host',
+        str(max(max_idle_connections_per_host)),
+        '--client-image',
+        client_image,
+        "--environment-name",
+        env_name,
+        '--service-node-selector',
+        service_graph_node_selector,
+        '--client-node-selector',
+        client_node_selector,
+        '--load-level',
+        str(consts.INITIAL_LOAD_LEVEL),
+        topology_path,
+    ],
+                 check=True)
     with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
         f.write(gen.stdout)
 
@@ -182,13 +181,12 @@ def _get_gke_node_selector(node_pool_name: str) -> str:
     return 'cloud.google.com/gke-nodepool={}'.format(node_pool_name)
 
 
-def _test_service_graph(env: mesh.Environment, yaml_path: str,
-                        policy_files: List[str], test_result_output_path: str,
-                        test_target_urls: List[str],
-                        test_qps: List[Optional[int]],
-                        test_duration: List[str],
-                        test_num_concurrent_connections: List[int],
-                        client_attempts: str, actual_app: bool) -> None:
+def _test_service_graph(
+        env: mesh.Environment, yaml_path: str, policy_files: List[str],
+        test_result_output_path: str, test_target_urls: List[str],
+        test_qps: List[Optional[int]], test_duration: List[str],
+        test_num_concurrent_connections: List[int], client_attempts: str,
+        actual_app: bool, app_yaml_dir: str) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
     with kubectl.manifest(yaml_path):
@@ -205,7 +203,7 @@ def _test_service_graph(env: mesh.Environment, yaml_path: str,
 
         _run_load_test(test_result_output_path, test_target_urls, test_qps,
                        test_duration, test_num_concurrent_connections,
-                       client_attempts, actual_app)
+                       client_attempts, actual_app, app_yaml_dir)
 
         wait.until_prometheus_has_scraped()
 
@@ -221,10 +219,12 @@ def _set_env_variable(namespace: str, env_var_key: str, env_var_value: str):
     ])
     wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
 
+
 def _run_load_test(result_output_path: str, test_target_urls: List[str],
                    test_qps: List[Optional[int]], test_duration: List[str],
                    test_num_concurrent_connections: List[int],
-                   client_attempts: int, actual_app: bool) -> None:
+                   client_attempts: int, actual_app: bool,
+                   app_yaml_dir: str) -> None:
     """Sends an HTTP request to the client; expecting a JSON response.
 
     The HTTP request's query string contains the necessary info to perform
@@ -250,9 +250,9 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                         logging.info(
                             'starting load test, [QPS: %s,' + \
                             'Number Connections: %s, Duration: %s,' + \
-                            'URL: %s, Attempt: %s]',
+                            'URL: %s, Policies: %s, Attempt: %s]',
                             str(qps), str(num_connections),
-                            duration, test_target_url,
+                            duration, test_target_url, app_yaml_dir,
                             str(attempt))
 
                         with kubectl.port_forward(
@@ -270,26 +270,37 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                                      num_connections, percentiles,
                                      test_target_url)
                             result = _http_get_json(url)
-                        output_path = result_output_path + "_" + \
-                                       str(qps) + "_" + str(num_connections) + "_" + \
-                                       str(duration) + "_" + str(attempt) + ".json"
+                            
+                        output_path = result_output_path + "_" + str(
+                            qps) + "_" + str(num_connections) + "_" + str(
+                                duration)
 
-                        _run_tratis(json.loads(result)["StartTime"], 
-                                    (duration), output_path)
+                        if actual_app:
+                            output_path += "_" + app_yaml_dir + "_" + str(
+                                attempt) + ".json"
+                        else:
+                            output_path += "_" + str(attempt) + ".json"
+
+                        _run_tratis(
+                            json.loads(result)["StartTime"], (duration),
+                            output_path)
 
                         _write_to_file(output_path, result)
                         logging.info("Sleeping for 30 seconds")
                         time.sleep(30)
 
+
 def _run_tratis(start_time: str, duration: str, file_name: str) -> None:
     traces_file = "TRACES_" + file_name
     results_file = "RESULTS_" + file_name
 
-    command = ["go", "run", "main.go", "-start", start_time, "-duration",
-               duration, "-tool", "jaeger", "-traces", traces_file,
-               "-results", results_file]
+    command = [
+        "go", "run", "main.go", "-start", start_time, "-duration", duration,
+        "-tool", "jaeger", "-traces", traces_file, "-results", results_file
+    ]
 
     sh.run(command, cwd="../tratis/service/", check=True)
+
 
 def _http_get_json(url: str) -> str:
     """Sends an HTTP GET request to url, returning its JSON response."""

@@ -23,15 +23,17 @@ def main(args: argparse.Namespace) -> None:
 
     if args.real_app == 'True':
         for env_name in config.environments:
-            mesh_environment = mesh.for_state(env_name, config.app_svc_name,
-                                              consts.SERVICE_GRAPH_NAMESPACE,
-                                              config, args.helm_values, True)
+            for policies in config.app_yaml_dir:
+                mesh_environment = mesh.for_state(
+                    env_name, config.app_svc_name,
+                    consts.SERVICE_GRAPH_NAMESPACE, config, args.helm_values,
+                    True)
 
-            pipeline.run(None, mesh_environment, None, config.client_image,
-                         config.istio_archive_url, [], config.client_qps,
-                         config.client_duration,
-                         config.client_num_conc_conns, config.client_attempts,
-                         config.labels(), config.app_yaml_dir)
+                pipeline.run(None, mesh_environment, None, config.client_image,
+                             config.istio_archive_url, [], config.client_qps,
+                             config.client_duration,
+                             config.client_num_conc_conns,
+                             config.client_attempts, config.labels(), policies)
     else:
         for topology_path in config.topology_paths:
             for env_name in config.environments:
