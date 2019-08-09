@@ -53,10 +53,17 @@ func HandlerFromServiceGraphYAML(
 		return Handler{}, err
 	}
 
+	errorPayloads, err := makeNRandomByteArrays(service.ErrorSize)
+
+	if err != nil {
+		return Handler{}, err
+	}
+
 	return Handler{
 		Service:          service,
 		ServiceTypes:     serviceTypes,
 		responsePayloads: responsePayloads,
+		errorPayloads:    errorPayloads,
 	}, nil
 }
 

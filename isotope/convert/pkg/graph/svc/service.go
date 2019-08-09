@@ -45,6 +45,10 @@ type Service struct {
 	// should respond with a 500 server error rather than 200 OK.
 	ErrorRate pct.Percentage `json:"errorRate,omitempty"`
 
+	// ErrorSize is the number of bytes in the response body in case
+	// an error occurs.
+	ErrorSize msg.MessageSize `json:"errorSize"`
+
 	// ResponseSize is the number of bytes in the response body.
 	ResponseSize msg.MessageSize `json:"responseSize,omitempty"`
 
