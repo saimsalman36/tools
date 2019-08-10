@@ -1,22 +1,36 @@
 defaults:
   requestSize: 1 KB
-  responseSize: 1 KB
   numRbacPolicies: 3
 services:
 - name: a
-  version: v1
-  script:
-  - sleep: {type: "static", data: {time: "900ms"}}
-- name: a
-  version: v2
-  script:
-  - sleep: {type: "static", data: {time: "4000ms"}}
+  responseSize:
+    data:
+      number: 1
+      size: 4.085KiB
+    type: static
 - name: b
-  version: v1
+  responseSize:
+    data:
+      number: 1
+      size: 4.085KiB
+    type: static
+  responseSize:
+    data:
+      number: 1
+      size: 4.085KiB
+    type: static
 - name: c
-  version: v1
+  responseSize:
+    data:
+      number: 1
+      size: 4.085KiB
+    type: static
 - name: d
-  version: v1
+  responseSize:
+    data:
+      number: 1
+      size: 4.085KiB
+    type: static
   isEntrypoint: true
   script:
   - call: {service: a, probability: 100}

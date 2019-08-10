@@ -1,6 +1,6 @@
 # Runs each topology on all environments.
 topology_paths = [
-  "example-topologies/bookinfo.yaml",
+  "example-topologies/canonical.yaml",
 ]
 
 policy_files = [
@@ -9,16 +9,16 @@ policy_files = [
 
 ## NONE, ISTIO
 environments = [
-  "ISTIO",
+  "NONE",
 ]
 
 [cluster]
-project_id = "absolute-garden-516"
+project_id = "saim-247903"
 # Cluster will be created with one n1-standard-1 node per zone in the default node-pool.
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
 # In total (N + 2) nodes per zone.
-name = "new-exp-9"
+name = "random-3"
 # One can specify multiple zones for the cluster. The control place 
 # would be in the first zone you specify but the nodes would be 
 # spread around the zones.
@@ -31,8 +31,8 @@ archive_url = "https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.
 [server]
 machine_type = "n1-standard-1"
 disk_size_gb = 32
-num_nodes = 10
-image = "saimsalman/isotope:v11"
+num_nodes = 8
+image = "saimsalman/isotope:v14"
 
 [client]
 machine_type = "n1-highcpu-4"
@@ -40,14 +40,14 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = ["2", "5", "70", "75", "85", "90", "3"]
-duration = ["1m"]
-num_concurrent_connections = [1, 32, 64, 128, 256]
+qps = ["2"]
+duration = ["3s"]
+num_concurrent_connections = [1]
 num_attempts = 1
 
 [application]
 application_name = "bookinfo"
 entrypoint_service_name = "productpage"
 entrypoint_port_number = 9080
-path = "productpage"
-yaml_files = "app-policies/bookinfo"
+paths = ["productpage", "login", "logout"]
+yaml_files = ["app-policies/bookinfo", "app-policies/bookinfo"]
