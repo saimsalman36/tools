@@ -18,11 +18,11 @@ project_id = "saim-247903"
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
 # In total (N + 2) nodes per zone.
-name = "random-3"
+name = "app-profiling-2"
 # One can specify multiple zones for the cluster. The control place 
 # would be in the first zone you specify but the nodes would be 
 # spread around the zones.
-zones = ["us-central1-a"]
+zones = ["us-central1-b"]
 version = "1.12.7-gke.25"
 
 [istio]
@@ -32,7 +32,7 @@ archive_url = "https://github.com/istio/istio/releases/download/1.2.2/istio-1.2.
 machine_type = "n1-standard-1"
 disk_size_gb = 32
 num_nodes = 8
-image = "saimsalman/isotope:v14"
+image = "saimsalman/isotope:v15"
 
 [client]
 machine_type = "n1-highcpu-4"
@@ -40,14 +40,21 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = ["2"]
-duration = ["3s"]
-num_concurrent_connections = [1]
+qps = ["10"]
+duration = ["5s"]
+num_concurrent_connections = [64]
 num_attempts = 1
 
 [application]
 application_name = "bookinfo"
 entrypoint_service_name = "productpage"
 entrypoint_port_number = 9080
-paths = ["productpage", "login", "logout"]
-yaml_files = ["app-policies/bookinfo", "app-policies/bookinfo"]
+paths = ["productpage"]
+yaml_files = ["app-policies/bookinfo/EXPERIMENTAL_1/Policies"]
+
+#[application]
+#application_name = "hipster"
+#entrypoint_service_name = "frontend"
+#entrypoint_port_number = 80
+#paths = ["cart", "cart/checkout"]
+#yaml_files = "app-policies/hipster"
