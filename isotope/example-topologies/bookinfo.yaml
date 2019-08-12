@@ -1,14 +1,18 @@
 services:
-- isEntrypoint: true
-  name: products
-  numRbacPolicies: 0
-  numReplicas: 1
-  responseSize:
-    data:
-      number: 1
-      size: 4.085KiB
-    type: static
+- name: products
+  isEntrypoint: true
+  responseSize: {type: "static", data: {size: "4183 B", number: 1}}
   script:
-  - sleep: '{"SleepCommand":[{"Load":{"Min":0,"Max":80},"Type":"raw","Data":{"list":[1,1]}},{"Load":{"Min":81,"Max":200},"Type":"raw","Data":{"list":[2,2]}}]}'
-  type: http
-  version: v1
+  - sleep: {"SleepCommand": [{Load: {Min: 0, Max: 5000}, type: "raw", data: {list: [0]}}]}
+  - call: {probability: 100, service: details}
+  - sleep: {"SleepCommand": [{Load: {Min: 0, Max: 5000}, type: "raw", data: {list: [0]}}]}
+  - call: {probability: 100, service: reviews}
+  - sleep: {"SleepCommand": [{Load: {Min: 0, Max: 5000}, type: "raw", data: {list: [0]}}]}
+- name: details
+  responseSize: {type: "static", data: {size: "178 B", number: 1}}
+  script:
+  - sleep: {"SleepCommand": [{Load: {Min: 0, Max: 5000}, type: "raw", data: {list: [0]}}]}
+- name: reviews
+  responseSize: {type: "static", data: {size: "295 B", number: 1}}
+  script:
+  - sleep: {"SleepCommand": [{Load: {Min: 0, Max: 5000}, type: "raw", data: {list: [0]}}]}
