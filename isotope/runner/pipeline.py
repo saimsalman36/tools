@@ -29,7 +29,7 @@ def run(topology_path: str,
         test_num_concurrent_connections: List[int],
         client_attempts: int,
         static_labels: Dict[str, str],
-        app_yaml_dir: str,
+        policy_dir: str,
         deploy_prometheus=False) -> None:
     """Runs a load test on the topology in topology_path with the environment.
 
@@ -47,7 +47,7 @@ def run(topology_path: str,
         static_labels: labels to add to each Prometheus monitor
     """
     if service_image == None:
-        manifest_path = _gen_load_gen_yaml(client_image, app_yaml_dir)
+        manifest_path = _gen_load_gen_yaml(client_image, policy_dir)
     else:
         manifest_path = _gen_yaml(topology_path, service_image,
                                   test_num_concurrent_connections,
@@ -80,19 +80,18 @@ def run(topology_path: str,
         else:
             actual_app = False
 
-        _test_service_graph(env, manifest_path, policy_files,
-                            result_output_path, ingress_urls, test_qps,
-                            test_duration, test_num_concurrent_connections,
-                            client_attempts, actual_app, app_yaml_dir)
+        _test_service_graph(env, manifest_path, result_output_path,
+                            ingress_urls, test_qps, test_duration,
+                            test_num_concurrent_connections,
+                            client_attempts, actual_app, policy_dir)
 
 
-def _apply_policy_files(policy_files: List[str], namespace: str) -> None:
+def _apply_policy_files(policy_dir: str, namespace: str) -> None:
     logging.info('applying policy files')
 
-    for policy_file in policy_files:
-        with open(policy_file, 'r') as f:
-            sh.run_kubectl(['apply', '-n', namespace, '-f', policy_file],
-                           check=True)
+    for file in os.listdir(policy_dir):
+        file_path = (os.path.join(policy_dir, file))
+        kubectl.apply_file(file_path)
 
 
 def _get_basename_no_ext(path: str) -> str:
@@ -100,7 +99,7 @@ def _get_basename_no_ext(path: str) -> str:
     return os.path.splitext(basename)[0]
 
 
-def _gen_load_gen_yaml(client_image: str, app_yaml_dir: str):
+def _gen_load_gen_yaml(client_image: str, policy_dir: str):
     """Generates Kubernetes manifests about fortio client
 
     The neighboring Go command in convert/ handles this operation.
@@ -121,7 +120,7 @@ def _gen_load_gen_yaml(client_image: str, app_yaml_dir: str):
         client_image,
         '--client-node-selector',
         client_node_selector,
-        app_yaml_dir,
+        policy_dir,
     ],
                  check=True)
     with open(resources.SERVICE_GRAPH_GEN_YAML_PATH, 'w') as f:
@@ -182,11 +181,10 @@ def _get_gke_node_selector(node_pool_name: str) -> str:
 
 
 def _test_service_graph(
-        env: mesh.Environment, yaml_path: str, policy_files: List[str],
-        test_result_output_path: str, test_target_urls: List[str],
-        test_qps: List[Optional[int]], test_duration: List[str],
-        test_num_concurrent_connections: List[int], client_attempts: str,
-        actual_app: bool, app_yaml_dir: str) -> None:
+        env: mesh.Environment, yaml_path: str, test_result_output_path: str,
+        test_target_urls: List[str], test_qps: List[Optional[int]],
+        test_duration: List[str], test_num_concurrent_connections: List[int],
+        client_attempts: str, actual_app: bool, policy_dir: str) -> None:
     """Deploys the service graph at yaml_path and runs a load test on it."""
     # TODO: extract to env.context, with entrypoint hostname as the ingress URL
     try:
@@ -196,7 +194,7 @@ def _test_service_graph(
                 wait.until_service_graph_is_ready()
 
             if env.name == "istio":
-                _apply_policy_files(policy_files, consts.ISTIO_NAMESPACE)
+                _apply_policy_files(policy_dir, consts.ISTIO_NAMESPACE)
 
             # TODO: Why is this extra buffer necessary?
             logging.debug('sleeping for 120 seconds as an extra buffer')
@@ -204,9 +202,11 @@ def _test_service_graph(
 
             _run_load_test(test_result_output_path, test_target_urls, test_qps,
                            test_duration, test_num_concurrent_connections,
-                           client_attempts, actual_app, app_yaml_dir)
+                           client_attempts, actual_app, policy_dir)
 
             wait.until_prometheus_has_scraped()
+    except Exception as e:
+        print("Error: ", e)
     finally:
         sh.run_kubectl(['delete', 'ns', consts.SERVICE_GRAPH_NAMESPACE],
                        check=True)
@@ -226,7 +226,7 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                    test_qps: List[Optional[int]], test_duration: List[str],
                    test_num_concurrent_connections: List[int],
                    client_attempts: int, actual_app: bool,
-                   app_yaml_dir: str) -> None:
+                   policy_dir: str) -> None:
     """Sends an HTTP request to the client; expecting a JSON response.
 
     The HTTP request's query string contains the necessary info to perform
@@ -254,7 +254,7 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                             'Number Connections: %s, Duration: %s,' + \
                             'URL: %s, Policies: %s, Attempt: %s]',
                             str(qps), str(num_connections),
-                            duration, test_target_url, app_yaml_dir,
+                            duration, test_target_url, policy_dir,
                             str(attempt))
 
                         with kubectl.port_forward(
@@ -276,13 +276,10 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                         output_path = result_output_path + "_" + str(
                             qps) + "_" + str(num_connections) + "_" + str(
                                 duration)
-
-                        if actual_app:
-                            path = app_yaml_dir.replace('/', '_')
-                            output_path += "_" + path + "_" + str(
-                                attempt) + ".json"
-                        else:
-                            output_path += "_" + str(attempt) + ".json"
+                            
+                        path = policy_dir.replace('/', '_')
+                        output_path += "_" + path + "_" + str(
+                            attempt) + ".json"
 
                         _write_to_file(output_path, result)
                         

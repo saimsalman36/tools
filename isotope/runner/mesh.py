@@ -38,7 +38,7 @@ class Environment:
 
 
 def none(entrypoint_service_name: str, entrypoint_service_port: int,
-         entrypoint_service_namespace: str, app_yaml_dir: str) -> Environment:
+         entrypoint_service_namespace: str) -> Environment:
     def get_ingress_urls() -> List[str]:
         return [
             'http://{}.{}.svc.cluster.local:{}'.format(
@@ -57,11 +57,11 @@ def istio(entrypoint_service_name: str,
           app_paths: Optional[List[str]],
           archive_url: str,
           values: str,
-          app_yaml_dir: str,
+          policy_dir: str,
           tear_down=False) -> Environment:
     def set_up() -> None:
         istio_lib.set_up(entrypoint_service_name, entrypoint_service_namespace,
-                         archive_url, values, app_yaml_dir)
+                         archive_url, values, policy_dir)
 
     td = _do_nothing
     if tear_down:
@@ -76,7 +76,7 @@ def istio(entrypoint_service_name: str,
 
 def for_state(name: str, entrypoint_service_name: str,
               entrypoint_service_namespace: str, config: config.RunnerConfig,
-              values: str, real_application: bool, yaml_dir: str) -> Environment:
+              values: str, real_application: bool, policy_dir: str) -> Environment:
     if real_application == True:
         app_paths = config.app_paths
     else:
@@ -84,10 +84,10 @@ def for_state(name: str, entrypoint_service_name: str,
 
     if name == 'NONE':
         env = none(entrypoint_service_name, consts.SERVICE_PORT,
-                   consts.SERVICE_GRAPH_NAMESPACE, yaml_dir)
+                   consts.SERVICE_GRAPH_NAMESPACE)
     elif name == 'ISTIO':
         env = istio(entrypoint_service_name, entrypoint_service_namespace,
-                    app_paths, config.istio_archive_url, values, yaml_dir)
+                    app_paths, config.istio_archive_url, values, policy_dir)
     else:
         raise ValueError('{} is not a known environment'.format(name))
 
