@@ -199,8 +199,8 @@ def _test_service_graph(
                 _apply_policy_files(policy_files, consts.ISTIO_NAMESPACE)
 
             # TODO: Why is this extra buffer necessary?
-            logging.debug('sleeping for 40 seconds as an extra buffer')
-            time.sleep(40)
+            logging.debug('sleeping for 60 seconds as an extra buffer')
+            time.sleep(60)
 
             _run_load_test(test_result_output_path, test_target_urls, test_qps,
                            test_duration, test_num_concurrent_connections,
@@ -219,6 +219,7 @@ def _set_env_variable(namespace: str, env_var_key: str, env_var_value: str):
         env_var_key + "=" + env_var_value
     ])
     wait.until_deployments_are_ready(consts.SERVICE_GRAPH_NAMESPACE)
+    time.sleep(30)
 
 
 def _run_load_test(result_output_path: str, test_target_urls: List[str],
@@ -283,13 +284,14 @@ def _run_load_test(result_output_path: str, test_target_urls: List[str],
                         else:
                             output_path += "_" + str(attempt) + ".json"
 
+                        _write_to_file(output_path, result)
+                        
                         _run_tratis(
                             json.loads(result)["StartTime"], (duration),
                             output_path)
 
-                        _write_to_file(output_path, result)
-                        logging.info("Sleeping for 30 seconds")
-                        time.sleep(30)
+                        logging.info("Sleeping for 60 seconds")
+                        time.sleep(60)
 
 
 def _run_tratis(start_time: str, duration: str, file_name: str) -> None:
