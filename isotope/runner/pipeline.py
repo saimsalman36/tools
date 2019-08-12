@@ -199,8 +199,8 @@ def _test_service_graph(
                 _apply_policy_files(policy_files, consts.ISTIO_NAMESPACE)
 
             # TODO: Why is this extra buffer necessary?
-            logging.debug('sleeping for 60 seconds as an extra buffer')
-            time.sleep(60)
+            logging.debug('sleeping for 120 seconds as an extra buffer')
+            time.sleep(120)
 
             _run_load_test(test_result_output_path, test_target_urls, test_qps,
                            test_duration, test_num_concurrent_connections,
