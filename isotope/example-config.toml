@@ -4,16 +4,17 @@ topology_paths = [
 ]
 
 policy_files = [
+	"app-policies/bookinfo/DEFAULT/Policies"
 ]
 
 
 ## NONE, ISTIO
 environments = [
-  "NONE",
+  "ISTIO",
 ]
 
 [cluster]
-project_id = "saim-247903"
+project_id = "absolute-garden-516"
 # Cluster will be created with one n1-standard-1 node per zone in the default node-pool.
 # Only one of them will be running Prometheus. In total, the cluster will have 
 # 1 Prometheus node per zone, 1 client node per zone, and N service-graph nodes per zone.
@@ -40,17 +41,16 @@ disk_size_gb = 16
 # Necessary fork to allow Fortio's server to output Prometheus metrics.
 image = "tahler/fortio:prometheus"
 # "max" is a special string, otherwise use a number.
-qps = ["10"]
-duration = ["5s"]
+qps = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "81", "82", "83", "84", "85", "86", "87", "88", "89", "71", "72", "73", "74", "75", "76", "77", "78", "79"]
+duration = ["1m"]
 num_concurrent_connections = [64]
-num_attempts = 1
+num_attempts = 3
 
 [application]
 application_name = "bookinfo"
 entrypoint_service_name = "productpage"
 entrypoint_port_number = 9080
 paths = ["productpage"]
-yaml_files = ["app-policies/bookinfo/EXPERIMENTAL_1/Policies"]
 
 #[application]
 #application_name = "hipster"

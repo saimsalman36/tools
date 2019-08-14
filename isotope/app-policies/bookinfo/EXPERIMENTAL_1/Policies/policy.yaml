@@ -1,0 +1,769 @@
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checkdest-b-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["a"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checkdest-b-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkdest-b-rule
+  namespace: service-graph
+spec:
+  match: destination.labels["name"] == "b"
+  actions:
+  - handler: checkdest-b-handler
+    instances: [ checkdest-b-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checkdest-c-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["a", "b", "d"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checkdest-c-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkdest-c-rule
+  namespace: service-graph
+spec:
+  match: destination.labels["name"] == "c"
+  actions:
+  - handler: checkdest-c-handler
+    instances: [ checkdest-c-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checkdest-d-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["a"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checkdest-d-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkdest-d-rule
+  namespace: service-graph
+spec:
+  match: destination.labels["name"] == "d"
+  actions:
+  - handler: checkdest-d-handler
+    instances: [ checkdest-d-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checkdest-e-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["c"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checkdest-e-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkdest-e-rule
+  namespace: service-graph
+spec:
+  match: destination.labels["name"] == "e"
+  actions:
+  - handler: checkdest-e-handler
+    instances: [ checkdest-e-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checkdest-f-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["e"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checkdest-f-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkdest-f-rule
+  namespace: service-graph
+spec:
+  match: destination.labels["name"] == "f"
+  actions:
+  - handler: checkdest-f-handler
+    instances: [ checkdest-f-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checkdest-g-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["e"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checkdest-g-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checkdest-g-rule
+  namespace: service-graph
+spec:
+  match: destination.labels["name"] == "g"
+  actions:
+  - handler: checkdest-g-handler
+    instances: [ checkdest-g-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checksource-b-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["c"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checksource-b-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: destination.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checksource-b-rule
+  namespace: service-graph
+spec:
+  match: source.labels["name"] == "b"
+  actions:
+  - handler: checksource-b-handler
+    instances: [ checksource-b-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checksource-c-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["e"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checksource-c-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: destination.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checksource-c-rule
+  namespace: service-graph
+spec:
+  match: source.labels["name"] == "c"
+  actions:
+  - handler: checksource-c-handler
+    instances: [ checksource-c-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checksource-d-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["c"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checksource-d-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: destination.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checksource-d-rule
+  namespace: service-graph
+spec:
+  match: source.labels["name"] == "d"
+  actions:
+  - handler: checksource-d-handler
+    instances: [ checksource-d-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checksource-e-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["f", "g"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checksource-e-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: destination.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checksource-e-rule
+  namespace: service-graph
+spec:
+  match: source.labels["name"] == "e"
+  actions:
+  - handler: checksource-e-handler
+    instances: [ checksource-e-instance ]
+---
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: checksource-a-handler
+  namespace: service-graph
+spec:
+  compiledAdapter: listchecker
+  params:
+    # providerUrl: ordinarily black and white lists are maintained
+    # externally and fetched asynchronously using the providerUrl.
+    overrides: ["b", "c", "d"]  # overrides provide a static list
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: checksource-a-instance
+  namespace: service-graph
+spec:
+  compiledTemplate: listentry
+  params:
+    value: destination.labels["name"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checksource-a-rule
+  namespace: service-graph
+spec:
+  match: source.labels["name"] == "a"
+  actions:
+  - handler: checksource-a-handler
+    instances: [ checksource-a-instance ]
+---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checksource-version-details-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["v1"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checksource-version-details-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: source.labels["version"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checksource-version-details-rule
+#   namespace: service-graph
+# spec:
+#   match: destination.labels["app"] == "details"
+#   actions:
+#   - handler: checksource-version-details-handler
+#     instances: [ checksource-version-details-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checksource-reviews-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["productpage"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checksource-reviews-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: source.labels["app"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checksource-reviews-rule
+#   namespace: service-graph
+# spec:
+#   match: destination.labels["app"] == "reviews"
+#   actions:
+#   - handler: checksource-reviews-handler
+#     instances: [ checksource-reviews-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checksource-version-reviews-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["v1"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checksource-version-reviews-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: source.labels["version"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checksource-version-reviews-rule
+#   namespace: service-graph
+# spec:
+#   match: destination.labels["app"] == "reviews"
+#   actions:
+#   - handler: checksource-version-reviews-handler
+#     instances: [ checksource-version-reviews-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checksource-ratings-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["reviews"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checksource-ratings-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: source.labels["app"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checksource-ratings-rule
+#   namespace: service-graph
+# spec:
+#   match: destination.labels["app"] == "ratings"
+#   actions:
+#   - handler: checksource-ratings-handler
+#     instances: [ checksource-ratings-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checksource-version-ratings-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["v2", "v3"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checksource-version-ratings-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: source.labels["version"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checksource-version-ratings-rule
+#   namespace: service-graph
+# spec:
+#   match: destination.labels["app"] == "ratings"
+#   actions:
+#   - handler: checksource-version-ratings-handler
+#     instances: [ checksource-version-ratings-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checksource-productpage-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["istio-ingressgateway"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checksource-productpage-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: source.labels["app"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checksource-productpage-rule
+#   namespace: service-graph
+# spec:
+#   match: destination.labels["app"] == "productpage"
+#   actions:
+#   - handler: checksource-productpage-handler
+#     instances: [ checksource-productpage-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checkdest-reviews-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["ratings"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checkdest-reviews-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: destination.labels["app"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checkdest-reviews-rule
+#   namespace: service-graph
+# spec:
+#   match: source.labels["app"] == "reviews"
+#   actions:
+#   - handler: checkdest-reviews-handler
+#     instances: [ checkdest-reviews-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checkdest-version-reviews-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["v1"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checkdest-version-reviews-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: destination.labels["version"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checkdest-version-reviews-rule
+#   namespace: service-graph
+# spec:
+#   match: source.labels["app"] == "reviews"
+#   actions:
+#   - handler: checkdest-version-reviews-handler
+#     instances: [ checkdest-version-reviews-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checkdest-productpage-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["reviews", "details"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checkdest-productpage-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: destination.labels["app"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checkdest-productpage-rule
+#   namespace: service-graph
+# spec:
+#   match: source.labels["app"] == "productpage"
+#   actions:
+#   - handler: checkdest-productpage-handler
+#     instances: [ checkdest-productpage-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checkdest-version-productpage-handler
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["v1", "v2", "v3"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checkdest-version-productpage-instance
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: destination.labels["version"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checkdest-version-productpage-rule
+#   namespace: service-graph
+# spec:
+#   match: source.labels["app"] == "productpage" && destination.labels["app"] == "reviews"
+#   actions:
+#   - handler: checkdest-version-productpage-handler
+#     instances: [ checkdest-version-productpage-instance ]
+# ---
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: handler
+# metadata:
+#   name: checkdest-version-productpage-handler1
+#   namespace: service-graph
+# spec:
+#   compiledAdapter: listchecker
+#   params:
+#     # providerUrl: ordinarily black and white lists are maintained
+#     # externally and fetched asynchronously using the providerUrl.
+#     overrides: ["v1"]  # overrides provide a static list
+#     blacklist: false
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: instance
+# metadata:
+#   name: checkdest-version-productpage-instance1
+#   namespace: service-graph
+# spec:
+#   compiledTemplate: listentry
+#   params:
+#     value: destination.labels["version"]
+# ---
+# apiVersion: config.istio.io/v1alpha2
+# kind: rule
+# metadata:
+#   name: checkdest-version-productpage-rule1
+#   namespace: service-graph
+# spec:
+#   match: source.labels["app"] == "productpage" && destination.labels["app"] == "details"
+#   actions:
+#   - handler: checkdest-version-productpage-handler1
+#     instances: [ checkdest-version-productpage-instance1 ]
+# ---
