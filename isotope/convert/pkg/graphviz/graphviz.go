@@ -18,6 +18,8 @@ package graphviz
 import (
 	"bytes"
 	"fmt"
+	"strconv"
+	"strings"
 	"text/template"
 
 	"istio.io/tools/isotope/convert/pkg/graph"
@@ -134,12 +136,14 @@ func getEdgesFromExe(
 			edges = append(edges, subEdges...)
 		}
 	case script.RequestCommand:
-		e := Edge{
-			From:      fromServiceName,
-			To:        cmd.ServiceName,
-			StepIndex: idx,
+		for _, svc := range exe.(script.RequestCommand).Services {
+			e := Edge{
+				From:      fromServiceName,
+				To:        svc.ServiceName,
+				StepIndex: idx,
+			}
+			edges = append(edges, e)
 		}
-		edges = append(edges, e)
 	}
 	return
 }
@@ -172,9 +176,21 @@ func nonConcurrentCommandToString(exe script.Command) (string, error) {
 	case script.SleepCommand:
 		return fmt.Sprintf("SLEEP %s", cmd), nil
 	case script.RequestCommand:
-		return fmt.Sprintf(
-			"CALL \"%s\" %s",
-			cmd.ServiceName, cmd.Size.String()), nil
+		var sb strings.Builder
+		for idx, req := range cmd.Services {
+			sb.WriteString("CALL ")
+			sb.WriteString(req.ServiceName)
+			sb.WriteString(" (Size: ")
+			sb.WriteString(req.Size.String())
+			sb.WriteString(", Probability: ")
+			sb.WriteString(strconv.Itoa(req.Probability))
+			sb.WriteString(")")
+			if idx < len(cmd.Services)-1 {
+				sb.WriteString(" OR ")
+			}
+
+		}
+		return sb.String(), nil
 	default:
 		return "", fmt.Errorf("unexpected type of executable %T", exe)
 	}

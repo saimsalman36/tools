@@ -99,8 +99,9 @@ func withGlobalDefaults(defaults defaults, f func()) {
 	}
 
 	origDefaultRequestCommand := script.DefaultRequestCommand
-	script.DefaultRequestCommand = script.RequestCommand{
-		Size: defaults.RequestSize,
+
+	for _, req := range script.DefaultRequestCommand.Services {
+		req.Size = defaults.RequestSize
 	}
 
 	f()

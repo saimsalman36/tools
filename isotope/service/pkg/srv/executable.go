@@ -18,10 +18,14 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"math/rand"
+	// "math/rand"
 	"net/http"
+	"os"
+	"strconv"
 	"sync"
 	"time"
+
+	"istio.io/tools/isotope/convert/pkg/consts"
 
 	multierror "github.com/hashicorp/go-multierror"
 
@@ -29,7 +33,7 @@ import (
 
 	"istio.io/tools/isotope/convert/pkg/graph/script"
 	"istio.io/tools/isotope/convert/pkg/graph/svctype"
-	"istio.io/tools/isotope/service/pkg/srv/prometheus"
+	// "istio.io/tools/isotope/service/pkg/srv/prometheus"
 )
 
 func execute(
@@ -56,18 +60,34 @@ func execute(
 }
 
 func executeSleepCommand(cmd script.SleepCommand) {
-	time.Sleep(time.Duration(cmd))
+	loadLevel, _ := os.LookupEnv(consts.LoadEnvKey)
+	load, err := strconv.Atoi(loadLevel)
+	if err != nil {
+		log.Fatalf(`env var "%s" is not an integer`, consts.LoadEnvKey)
+	}
+	fmt.Println(load)
+
+	for _, command := range cmd.SleepCommand {
+		if uint64(load) >= command.Load.Minimum && uint64(load) <= command.Load.Maximum {
+			time.Sleep(command.Data.Duration() * time.Microsecond)
+			return
+		}
+	}
+
+	log.Fatalf(`Load Level Outside Range`)
 }
 
 func executeRequestCommandHelper(cmd script.RequestCommand) bool {
-	rand.Seed(time.Now().UnixNano())
-	number := rand.Intn(100 + 1)
-	ret := true
+	fmt.Println(cmd)
+	// rand.Seed(time.Now().UnixNano())
+	// number := rand.Intn(100 + 1)
+	// ret := true
 
-	if number < cmd.Probability {
-		ret = false
-	}
-	return ret
+	// if number < cmd.Probability {
+	// 	ret = false
+	// }
+	// return ret
+	return false
 }
 
 // Execute sends an HTTP request to another service. Assumes DNS is available
@@ -77,31 +97,31 @@ func executeRequestCommand(
 	forwardableHeader http.Header,
 	serviceTypes map[string]svctype.ServiceType) error {
 
-	if executeRequestCommandHelper(cmd) {
-		return nil
-	}
+	// if executeRequestCommandHelper(cmd) {
+	// 	return nil
+	// }
 
-	destName := cmd.ServiceName
-	_, ok := serviceTypes[destName]
-	if !ok {
-		return fmt.Errorf("service %s does not exist", destName)
-	}
-	response, err := sendRequest(destName, cmd.Size, forwardableHeader)
-	if err != nil {
-		return err
-	}
-	prometheus.RecordRequestSent(destName, uint64(cmd.Size))
-	log.Debugf("%s responded with %s", destName, response.Status)
-	if response.StatusCode != http.StatusOK {
-		return fmt.Errorf(
-			"service %s responded with %s", destName, response.Status)
-	}
+	// destName := cmd.ServiceName
+	// _, ok := serviceTypes[destName]
+	// if !ok {
+	// 	return fmt.Errorf("service %s does not exist", destName)
+	// }
+	// response, err := sendRequest(destName, cmd.Size, forwardableHeader)
+	// if err != nil {
+	// 	return err
+	// }
+	// prometheus.RecordRequestSent(destName, uint64(cmd.Size))
+	// log.Debugf("%s responded with %s", destName, response.Status)
+	// if response.StatusCode != http.StatusOK {
+	// 	return fmt.Errorf(
+	// 		"service %s responded with %s", destName, response.Status)
+	// }
 
-	// Necessary for reusing HTTP/1.x "keep-alive" TCP connections.
-	// https://golang.org/pkg/net/http/#Response
-	if err := readAllAndClose(response.Body); err != nil {
-		return err
-	}
+	// // Necessary for reusing HTTP/1.x "keep-alive" TCP connections.
+	// // https://golang.org/pkg/net/http/#Response
+	// if err := readAllAndClose(response.Body); err != nil {
+	// 	return err
+	// }
 
 	return nil
 }
